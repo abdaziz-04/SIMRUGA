@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UsersResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UsersResource\RelationManagers;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
 class UsersResource extends Resource
@@ -21,7 +22,7 @@ class UsersResource extends Resource
     protected static ?string $model = Users::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Daftar User';
+    protected static ?string $navigationLabel = 'Daftar Userrrr';
 
     public static function form(Form $form): Form
     {
@@ -45,6 +46,7 @@ class UsersResource extends Resource
                 TextColumn::make('username'),
                 TextColumn::make('nama'),
                 TextColumn::make('password'),
+                ImageColumn::make('image'),
             ])
             ->filters([
                 //
@@ -52,6 +54,8 @@ class UsersResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DetachAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
