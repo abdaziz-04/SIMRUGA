@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('warga_id');
             $table->unsignedBigInteger('rt_id')->index();
             $table->string('nama',50);
+            $table->string('foto');
             $table->string('NIK')->unique();
             $table->string('alamat',50)->unique();
             $table->string('tanggal_lahir');
