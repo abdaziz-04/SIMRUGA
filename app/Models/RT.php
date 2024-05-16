@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserModel extends Model
+class RT extends Model
 {
     use HasFactory;
-    protected $table = "m_user";
-    protected $primaryKey = 'user_id';
+
+    protected $table = "m_r_t";
+    protected $primaryKey = 'rt_id';
     public $timestamps = false;
     protected $fillable = [
-        'user_id',
-        'level_id',
-        'username',
-        'nama',
-        'password',
+        'nama_RT',
     ];
+
+    public function warga()
+    {
+        return $this->hasMany(Warga::class, 'rt_id', 'rt_id');
+    }
 }
