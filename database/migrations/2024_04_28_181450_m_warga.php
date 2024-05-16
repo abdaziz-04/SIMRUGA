@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('NIK')->unique();
             $table->string('alamat',50)->unique();
             $table->string('tanggal_lahir');
+            $table->string('gaji');
+            $table->string('tanggungan');
             $table->string('jenis_kelamin');
             $table->string('pekerjaan');
             $table->timestamps();
