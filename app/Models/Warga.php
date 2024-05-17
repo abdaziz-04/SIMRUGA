@@ -11,7 +11,7 @@ class Warga extends Model
 
     protected $table = "m_warga";
     protected $primaryKey = 'warga_id';
-    public $timestamps = false;
+    public $timestamps = true; 
     protected $fillable = [
         'nama',
         'foto',
@@ -19,6 +19,8 @@ class Warga extends Model
         'rt_id',
         'alamat',
         'tanggal_lahir',
+        'gaji', 
+        'tanggungan',
         'jenis_kelamin',
         'pekerjaan',
     ];
@@ -28,4 +30,3 @@ class Warga extends Model
         return $this->belongsTo(RT::class, 'rt_id', 'rt_id');
     }
 }
-
