@@ -25,14 +25,16 @@ class WargaResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Daftar Warga';
+    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationGroup = 'Sekretaris';
 
     public static function form(Form $form): Form
     {
         return $form
         ->schema([
             TextInput::make('nama')->label('Nama')->required(),
-            FileUpload::make('foto')->label('Foto')->directory('warga')->required()->image(),
-            TextInput::make('NIK')->label('NIK')->required(),
+            FileUpload::make('foto')->label('Foto')->directory('warga')->required(),
+            TextInput::make('NIK')->label('NIK')->required()->unique(),
             TextInput::make('rt_id')->label('RT ID')->required(),
             TextInput::make('alamat')->label('Alamat')->required(),
             Datepicker::make('tanggal_lahir')->label('Tanggal Lahir')->required(),
@@ -51,11 +53,12 @@ class WargaResource extends Resource
 {
     return $table
     ->columns([
-        TextColumn::make('nama')->label('Nama'),
+        TextColumn::make('nama')->label('Nama')->searchable(),
         ImageColumn::make('foto')->label('Foto'),
         TextColumn::make('alamat')->label('Alamat'),
-        TextColumn::make('tanggal_lahir')->label('Tanggal Lahir'),
+        TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable(),
         TextColumn::make('jenis_kelamin')->label('Jenis Kelamin'),
+        TextColumn::make('rt.nama_RT')->label('RT'),
     ])
     ->filters([
         //
