@@ -30,19 +30,19 @@ class WargaResource extends Resource
     {
         return $form
         ->schema([
-            TextInput::make('nama')->label('Nama'),
-            FileUpload::make('foto')->label('Foto'),
-            TextInput::make('NIK')->label('NIK'),
-            TextInput::make('rt_id')->label('RT ID'),
-            TextInput::make('alamat')->label('Alamat'),
-            Datepicker::make('tanggal_lahir')->label('Tanggal Lahir'),
-            TextInput::make('gaji')->label('Gaji'),
+            TextInput::make('nama')->label('Nama')->required(),
+            FileUpload::make('foto')->label('Foto')->directory('warga')->required()->image(),
+            TextInput::make('NIK')->label('NIK')->required(),
+            TextInput::make('rt_id')->label('RT ID')->required(),
+            TextInput::make('alamat')->label('Alamat')->required(),
+            Datepicker::make('tanggal_lahir')->label('Tanggal Lahir')->required(),
+            TextInput::make('gaji')->label('Gaji')->required(),
             TextInput::make('tanggungan')->label('Tanggungan'),
             Select::make('jenis_kelamin')->options([
                 'Laki-laki' => 'Laki-laki',
                 'Perempuan' => 'Perempuan',
-            ])->label('Jenis Kelamin'),
-            TextInput::make('pekerjaan')->label('Pekerjaan'),
+            ])->label('Jenis Kelamin')->required(),
+            TextInput::make('pekerjaan')->label('Pekerjaan')->required(),
         ]);
 
     }
@@ -52,6 +52,7 @@ class WargaResource extends Resource
     return $table
     ->columns([
         TextColumn::make('nama')->label('Nama'),
+        ImageColumn::make('foto')->label('Foto'),
         TextColumn::make('alamat')->label('Alamat'),
         TextColumn::make('tanggal_lahir')->label('Tanggal Lahir'),
         TextColumn::make('jenis_kelamin')->label('Jenis Kelamin'),
