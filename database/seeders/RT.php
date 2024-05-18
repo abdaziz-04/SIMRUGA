@@ -33,7 +33,14 @@ class RT extends Seeder
             [
                 'rt_id'=>5,
                 'nama_RT'=>'RT05',
-            ]
+            ],
+            [
+                'rt_id'=>6,
+                'nama_RT'=>'RT05',
+            ],
+            ['rt_id'=>7,
+            'nama_RT'=>'RT05',]
+            
         ];
         DB::table('m_r_t')->insert($data);
     }

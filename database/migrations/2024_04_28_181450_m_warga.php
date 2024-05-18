@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('agama');
             $table->string('tempat_lahir');
             $table->string('tanggal_lahir');
+            $table->string('gaji');
+            $table->string('tanggungan');
             $table->string('jenis_kelamin');
             $table->string('pekerjaan');
             $table->string('kewarganegaraan');
