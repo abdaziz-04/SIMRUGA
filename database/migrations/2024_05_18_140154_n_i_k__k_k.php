@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surat_pengantar', function (Blueprint $table) {
-            $table->id('id_surat_pengantar');
-            $table->unsignedBigInteger('id_NIK_KK');
-            $table->string('alamat');
+        Schema::create('nik_KK', function (Blueprint $table) {
+            $table->id('id_NIK_KK');
             $table->string('NIK_KK');
-
-            $table->foreign('alamat')->references('alamat')->on('m_warga')->onDelete('cascade');
+            $table->string('alamat',50)->unique();
+    
         });
     }
 

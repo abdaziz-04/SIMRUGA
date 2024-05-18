@@ -2,29 +2,26 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\RTResource\Pages;
+use App\Filament\Resources\RTResource\RelationManagers;
+use App\Models\RT;
 use Filament\Forms;
-use Filament\Tables;
-use App\Models\Users;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\UsersResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UsersResource\RelationManagers;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
-class UsersResource extends Resource
+class RTResource extends Resource
 {
-    protected static ?string $model = Users::class;
+    protected static ?string $model = RT::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationLabel = 'Daftar User';
-    protected static ?int $navigationSort = 2;
-    protected static ?string $navigationGroup = 'RT';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Daftar RT';
 
     public static function form(Form $form): Form
     {
@@ -44,20 +41,14 @@ class UsersResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('level_id'),
-                TextColumn::make('username'),
-                TextColumn::make('nama'),
-                TextColumn::make('password'),
-                ImageColumn::make('image'),
+                TextColumn::make('rt_id'),
+                TextColumn::make('nama_RT'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ViewAction::make(),
-
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -76,9 +67,9 @@ class UsersResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUsers::route('/create'),
-            'edit' => Pages\EditUsers::route('/{record}/edit'),
+            'index' => Pages\ListRTS::route('/'),
+            'create' => Pages\CreateRT::route('/create'),
+            'edit' => Pages\EditRT::route('/{record}/edit'),
         ];
     }
 }

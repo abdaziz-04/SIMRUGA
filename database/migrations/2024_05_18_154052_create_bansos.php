@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('bansos', function (Blueprint $table) {
             $table->id('id_bansos');
             $table->unsignedBigInteger('warga_id');
-            $table->foreign('warga_id')->references('warga_id')->on('m_warga')->onDelete('cascade'); // Mengacu pada kolom 'warga_id' di tabel 'm_warga'
             $table->string('jenis_bantuan');
             $table->integer('jumlah_bantuan')->nullable();
             $table->date('tanggal_distribusi')->nullable();
             $table->timestamps();
+
+            $table->foreign('warga_id')->references('warga_id')->on('m_warga')->onDelete('cascade'); 
         });
     }
 

@@ -18,20 +18,21 @@ return new class extends Migration
             $table->unsignedBigInteger('rt_id')->index();
             $table->string('nama lengkap',250);
             $table->string('foto');
-            $table->unsignedBigInteger('id_NIK_KK');
-            $table->string('alamat',50)->unique();
+            $table->unsignedBigInteger('id_NIK_KK')->index();
             $table->string('status');
             $table->string('nomor_KTP');
             $table->string('agama');
             $table->string('tempat_lahir');
             $table->string('tanggal_lahir');
+            $table->string('gaji');
+            $table->string('tanggungan');
             $table->string('jenis_kelamin');
             $table->string('pekerjaan');
             $table->string('kewarganegaraan');
             $table->timestamps();
 
             $table->foreign('rt_id')->references('rt_id')->on('m_r_t');
-            $table->foreign('id_NIK_KK')->references('id_NIK_KK')->on('NIK')->onDelete('cascade');
+            $table->foreign('id_NIK_KK')->references('id_NIK_KK')->on('nik_KK');
         });
     }
 
