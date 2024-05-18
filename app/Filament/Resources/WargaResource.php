@@ -23,7 +23,7 @@ class WargaResource extends Resource
 {
     protected static ?string $model = Warga::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationLabel = 'Daftar Warga';
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Sekretaris';
@@ -33,7 +33,6 @@ class WargaResource extends Resource
         return $form
         ->schema([
             TextInput::make('nama')->label('Nama')->required(),
-            FileUpload::make('foto')->label('Foto')->directory('warga')->required(),
             TextInput::make('NIK')->label('NIK')->required()->unique(),
             TextInput::make('rt_id')->label('RT ID')->required(),
             TextInput::make('alamat')->label('Alamat')->required(),
