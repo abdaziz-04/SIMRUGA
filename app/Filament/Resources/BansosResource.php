@@ -17,7 +17,7 @@ class BansosResource extends Resource
 {
     protected static ?string $model = Bansos::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
     protected static ?string $navigationLabel = 'Bantuan Sosial';
     protected static ?string $navigationGroup = 'Sekretaris';
     protected static ?int $navigationSort = 1;
