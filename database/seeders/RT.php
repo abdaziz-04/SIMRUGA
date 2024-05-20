@@ -13,35 +13,53 @@ class RT extends Seeder
      */
     public function run(): void
     {
-        $data=[
+        DB::table('m_r_t')->insert([
             [
-                'rt_id'=>1,
-                'nama_RT'=>'RT01',
+                'nama_RT' => 'RT 01',
+                'kode_rt' => 'RT001',
+                'kelurahan' => 'Kelurahan A',
+                'kecamatan' => 'Kecamatan A',
+                'jumlah_warga' => 100,
+                'luas_wilayah' => 1.5,
+                'kepdatan_penduduk' => 66.67,
             ],
             [
-                'rt_id'=>2,
-                'nama_RT'=>'RT02',
+                'nama_RT' => 'RT 02',
+                'kode_rt' => 'RT002',
+                'kelurahan' => 'Kelurahan B',
+                'kecamatan' => 'Kecamatan B',
+                'jumlah_warga' => 150,
+                'luas_wilayah' => 2.0,
+                'kepdatan_penduduk' => 75.00,
             ],
             [
-                'rt_id'=>3,
-                'nama_RT'=>'RT03',
+                'nama_RT' => 'RT 03',
+                'kode_rt' => 'RT003',
+                'kelurahan' => 'Kelurahan C',
+                'kecamatan' => 'Kecamatan C',
+                'jumlah_warga' => 200,
+                'luas_wilayah' => 2.5,
+                'kepdatan_penduduk' => 80.00,
             ],
             [
-                'rt_id'=>4,
-                'nama_RT'=>'RT04',
+                'nama_RT' => 'RT 04',
+                'kode_rt' => 'RT004',
+                'kelurahan' => 'Kelurahan D',
+                'kecamatan' => 'Kecamatan D',
+                'jumlah_warga' => 120,
+                'luas_wilayah' => 1.8,
+                'kepdatan_penduduk' => 66.67,
             ],
             [
-                'rt_id'=>5,
-                'nama_RT'=>'RT05',
+                'nama_RT' => 'RT 05',
+                'kode_rt' => 'RT005',
+                'kelurahan' => 'Kelurahan E',
+                'kecamatan' => 'Kecamatan E',
+                'jumlah_warga' => 180,
+                'luas_wilayah' => 2.2,
+                'kepdatan_penduduk' => 81.82,
             ],
-            [
-                'rt_id'=>6,
-                'nama_RT'=>'RT05',
-            ],
-            ['rt_id'=>7,
-            'nama_RT'=>'RT05',]
-            
-        ];
+        ]);
         DB::table('m_r_t')->insert($data);
     }
 }
