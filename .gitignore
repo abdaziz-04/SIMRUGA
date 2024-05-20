@@ -17,4 +17,8 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+<<<<<<< HEAD
 composer.lock
+=======
+composer.lock
+>>>>>>> ed572e174d08f1a45d5a93219d9be8e6fcab94bb
