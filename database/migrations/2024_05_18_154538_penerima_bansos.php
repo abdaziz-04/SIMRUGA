@@ -9,19 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('PenerimaBansos', function (Blueprint $table) {
-            $table->id('warga_id');
-            $table->unsignedBigInteger('rt_id')->index();
-            $table->string('gaji');
-            $table->string('tanggungan');
-            $table->string('tanggal_lahir');
-            $table->timestamps();
-
-            // Define foreign key constraint
-            $table->foreign('warga_id')->references('warga_id')->on('m_warga');
-        });
+        if (!Schema::hasTable('PenerimaBansos')) {
+            Schema::create('PenerimaBansos', function (Blueprint $table) {
+                $table->id('warga_id');
+                $table->unsignedBigInteger('rt_id');
+                $table->string('gaji', 255);
+                $table->string('tanggungan', 255);
+                $table->string('tanggal_lahir', 255);
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('PenerimaBansos');
     }
 };

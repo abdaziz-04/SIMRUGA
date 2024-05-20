@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('nik_kk')) {
-            Schema::create('nik_kk', function (Blueprint $table) {
-                $table->id('id_NIK_KK');
-                $table->string('NIK_KK', 255);
-                $table->string('alamat', 50);
-                $table->timestamps();
-            });
-        }
+        Schema::create('jenis_iuran', function (Blueprint $table) {
+            $table->id('iuran_id');
+            $table->string('nama_iuran', 255);
+            $table->text('deskripsi')->nullable();
+            $table->decimal('jumlah', 15, 2);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nik_kk');
+        Schema::dropIfExists('jenis_iuran');
     }
 };
