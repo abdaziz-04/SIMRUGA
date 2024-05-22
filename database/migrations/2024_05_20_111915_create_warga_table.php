@@ -22,7 +22,7 @@ return new class extends Migration
             $table->char('jenis_kelamin', 1);
             $table->string('status_kawin', 25);
             $table->string('pekerjaan', 255);
-            $table->binary('foto_warga')->nullable();
+            $table->string('foto_warga')->nullable();
             $table->string('transportasi');
             $table->string('status_kepemilikan_rumah');
             $table->string('status_perkawinan');
