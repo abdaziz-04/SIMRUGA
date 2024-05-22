@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jenis_iuran', function (Blueprint $table) {
-            $table->increments('id_iuran');
+            $table->increments('id');
             $table->string('nama_iuran', 255);
             $table->string('jumlah_iuran', 255);
             // Add foreign key reference to warga table
-            $table->unsignedInteger('id_warga');
-            $table->foreign('id_warga')->references('id_warga')->on('warga')->onDelete('cascade');
+            // $table->unsignedInteger('id_warga');
+            // $table->foreign('id_warga')->references('id_warga')->on('warga')->onDelete('cascade');
             $table->timestamps();
         });
     }

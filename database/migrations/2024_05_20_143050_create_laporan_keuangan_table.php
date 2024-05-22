@@ -16,8 +16,8 @@ return new class extends Migration
             // $table->unsignedInteger('id_pemasukan'); // relasi ke tabel pemasukan
             // $table->unsignedInteger('id_pengeluaran'); // relasi ke tabel pengeluaran
             $table->string('total_saldo');
-            $table->foreignId('id_pemasukan')->nullable()->constrained('pemasukan_keuangan', 'id_pemasukan')->onDelete('cascade');
-            $table->foreignId('id_pengeluaran')->nullable()->constrained('pengeluaran_keuangan', 'id_pengeluaran')->onDelete('cascade');
+            $table->foreignId('id_pemasukan')->nullable()->constrained('pemasukan_keuangan', 'id')->onDelete('cascade');
+            $table->foreignId('id_pengeluaran')->nullable()->constrained('pengeluaran_keuangan', 'id')->onDelete('cascade');
 
             $table->timestamps();
 
