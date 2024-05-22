@@ -19,14 +19,14 @@ class JenisIuranSeeder extends Seeder
             [
                 'nama_iuran' => 'Iuran Bulanan',
                 'jumlah_iuran' => '50000',
-                'id_warga' => 1, // Adjust this according to your requirement
+                // 'id_warga' => 1, // Adjust this according to your requirement
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nama_iuran' => 'Iuran Tahunan',
                 'jumlah_iuran' => '250000',
-                'id_warga' => 2, // Adjust this according to your requirement
+                // 'id_warga' => 2, // Adjust this according to your requirement
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

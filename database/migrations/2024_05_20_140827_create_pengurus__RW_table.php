@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Menambahkan constraint foreign key
-            $table->foreign('id_warga')->references('id_warga')->on('warga')->onDelete('cascade');
+            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 
