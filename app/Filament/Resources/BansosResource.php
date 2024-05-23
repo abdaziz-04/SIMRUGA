@@ -20,8 +20,6 @@ class BansosResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-banknotes';
     protected static ?string $navigationLabel = 'Bantuan Sosial';
-    protected static ?string $navigationGroup = 'Sekretaris';
-    protected static ?int $navigationSort = 1;
 
     // Fungsi untuk filter per roles
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi

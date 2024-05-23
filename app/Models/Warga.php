@@ -2,31 +2,33 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Warga extends Model
 {
-    use HasFactory;
+    protected $table = 'warga';
 
-    protected $table = "m_warga";
-    protected $primaryKey = 'warga_id';
-    public $timestamps = true; 
     protected $fillable = [
-        'nama',
-        'foto',
-        'NIK',
-        'rt_id',
+        'nama_warga',
         'alamat',
+        'no_telepon',
+        'email',
+        'NIK',
         'tanggal_lahir',
-        'gaji', 
-        'tanggungan',
         'jenis_kelamin',
+        'status_kawin',
         'pekerjaan',
+        'foto_warga',
+        'transportasi',
+        'status_kepemilikan_rumah',
+        'status_perkawinan',
+        'sumber_air_bersih',
+        'penerangan_rumah',
+        'luas_bangunan',
+        'pengeluaran_bulanan',
+        'jumlah_anggota_keluarga',
+        'penghasilan',
+        'tanggungan',
+        'jenis_warga',
     ];
-
-    public function rt()
-    {
-        return $this->belongsTo(RT::class, 'rt_id', 'rt_id');
-    }
 }
