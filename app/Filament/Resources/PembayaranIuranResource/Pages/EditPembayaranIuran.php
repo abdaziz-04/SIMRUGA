@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\JenisIuranResource\Pages;
+namespace App\Filament\Resources\PembayaranIuranResource\Pages;
 
-use App\Filament\Resources\JenisIuranResource;
+use App\Filament\Resources\PembayaranIuranResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Notifications\Notification;
 
-class EditJenisIuran extends EditRecord
+class EditPembayaranIuran extends EditRecord
 {
-    protected static string $resource = JenisIuranResource::class;
+    protected static string $resource = PembayaranIuranResource::class;
 
     // protected function getHeaderActions(): array
     // {
