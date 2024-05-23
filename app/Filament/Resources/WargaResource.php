@@ -25,8 +25,15 @@ class WargaResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationLabel = 'Daftar Warga';
-    protected static ?int $navigationSort = 2;
-    protected static ?string $navigationGroup = 'Sekretaris';
+
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('Sekretaris')) // string dalem can sesuain sama rolesnya
+            return true;
+        else
+            return false;
+    }
+
 
     public static function form(Form $form): Form
     {

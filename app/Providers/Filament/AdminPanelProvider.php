@@ -8,19 +8,19 @@ use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Http\Middleware\Authenticate;
-use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use App\Filament\Auth\CustomLogin;
+use App\Filament\Pages\Settings\Settings;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
  
 
 class AdminPanelProvider extends PanelProvider
@@ -64,6 +64,12 @@ class AdminPanelProvider extends PanelProvider
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
             ->plugin(
                 \Hasnayeen\Themes\ThemesPlugin::make()
-            );
+            )
+            ->plugins([
+                FilamentSettingsPlugin::make()
+                    ->pages([
+                        Settings::class,
+                    ])
+            ]);
     }
 }
