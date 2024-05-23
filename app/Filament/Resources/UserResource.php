@@ -3,28 +3,26 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\User;
 use Filament\Tables;
-use App\Models\Users;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\UsersResource\Pages;
+use Rawilk\FilamentPasswordInput\Password;
+use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UsersResource\RelationManagers;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
+use App\Filament\Resources\UserResource\RelationManagers;
 
-class UsersResource extends Resource
+class UserResource extends Resource
 {
-    protected static ?string $model = Users::class;
+    protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationLabel = 'Daftar User';
-    protected static ?int $navigationSort = 2;
-    protected static ?string $navigationGroup = 'RT';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
@@ -32,11 +30,13 @@ class UsersResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('level_id'),
                         TextInput::make('username'),
-                        TextInput::make('nama'),
-                        TextInput::make('password'),
+                        TextInput::make('name'),
+                        Password::make('password')
+                                ->label('Password'),
+                        Select::make('roles')->multiple()->relationship('roles', 'name'),
                     ])
+                    ->columns(2),
             ]);
     }
 
@@ -44,11 +44,8 @@ class UsersResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('level_id'),
-                TextColumn::make('username'),
-                TextColumn::make('nama'),
-                TextColumn::make('password'),
-                ImageColumn::make('image'),
+                TextColumn::make('name')->label('Nama'),
+                TextColumn::make('username')->label('Username'),
             ])
             ->filters([
                 //
@@ -56,8 +53,6 @@ class UsersResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ViewAction::make(),
-
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -77,8 +72,8 @@ class UsersResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUsers::route('/create'),
-            'edit' => Pages\EditUsers::route('/{record}/edit'),
+            'create' => Pages\CreateUser::route('/create'),
+            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }
