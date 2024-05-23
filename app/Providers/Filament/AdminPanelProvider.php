@@ -64,12 +64,6 @@ class AdminPanelProvider extends PanelProvider
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
             ->plugin(
                 \Hasnayeen\Themes\ThemesPlugin::make()
-            )
-            ->plugins([
-                FilamentSettingsPlugin::make()
-                    ->pages([
-                        Settings::class,
-                    ])
-            ]);
+            );
     }
 }
