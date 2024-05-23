@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kegiatan_RW', function (Blueprint $table) {
-            $table->increments('id_kegiatan');
-            $table->unsignedInteger('id_pengurus'); // relasi ke tabel pengurus_RW
+            $table->id();
+            $table->unsignedBigInteger('id_pengurus'); // relasi ke tabel pengurus_RW
             $table->string('nama_kegiatan');
             $table->date('tanggal_kegiatan');
             $table->string('waktu_kegiatan');
@@ -24,7 +24,7 @@ return new class extends Migration
 
             // Menambahkan constraint foreign key
             
-            $table->foreign('id_pengurus')->references('id_pengurus')->on('pengurus_RW')->onDelete('cascade');
+            $table->foreign('id_pengurus')->references('id')->on('pengurus_RW')->onDelete('cascade');
         });
     }
 
