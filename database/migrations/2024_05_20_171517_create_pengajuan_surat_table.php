@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pengajuan_surat', function (Blueprint $table) {
-            $table->increments('id_pengajuan');
-            $table->unsignedInteger('id_surat'); // relasi ke tabel surat
+            $table->id();
+            $table->unsignedBigInteger('id_surat'); // relasi ke tabel surat
             $table->string('nama_warga');
             $table->string('NIK');
             $table->string('keterangan')->nullable(); // keterangan bisa kosong
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Menambahkan constraint foreign key
-            $table->foreign('id_surat')->references('id_surat')->on('surat')->onDelete('cascade');
+            $table->foreign('id_surat')->references('id')->on('surat')->onDelete('cascade');
         });
     }
 

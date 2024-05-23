@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('pembayaran_iuran', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('id_warga');
-            $table->unsignedInteger('id_iuran');
+            $table->unsignedBigInteger('id_warga');
+            $table->unsignedBigInteger('id_iuran');
             $table->date('tanggal_pembayaran');
             $table->integer('jumlah_pembayaran');
             // Define foreign key constraints
