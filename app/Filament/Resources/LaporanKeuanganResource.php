@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\JenisIuranResource\Pages;
-use App\Filament\Resources\JenisIuranResource\RelationManagers;
-use App\Models\JenisIuran;
+use App\Filament\Resources\LaporanKeuanganResource\Pages;
+use App\Filament\Resources\LaporanKeuanganResource\RelationManagers;
+use App\Models\LaporanKeuangan;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,41 +12,38 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Tables\Columns\TextColumn;
 
-
-class JenisIuranResource extends Resource
+class LaporanKeuanganResource extends Resource
 {
-    protected static ?string $model = JenisIuran::class;
+    protected static ?string $model = LaporanKeuangan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wallet';
-    protected static ?string $navigationLabel = 'Jenis Iuran';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationLabel = 'Laporan Keuangan';
     protected static ?string $navigationGroup = 'Bendahara';
 
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Grid::make()->schema([
-                TextInput::make('nama_iuran')->label('Nama Iuran'),
-                TextInput::make('jumlah_iuran')->label('Jumlah Iuran'),
-            ])->columns(1),
-        ]);
+            ->schema([
+                //
+            ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('nama_iuran')->label('Nama Iuran')->searchable()->sortable(),
-                TextColumn::make('jumlah_iuran')->label('Jumlah Iuran'),
+                TextColumn::make('pemasukan_keuangan.tanggal')->label('Tanggal Pemasukan'),
+                TextColumn::make('pemasukan_keuangan.jumlah_pemasukan')->label('Jumlah Pemasukan'),
+                TextColumn::make('pengeluaran_keuangan.tanggal')->label('Tanggal Pengeluaran'),
+                TextColumn::make('pengeluaran_keuangan.jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                TextColumn::make('total_saldo')->label('Sisa Saldo'),
             ])
+
             ->filters([
                 //
             ])
@@ -72,9 +69,9 @@ class JenisIuranResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListJenisIurans::route('/'),
-            'create' => Pages\CreateJenisIuran::route('/create'),
-            'edit' => Pages\EditJenisIuran::route('/{record}/edit'),
+            'index' => Pages\ListLaporanKeuangans::route('/'),
+            'create' => Pages\CreateLaporanKeuangan::route('/create'),
+            'edit' => Pages\EditLaporanKeuangan::route('/{record}/edit'),
         ];
     }
 }

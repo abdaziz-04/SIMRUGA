@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\JenisIuranResource\Pages;
-use App\Filament\Resources\JenisIuranResource\RelationManagers;
-use App\Models\JenisIuran;
+use App\Filament\Resources\PembayaranIuranResource\Pages;
+use App\Filament\Resources\PembayaranIuranResource\RelationManagers;
+use App\Models\PembayaranIuran;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,36 +16,35 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Grid;
 
 
-class JenisIuranResource extends Resource
+class PembayaranIuranResource extends Resource
 {
-    protected static ?string $model = JenisIuran::class;
+    protected static ?string $model = PembayaranIuran::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wallet';
-    protected static ?string $navigationLabel = 'Jenis Iuran';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+    protected static ?string $navigationLabel = 'Pembayaran Iuran';
     protected static ?string $navigationGroup = 'Bendahara';
 
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Grid::make()->schema([
-                TextInput::make('nama_iuran')->label('Nama Iuran'),
-                TextInput::make('jumlah_iuran')->label('Jumlah Iuran'),
-            ])->columns(1),
-        ]);
+            ->schema([
+                Grid::make()->schema([
+                    TextInput::make('tanggal_pembayaran')->label('Tanggal Pembayaran'),
+                    TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
+                ])->columns(1),
+            ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('nama_iuran')->label('Nama Iuran')->searchable()->sortable(),
-                TextColumn::make('jumlah_iuran')->label('Jumlah Iuran'),
+                TextColumn::make('tanggal_pembayaran')->label('Tanggal Pembayaran')->searchable()->sortable(),
+                TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
             ])
             ->filters([
                 //
@@ -56,7 +55,7 @@ class JenisIuranResource extends Resource
                 DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
@@ -72,9 +71,9 @@ class JenisIuranResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListJenisIurans::route('/'),
-            'create' => Pages\CreateJenisIuran::route('/create'),
-            'edit' => Pages\EditJenisIuran::route('/{record}/edit'),
+            'index' => Pages\ListPembayaranIurans::route('/'),
+            'create' => Pages\CreatePembayaranIuran::route('/create'),
+            'edit' => Pages\EditPembayaranIuran::route('/{record}/edit'),
         ];
     }
 }
