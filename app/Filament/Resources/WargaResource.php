@@ -28,7 +28,7 @@ class WargaResource extends Resource
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('Sekretaris')) // string dalem can sesuain sama rolesnya
+        if(auth()->user()->can('view_warga')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -51,7 +51,7 @@ class WargaResource extends Resource
                 ])->label('Jenis Kelamin')->required(),
             TextInput::make('status_kawin')->label('Status Kawin')->required(),
             TextInput::make('pekerjaan')->label('Pekerjaan')->required(),
-            FileUpload::make('foto_warga')->label('Foto Warga')->nullable()->directory('uploads')->visibility('public'),
+            FileUpload::make('foto_warga')->label('Foto Warga')->nullable()->directory('warga')->visibility('public'),
             TextInput::make('transportasi')->label('Transportasi')->required(),
             TextInput::make('status_kepemilikan_rumah')->label('Status Kepemilikan Rumah')->required(),
             TextInput::make('status_perkawinan')->label('Status Perkawinan')->required(),
@@ -71,8 +71,6 @@ class WargaResource extends Resource
 {
     return $table->columns([
         TextColumn::make('nama_warga')->label('Nama')->searchable(),
-        ImageColumn::make('foto_warga')->label('Foto Warga'),
-        TextColumn::make('alamat')->label('Alamat'),
         TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable(),
         TextColumn::make('jenis_kelamin')->label('Jenis Kelamin'),
         TextColumn::make('status_kawin')->label('Status Kawin'),

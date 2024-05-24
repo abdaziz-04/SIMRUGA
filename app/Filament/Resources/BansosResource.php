@@ -24,7 +24,7 @@ class BansosResource extends Resource
     // Fungsi untuk filter per roles
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('Sekretaris')) // string dalem can sesuain sama rolesnya
+        if(auth()->user()->can('view_bansos')) // string dalem can sesuain sama permission
             return true;
         else
             return false;
@@ -32,7 +32,7 @@ class BansosResource extends Resource
 
     public static function canView(Model $record): bool // Biar gabisa buka sama sekali (kan bisa kalo pke route)
     {
-        if(auth()->user()->can('Sekretaris'))
+        if(auth()->user()->can('view_bansos'))
             return true;
         else
             return false;
