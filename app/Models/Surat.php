@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Warga extends Model
+class Surat extends Model
 {
     use HasFactory;
 
     // Tentukan tabel yang terkait dengan model ini
-    protected $table = 'warga';
+    protected $table = 'surat';
 
     // Tentukan primary key dari tabel ini
-    protected $primaryKey = 'id_warga';
+    protected $primaryKey = 'id_surat';
 
     // Menentukan apakah primary key auto increment
     public $incrementing = true;
@@ -26,12 +26,8 @@ class Warga extends Model
 
     // Tentukan atribut yang dapat diisi secara massal
     protected $fillable = [
-        // Tambahkan atribut yang dapat diisi di sini
+        'nama_surat',
     ];
 
-    // Definisikan relasi dengan model SuratTidakMampu
-    public function suratTidakMampu()
-    {
-        return $this->hasMany(SuratTidakMampu::class, 'id_warga', 'id_warga');
-    }
+    // Tidak ada relasi yang didefinisikan pada contoh ini
 }
