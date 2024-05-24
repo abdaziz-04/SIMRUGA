@@ -73,7 +73,28 @@ class PermissionSeeder extends Seeder
         }
 
          // Assign permissions to roles
-         $adminRole->givePermissionTo('view_admin');
+         $adminRole->givePermissionTo([
+            'view_admin',
+            'view_bansos', 
+            'view_warga', 
+            'view_pengajuan_surat',
+            'view_jadwal_pertemuan',
+            'view_jenis_iuran', 
+            'view_laporan_keuangan', 
+            'view_pemasukan_keuangan', 
+            'view_pengeluaran_keuangan',
+            'view_pembayaran_iuran',
+            'view_users',
+            'view_warga',
+            'view_jadwal_pertemuan',
+            'view_laporan_keuangan_warga',
+            'view_pengumuman',
+            'view_users',
+            'view_daftar_rt',
+            'view_jadwal_pertemuan',
+            'view_pengaduan', 
+            'view_pengajuan_surat'
+         ]);
 
          $sekretarisRole->givePermissionTo([
             'view_bansos', 
