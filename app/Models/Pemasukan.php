@@ -12,6 +12,9 @@ class Pemasukan extends Model
     // Nama tabel
     protected $table = 'pemasukan_keuangan';
 
+    // Primary key
+    protected $primaryKey = 'id';
+
     // Kolom yang dapat diisi
     protected $fillable = [
         'jenis_pemasukan',

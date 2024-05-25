@@ -12,6 +12,9 @@ class Pengeluaran extends Model
     // Nama tabel
     protected $table = 'pengeluaran_keuangan';
 
+    // Primary key
+    protected $primaryKey = 'id';
+
     // Kolom yang dapat diisi
     protected $fillable = [
         'jenis_pengeluaran',
