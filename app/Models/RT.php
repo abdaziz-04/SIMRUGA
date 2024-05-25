@@ -9,15 +9,18 @@ class RT extends Model
 {
     use HasFactory;
 
-    protected $table = "m_r_t";
-    protected $primaryKey = 'rt_id';
+    protected $table = "rt";
+    protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'nama_RT',
+        'nama_rt',
+        'alamat',
+        'ketua_rt',
+        'jumlah_anggota',
     ];
 
     public function warga()
     {
-        return $this->hasMany(Warga::class, 'rt_id', 'rt_id');
+        return $this->hasMany(Warga::class, 'id', 'id');
     }
 }

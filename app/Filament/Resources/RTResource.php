@@ -21,7 +21,7 @@ class RTResource extends Resource
 {
     protected static ?string $model = RT::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-globe-asia-australia';
     protected static ?string $navigationLabel = 'Daftar RT';
 
     public static function form(Form $form): Form
@@ -30,10 +30,10 @@ class RTResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('level_id'),
-                        TextInput::make('username'),
-                        TextInput::make('nama'),
-                        TextInput::make('password'),
+                        TextInput::make('nama_rt'),
+                        TextInput::make('alamat'),
+                        TextInput::make('ketua_rt'),
+                        TextInput::make('jumlah_anggota'),
                     ])
             ]);
     }
@@ -42,8 +42,10 @@ class RTResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('rt_id'),
-                TextColumn::make('nama_RT'),
+                TextColumn::make('nama_rt'),
+                TextColumn::make('alamat'),
+                TextColumn::make('ketua_rt'),
+                TextColumn::make('jumlah_anggota'),
             ])
             ->filters([
                 //

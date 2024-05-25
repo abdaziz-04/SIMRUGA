@@ -16,39 +16,39 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'user_id' => 1,
+                'id' => 1,
                 'level_id' => 1,
                 'username' => 'admin',
                 'nama' => 'Administrator',
                 'password' => Hash::make('12345'),
             ], [
-                'user_id' => 2,
+                'id' => 2,
                 'level_id' => 2,
                 'username' => 'ketuarw',
                 'nama' => 'Ketua RW',
                 'password' => Hash::make('12345'),
             ], [
-                'user_id' => 3,
+                'id' => 3,
                 'level_id' => 3,
                 'username' => 'sekretaris',
                 'nama' => 'Sekretaris RW',
                 'password' => Hash::make('12345'),
             ],
              [
-                'user_id' => 4,
+                'id' => 4,
                 'level_id' => 3,
                 'username' => 'bendahara',
                 'nama' => 'Bendahara RW',
                 'password' => Hash::make('12345'),
             ],
              [
-                'user_id' => 5,
+                'id' => 5,
                 'level_id' => 3,
                 'username' => 'ketuart',
                 'nama' => 'Ketua RT',
                 'password' => Hash::make('12345'),
             ], [
-                'user_id' => 6,
+                'id' => 6,
                 'level_id' => 4,
                 'username' => 'warga',
                 'nama' => 'Warga',

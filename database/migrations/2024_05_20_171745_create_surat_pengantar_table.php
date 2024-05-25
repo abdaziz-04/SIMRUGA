@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('surat_pengantar', function (Blueprint $table) {
-            $table->increments('id_surat_pengantar');
-            $table->unsignedInteger('id_warga'); // relasi ke tabel warga
+            $table->id();
+            $table->unsignedBigInteger('id_warga'); // relasi ke tabel warga
             $table->string('tujuan_surat'); 
             $table->timestamps();
 
             // Menambahkan constraint foreign key
-            $table->foreign('id_warga')->references('id_warga')->on('warga')->onDelete('cascade');
+            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 

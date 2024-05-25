@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
-            $table->increments('id_laporan_keuangan');
-            $table->unsignedInteger('id_pemasukan'); // relasi ke tabel pemasukan
-            $table->unsignedInteger('id_pengeluaran'); // relasi ke tabel pengeluaran
+            $table->id();
+            // $table->unsignedInteger('id_pemasukan'); // relasi ke tabel pemasukan
+            // $table->unsignedInteger('id_pengeluaran'); // relasi ke tabel pengeluaran
             $table->string('total_saldo');
-            
+            $table->foreignId('id_pemasukan')->nullable()->constrained('pemasukan_keuangan', 'id')->onDelete('cascade');
+            $table->foreignId('id_pengeluaran')->nullable()->constrained('pengeluaran_keuangan', 'id')->onDelete('cascade');
+
             $table->timestamps();
 
-            // Menambahkan constraint foreign key
-            $table->foreign('id_pemasukan')->references('id_pemasukan')->on('pemasukan_keuangan')->onDelete('cascade');
-            $table->foreign('id_pengeluaran')->references('id_pengeluaran')->on('pengeluaran_keuangan')->onDelete('cascade');
+           
         });
     }
 

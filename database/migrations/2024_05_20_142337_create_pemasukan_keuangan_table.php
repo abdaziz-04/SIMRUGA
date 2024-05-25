@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pemasukan_keuangan', function (Blueprint $table) {
-            $table->increments('id_pemasukan');
+            $table->id();
             $table->string('jenis_pemasukan');
             $table->date('tanggal');
             $table->string('jumlah_pemasukan');
             $table->string('keterangan')->nullable(); // keterangan bisa kosong
-            
+            $table->foreignId('id_pembayaran')->nullable()->constrained('pembayaran_iuran', 'id')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BansosResource extends Resource
@@ -19,8 +20,23 @@ class BansosResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-banknotes';
     protected static ?string $navigationLabel = 'Bantuan Sosial';
-    protected static ?string $navigationGroup = 'Sekretaris';
-    protected static ?int $navigationSort = 1;
+
+    // Fungsi untuk filter per roles
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_bansos')) // string dalem can sesuain sama permission
+            return true;
+        else
+            return false;
+    }
+
+    public static function canView(Model $record): bool // Biar gabisa buka sama sekali (kan bisa kalo pke route)
+    {
+        if(auth()->user()->can('view_bansos'))
+            return true;
+        else
+            return false;
+    }
 
     public static function form(Form $form): Form
     {
