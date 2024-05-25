@@ -17,7 +17,8 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\DatePicker;
 
 class PengeluaranResource extends Resource
 {
@@ -39,10 +40,11 @@ class PengeluaranResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make()->schema([
-                    TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran'),
-                    TextInput::make('tanggal')->label('Tanggal'),
-                    TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                Card::make()
+                ->schema([
+                    TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->required(),
+                    DatePicker::make('tanggal')->label('Tanggal')->required(),
+                    TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran')->required(),
                     TextInput::make('keterangan')->label('Keterangan'),
                 ])->columns(1),
             ]);
@@ -52,7 +54,7 @@ class PengeluaranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable()->sortable(),
+                TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable(),
                 TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable(),
                 TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
                 TextColumn::make('keterangan')->label('Keterangan'),

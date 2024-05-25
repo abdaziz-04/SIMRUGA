@@ -17,7 +17,8 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\DatePicker;
 
 class PemasukanResource extends Resource
 {
@@ -39,10 +40,11 @@ class PemasukanResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make()->schema([
-                    TextInput::make('jenis_pemasukan')->label('Jenis Pemasukan'),
-                    TextInput::make('tanggal')->label('Tanggal'),
-                    TextInput::make('jumlah_pemasukan')->label('Jumlah Pemasukan'),
+                Card::make()
+                ->schema([
+                    TextInput::make('jenis_pemasukan')->label('Jenis Pemasukan')->required(),
+                    DatePicker::make('tanggal')->label('Tanggal')->required(),
+                    TextInput::make('jumlah_pemasukan')->label('Jumlah Pemasukan')->required(),
                     TextInput::make('keterangan')->label('Keterangan'),
                 ])->columns(1),
             ]);
@@ -52,7 +54,7 @@ class PemasukanResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('jenis_pemasukan')->label('Jenis Pemasukan')->searchable()->sortable(),
+                TextColumn::make('jenis_pemasukan')->label('Jenis Pemasukan')->searchable(),
                 TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable(),
                 TextColumn::make('jumlah_pemasukan')->label('Jumlah Pemasukan'),
                 TextColumn::make('keterangan')->label('Keterangan'),

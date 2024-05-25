@@ -39,23 +39,7 @@ class LaporanKeuanganResource extends Resource
     {
         return $form
             ->schema([
-                // Grid::make()->schema([
-                //     TextInput::make('pemasukan_keuangan.tanggal')
-                //         ->label('Tanggal Pemasukan')
-                //         ->disabled(), // make it read-only
-                //     TextInput::make('pemasukan_keuangan.jumlah_pemasukan')
-                //         ->label('Jumlah Pemasukan')
-                //         ->disabled(), // make it read-only
-                //     TextInput::make('pengeluaran_keuangan.tanggal')
-                //         ->label('Tanggal Pengeluaran')
-                //         ->disabled(), // make it read-only
-                //     TextInput::make('pengeluaran_keuangan.jumlah_pengeluaran')
-                //         ->label('Jumlah Pengeluaran')
-                //         ->disabled(), // make it read-only
-                //     TextInput::make('total_saldo')
-                //         ->label('Sisa Saldo')
-                //         ->disabled(), // make it read-only
-                // ])->columns(1),
+                //
             ]);
     }
 
@@ -63,7 +47,7 @@ class LaporanKeuanganResource extends Resource
     {
         return $table
         ->columns([
-            TextColumn::make('tanggal')
+            TextColumn::make('pemasukanKeuangan.tanggal')
                 ->label('Tanggal')
                 ->sortable()
                 ->getStateUsing(function (LaporanKeuangan $record) {
@@ -71,7 +55,7 @@ class LaporanKeuanganResource extends Resource
                 }),
             TextColumn::make('pemasukanKeuangan.keterangan')
                 ->label('Keterangan Pemasukan')
-                ->sortable()
+                ->searchable()
                 ->getStateUsing(function (LaporanKeuangan $record) {
                     return $record->pemasukanKeuangan->keterangan ?? '';
                 }),
@@ -84,6 +68,7 @@ class LaporanKeuanganResource extends Resource
             TextColumn::make('pengeluaranKeuangan.tanggal')
                 ->label('Tanggal Pengeluaran')
                 ->sortable()
+                ->searchable()
                 ->getStateUsing(function (LaporanKeuangan $record) {
                     return isset($record->pengeluaranKeuangan->tanggal) ? $record->pengeluaranKeuangan->tanggal : '';
                 }),

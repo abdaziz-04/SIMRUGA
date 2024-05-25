@@ -18,7 +18,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Card;
 
 
 class JenisIuranResource extends Resource
@@ -41,10 +41,12 @@ class JenisIuranResource extends Resource
     {
         return $form
         ->schema([
-            Grid::make()->schema([
-                TextInput::make('nama_iuran')->label('Nama Iuran'),
-                TextInput::make('jumlah_iuran')->label('Jumlah Iuran'),
-            ])->columns(1),
+            Card::make()
+            // Grid::make()
+            ->schema([
+                TextInput::make('nama_iuran')->label('Nama Iuran')->required(),
+                TextInput::make('jumlah_iuran')->label('Jumlah Iuran')->required(),
+            ])->columns(1)
         ]);
     }
 
@@ -52,7 +54,7 @@ class JenisIuranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_iuran')->label('Nama Iuran')->searchable()->sortable(),
+                TextColumn::make('nama_iuran')->label('Nama Iuran')->searchable(),
                 TextColumn::make('jumlah_iuran')->label('Jumlah Iuran'),
             ])
             ->filters([
