@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('warga', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_kk');
+            $table->unsignedBigInteger('id_rt');
             $table->string('nama_warga', 255);
             $table->string('alamat', 255);
             $table->string('no_telepon', 25);
@@ -34,8 +36,8 @@ return new class extends Migration
             $table->string('penghasilan');
             $table->string('tanggungan');
             $table->string('jenis_warga');
-            $table->foreignId('id_kk')->constrained('kartu_keluarga');
-            $table->foreignId('id_rt')->constrained('rt');
+            $table->foreign('id_kk')->references('id')->on('kartu_keluarga')->onDelete('cascade');
+            $table->foreign('id_rt')->references('id')->on('rt')->onDelete('cascade');
             $table->timestamps();
         });
     }
