@@ -34,6 +34,8 @@ return new class extends Migration
             $table->string('penghasilan');
             $table->string('tanggungan');
             $table->string('jenis_warga');
+            $table->foreignId('id_kk')->constrained('kartu_keluarga');
+            $table->foreignId('id_rt')->constrained('rt');
             $table->timestamps();
         });
     }
