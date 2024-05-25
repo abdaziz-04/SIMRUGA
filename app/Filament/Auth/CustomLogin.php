@@ -6,8 +6,7 @@ use Filament\Pages\Auth\Login;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\View; // Use View to display the custom Blade view
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class CustomLogin extends Login
 {
@@ -20,9 +19,6 @@ class CustomLogin extends Login
                         $this->getLoginFormComponent(),
                         $this->getPasswordFormComponent(),
                         $this->getRememberFormComponent(),
-                        Placeholder::make('login_error')
-                            ->content(View::make('components.login-error'))
-                            ->visible(fn ($get) => $get('login_error_visible') === true),
                     ])
                     ->statePath('data'),
             ),
@@ -47,14 +43,10 @@ class CustomLogin extends Login
         ];
     }
 
-    protected function failed(): void
+    protected function throwFailureValidationException(): never
     {
-        parent::failed();
-
-        $this->notify('danger', 'Invalid username or password.');
-
-        $this->state([
-            'data.login_error_visible' => true,
+        throw ValidationException::withMessages([
+            'data.login' => __('filament-panels::pages/auth/login.messages.failed'),
         ]);
     }
 }
