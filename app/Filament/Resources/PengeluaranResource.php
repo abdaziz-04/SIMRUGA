@@ -27,6 +27,14 @@ class PengeluaranResource extends Resource
     protected static ?string $navigationLabel = 'Pengeluaran Keuangan';
     protected static ?string $navigationGroup = 'Bendahara';
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_pengeluaran_keuangan')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form

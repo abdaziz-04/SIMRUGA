@@ -29,6 +29,14 @@ class JenisIuranResource extends Resource
     protected static ?string $navigationLabel = 'Jenis Iuran';
     protected static ?string $navigationGroup = 'Bendahara';
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_jenis_iuran')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
