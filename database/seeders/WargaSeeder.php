@@ -42,7 +42,7 @@ class WargaSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'nama_warga' => 'Sintaa',
+                'nama_warga' => 'Sinta',
                 'id_kk' => 3,
                 'id_rt' => 2,
                 'alamat' => 'Jl. Kebangsaan No.10',
