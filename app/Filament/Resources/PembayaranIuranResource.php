@@ -28,6 +28,14 @@ class PembayaranIuranResource extends Resource
     protected static ?string $navigationLabel = 'Pembayaran Iuran';
     protected static ?string $navigationGroup = 'Bendahara';
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_pembayaran_iuran')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form

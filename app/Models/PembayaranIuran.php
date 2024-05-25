@@ -12,6 +12,9 @@ class PembayaranIuran extends Model
     // Define the table associated with the model
     protected $table = 'pembayaran_iuran';
 
+    // Primary key
+    protected $primaryKey = 'id';
+
     // Define the attributes that are mass assignable
     protected $fillable = [
         'id_warga',

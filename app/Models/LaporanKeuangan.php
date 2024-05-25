@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class LaporanKeuangan extends Model
 {
@@ -13,7 +14,7 @@ class LaporanKeuangan extends Model
     protected $table = 'laporan_keuangan';
 
     // Primary key
-    protected $primaryKey = 'id_laporan_keuangan';
+    protected $primaryKey = 'id';
 
     // Kolom yang dapat diisi
     protected $fillable = [
@@ -31,7 +32,7 @@ class LaporanKeuangan extends Model
     }
 
     /**
-     * Relasi ke tabel pengeluaran_keuangan
+     * Relasi ke tabel pengeluaran
      */
     public function pengeluaranKeuangan()
     {
