@@ -17,7 +17,8 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\DatePicker;
 
 
 class PembayaranIuranResource extends Resource
@@ -40,8 +41,8 @@ class PembayaranIuranResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make()->schema([
-                    TextInput::make('tanggal_pembayaran')->label('Tanggal Pembayaran'),
+                Card::make()->schema([
+                    DatePicker::make('tanggal_pembayaran')->label('Tanggal Pembayaran'),
                     TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
                 ])->columns(1),
             ]);
