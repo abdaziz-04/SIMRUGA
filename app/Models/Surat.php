@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     use HasFactory;
-
+  
     // Tentukan tabel yang terkait dengan model ini
     protected $table = 'surat';
 
@@ -28,6 +28,4 @@ class Surat extends Model
     protected $fillable = [
         'nama_surat',
     ];
-
-    // Tidak ada relasi yang didefinisikan pada contoh ini
 }
