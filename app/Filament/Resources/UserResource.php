@@ -33,7 +33,9 @@ class UserResource extends Resource
                         TextInput::make('username'),
                         TextInput::make('name'),
                         Password::make('password')
-                                ->label('Password'),
+                                ->label('Password')
+                                ->regeneratePassword()
+                                ->copyable(),
                         Select::make('roles')->multiple()->relationship('roles', 'name'),
                     ])
                     ->columns(2),
