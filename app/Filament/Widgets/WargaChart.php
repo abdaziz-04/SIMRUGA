@@ -34,6 +34,6 @@ class WargaChart extends ChartWidget
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasRole('ketua_rt');
+        return Auth::user()->hasPermissionTo('view_warga'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }
