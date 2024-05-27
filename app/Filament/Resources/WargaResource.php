@@ -26,6 +26,11 @@ class WargaResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationLabel = 'Daftar Warga';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
         if(auth()->user()->can('view_warga')) // string dalem can sesuain sama permission yang dibuat

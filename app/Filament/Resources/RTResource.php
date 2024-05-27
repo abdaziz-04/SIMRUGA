@@ -24,6 +24,11 @@ class RTResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-globe-asia-australia';
     protected static ?string $navigationLabel = 'Daftar RT';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
