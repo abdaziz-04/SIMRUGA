@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('status_kepemilikan_rumah');
             $table->string('status_perkawinan');
             $table->string('sumber_air_bersih');
+            $table->string('token_listrik');
             $table->string('penerangan_rumah');
             $table->string('luas_bangunan');
             $table->decimal('pengeluaran_bulanan', 15, 2);
