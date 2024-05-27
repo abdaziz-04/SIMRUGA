@@ -18,6 +18,7 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Grid;
+ 
 
 class LaporanKeuanganResource extends Resource
 {
@@ -46,62 +47,22 @@ class LaporanKeuanganResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            TextColumn::make('pemasukanKeuangan.tanggal')
-                ->label('Tanggal')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return $record->pemasukanKeuangan->tanggal ?? $record->pengeluaranKeuangan->tanggal;
-                }),
-            TextColumn::make('pemasukanKeuangan.keterangan')
-                ->label('Keterangan Pemasukan')
-                ->searchable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return $record->pemasukanKeuangan->keterangan ?? '';
-                }),
-            TextColumn::make('pemasukanKeuangan.jumlah_pemasukan')
-                ->label('Jumlah Pemasukan')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return $record->pemasukanKeuangan->jumlah_pemasukan ?? '';
-                }),
-            TextColumn::make('pengeluaranKeuangan.tanggal')
-                ->label('Tanggal Pengeluaran')
-                ->sortable()
-                ->searchable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return isset($record->pengeluaranKeuangan->tanggal) ? $record->pengeluaranKeuangan->tanggal : '';
-                }),
-            TextColumn::make('pengeluaranKeuangan.keterangan')
-                ->label('Keterangan Pengeluaran')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return isset($record->pengeluaranKeuangan->keterangan) ? $record->pengeluaranKeuangan->keterangan : '';
-                }),
-            TextColumn::make('pengeluaranKeuangan.jumlah_pengeluaran')
-                ->label('Jumlah Pengeluaran')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return isset($record->pengeluaranKeuangan->jumlah_pengeluaran) ? $record->pengeluaranKeuangan->jumlah_pengeluaran : '';
-                }),
-            TextColumn::make('total_saldo')
-                ->label('Sisa Saldo')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    $jumlahPemasukan = $record->pemasukanKeuangan->jumlah_pemasukan ?? 0;
-                    $jumlahPengeluaran = $record->pengeluaranKeuangan->jumlah_pengeluaran ?? 0;
-                    return $jumlahPemasukan - $jumlahPengeluaran;
-                }),
+            ->columns([
+                TextColumn::make('tanggal')->label('Tanggal')->sortable(),
+                TextColumn::make('keterangan_pemasukan')->label('Keterangan Pemasukan')->searchable(),
+                TextColumn::make('total_pemasukan')->label('Jumlah Pemasukan')->sortable(),
+                TextColumn::make('keterangan_pengeluaran')->label('Keterangan Pengeluaran')->sortable(),
+                TextColumn::make('total_pengeluaran')->label('Jumlah Pengeluaran')->sortable(),
+                TextColumn::make('total_saldo')->label('Sisa Saldo')->sortable(),
         ])
-        
 
             ->filters([
                 //
             ])
             ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
+                // ViewAction::make(),
+                // EditAction::make(),
+                // DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
