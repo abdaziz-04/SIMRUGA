@@ -2,14 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Warga extends Model
 {
+    use HasFactory;
+
+    // Nama tabel
     protected $table = 'warga';
-    protected $primaryKey = 'id';
+
+    // Kolom yang dapat diisi secara massal
     protected $fillable = [
         'nama_warga',
+        'id_kk',
+        'id_rt',
         'alamat',
         'no_telepon',
         'email',
@@ -21,9 +28,8 @@ class Warga extends Model
         'foto_warga',
         'transportasi',
         'status_kepemilikan_rumah',
-        'status_perkawinan',
         'sumber_air_bersih',
-        'penerangan_rumah',
+        'token_listrik',
         'luas_bangunan',
         'pengeluaran_bulanan',
         'jumlah_anggota_keluarga',
