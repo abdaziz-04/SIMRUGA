@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_warga');
             $table->unsignedBigInteger('id_iuran');
-            $table->date('tanggal_pembayaran');
+            $table->date('tanggal');
             $table->integer('jumlah_pembayaran');
             // Define foreign key constraints
             $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');

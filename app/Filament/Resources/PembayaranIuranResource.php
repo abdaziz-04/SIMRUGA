@@ -42,8 +42,10 @@ class PembayaranIuranResource extends Resource
         return $form
             ->schema([
                 Card::make()->schema([
-                    DatePicker::make('tanggal_pembayaran')->label('Tanggal Pembayaran'),
+                    DatePicker::make('tanggal')->label('Tanggal Pembayaran'),
                     TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
+                    TextInput::make('id_warga')->label('id warga'),
+                    TextInput::make('id_iuran')->label('id iuran'),
                 ])->columns(1),
             ]);
     }
@@ -52,7 +54,7 @@ class PembayaranIuranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('tanggal_pembayaran')->label('Tanggal Pembayaran')->searchable()->sortable(),
+                TextColumn::make('tanggal')->label('Tanggal Pembayaran')->searchable()->sortable(),
                 TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
             ])
             ->filters([

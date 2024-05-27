@@ -19,7 +19,7 @@ class PembayaranIuranSeeder extends Seeder
             [
                 'id_warga' => 1,
                 'id_iuran' => 1,
-                'tanggal_pembayaran' => Carbon::now()->format('Y-m-d'),
+                'tanggal' => Carbon::now()->format('Y-m-d'),
                 'jumlah_pembayaran' => 50000,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -27,7 +27,7 @@ class PembayaranIuranSeeder extends Seeder
             [
                 'id_warga' => 2,
                 'id_iuran' => 2,
-                'tanggal_pembayaran' => Carbon::now()->format('Y-m-d'),
+                'tanggal' => Carbon::now()->format('Y-m-d'),
                 'jumlah_pembayaran' => 75000,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

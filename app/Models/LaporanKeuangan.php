@@ -18,6 +18,11 @@ class LaporanKeuangan extends Model
 
     // Kolom yang dapat diisi
     protected $fillable = [
+        'tanggal',
+        'total_pemasukan',
+        'keterangan_pemasukan',
+        'keterangan_pengeluaran',
+        'total_pengeluaran',
         'total_saldo',
         'id_pemasukan',
         'id_pengeluaran',
@@ -28,7 +33,7 @@ class LaporanKeuangan extends Model
      */
     public function pemasukanKeuangan()
     {
-        return $this->belongsTo(Pemasukan::class, 'id_pemasukan');
+        return $this->belongsTo(Pemasukan::class, 'id_pemasukan', 'id');
     }
 
     /**
@@ -36,6 +41,6 @@ class LaporanKeuangan extends Model
      */
     public function pengeluaranKeuangan()
     {
-        return $this->belongsTo(Pengeluaran::class, 'id_pengeluaran');
+        return $this->belongsTo(Pengeluaran::class, 'id_pengeluaran', 'id');
     }
 }

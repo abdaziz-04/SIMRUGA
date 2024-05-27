@@ -19,7 +19,7 @@ class PembayaranIuran extends Model
     protected $fillable = [
         'id_warga',
         'id_iuran',
-        'tanggal_pembayaran',
+        'tanggal',
         'jumlah_pembayaran',
     ];
 

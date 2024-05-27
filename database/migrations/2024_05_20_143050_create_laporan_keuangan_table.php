@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
             // $table->unsignedInteger('id_pemasukan'); // relasi ke tabel pemasukan
             // $table->unsignedInteger('id_pengeluaran'); // relasi ke tabel pengeluaran
+            $table->string('total_pemasukan');
+            $table->text('keterangan_pemasukan')->nullable();
+            $table->text('keterangan_pengeluaran')->nullable();
+            $table->string('total_pengeluaran');
             $table->string('total_saldo');
             $table->foreignId('id_pemasukan')->nullable()->constrained('pemasukan_keuangan', 'id')->onDelete('cascade');
             $table->foreignId('id_pengeluaran')->nullable()->constrained('pengeluaran_keuangan', 'id')->onDelete('cascade');
