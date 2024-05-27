@@ -29,6 +29,14 @@ class RTResource extends Resource
         return static::getModel()::count();
     }
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_daftar_rt')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
