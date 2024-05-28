@@ -38,6 +38,14 @@ class PengeluaranKeuanganSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'jenis_pengeluaran' => 'Menjenguk Orang Sakit',
+                'tanggal' => Carbon::create(2024, 5, 28),
+                'jumlah_pengeluaran' => '150000',
+                'keterangan' => 'Menjenguk orang sakit',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ]);
     }
 }

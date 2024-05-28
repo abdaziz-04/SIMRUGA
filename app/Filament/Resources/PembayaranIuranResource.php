@@ -4,7 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PembayaranIuranResource\Pages;
 use App\Filament\Resources\PembayaranIuranResource\RelationManagers;
+use App\Models\JenisIuran;
 use App\Models\PembayaranIuran;
+use App\Models\KK;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -17,6 +19,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DatePicker;
 
@@ -43,9 +46,17 @@ class PembayaranIuranResource extends Resource
             ->schema([
                 Card::make()->schema([
                     DatePicker::make('tanggal')->label('Tanggal Pembayaran'),
-                    TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
-                    TextInput::make('id_warga')->label('id warga'),
-                    TextInput::make('id_iuran')->label('id iuran'),
+                    Select::make('id_kk')
+                        ->label('Nama Kepala Keluarga')
+                        ->options(KK::all()->pluck('nama_kepala_keluarga', 'id'))
+                        ->searchable()
+                        ->required(),
+                    Select::make('id_iuran')
+                        ->label('Jenis Iuran')
+                        ->options(JenisIuran::all()->pluck('nama_iuran', 'id'))
+                        ->searchable()
+                        ->required(),    
+                    TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran')
                 ])->columns(1),
             ]);
     }
@@ -54,8 +65,10 @@ class PembayaranIuranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('tanggal')->label('Tanggal Pembayaran')->searchable()->sortable(),
-                TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
+                TextColumn::make('tanggal')->label('Tanggal Pembayaran')->sortable(),
+                TextColumn::make('kk.nama_kepala_keluarga')->label('Nama Kepala Keluarga')->searchable(),
+                TextColumn::make('jenisIuran.nama_iuran')->label('Jenis Iuran')->searchable(),
+                TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran')->searchable()->sortable(),
             ])
             ->filters([
                 //
