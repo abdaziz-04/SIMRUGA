@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('jenis_pengeluaran');
             $table->date('tanggal');
             $table->string('jumlah_pengeluaran');
+            $table->string('foto_struk')->nullable();
             $table->string('keterangan')->nullable(); // keterangan bisa kosong
             
             $table->timestamps();
