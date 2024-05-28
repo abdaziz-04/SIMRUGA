@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('NIK', 25);
             $table->date('tanggal_lahir');
             $table->char('jenis_kelamin', 1);
-            $table->String('status_kawin', 25);
-            $table->String('pekerjaan', 255);
+            $table->string('status_kawin', 25);
+            $table->string('pekerjaan', 255);
             $table->string('foto_warga')->nullable();
             $table->string('status_kepemilikan_rumah');
             $table->string('sumber_air_bersih');

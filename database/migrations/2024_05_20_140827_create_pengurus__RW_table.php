@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nama_pengurus');
             $table->string('jabatan');
             $table->string('no_telepon');
+            $table->string('email');
             $table->timestamps();
 
             // Menambahkan constraint foreign key

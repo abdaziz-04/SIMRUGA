@@ -113,6 +113,7 @@ class RtSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            
             [
                 'nama_rt' => 'RT 13',
                 'alamat' => 'Jalan Lily No. 13',
@@ -121,6 +122,7 @@ class RtSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+           
         ]);
     }
 }
