@@ -26,6 +26,10 @@ class PembayaranIuranSeeder extends Seeder
             ],
             [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                'id_kk' => 2,
+>>>>>>> 834e1d200cda416a8370b69160a6ad88645c81b4
 =======
                 'id_kk' => 2,
 >>>>>>> 834e1d200cda416a8370b69160a6ad88645c81b4
