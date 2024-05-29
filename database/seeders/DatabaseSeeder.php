@@ -35,11 +35,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SuratKematianSeeder::class);
         $this->call(KegiatanRWSeeder::class);
         $this->call(KKSeeder::class);
-<<<<<<< HEAD
         $this->call(LembagaPendukungSeeder::class);
 
-=======
+
         $this->call(JadwalSeeder::class);
->>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
+
     }
 }
