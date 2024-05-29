@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('tanggal');
             $table->integer('jumlah_pembayaran');
             // Define foreign key constraints
-            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
-            $table->foreign('id_iuran')->references('id')->on('jenis_iuran')->onDelete('cascade');
+            $table->foreign('id_warga')->references('id')->on('warga');
+            $table->foreign('id_iuran')->references('id')->on('jenis_iuran');
             $table->timestamps();
         });
     }
