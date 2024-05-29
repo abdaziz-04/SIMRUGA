@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -105,24 +106,11 @@ class RtSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'nama_rt' => 'RT 12',
-                'alamat' => 'Jalan Bougenville No. 12',
-                'jumlah_anggota' => 21,
-                'ketua_rt' => 'Rudi Hartono',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+       
             
-            [
-                'nama_rt' => 'RT 13',
-                'alamat' => 'Jalan Lily No. 13',
-                'jumlah_anggota' => 20,
-                'ketua_rt' => 'Asep Sutisna',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-           
+          
+      
+         
         ]);
     }
 }

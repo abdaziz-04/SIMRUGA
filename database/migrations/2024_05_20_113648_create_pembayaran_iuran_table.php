@@ -20,6 +20,7 @@ return new class extends Migration
             // Define foreign key constraints
             $table->foreign('id_kk')->references('id')->on('kartu_keluarga')->onDelete('cascade');
             $table->foreign('id_iuran')->references('id')->on('jenis_iuran')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
