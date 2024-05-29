@@ -24,13 +24,13 @@ class StatsOverviewBendahara extends BaseWidget
     }
 
     protected function updateLaporanKeuangan(){
-        $startDate = ! is_null($this->filters['startDate'] ?? null) ?
-            Carbon::parse($this->filters['startDate']) :
-            null;
+        // $startDate = ! is_null($this->filters['startDate'] ?? null) ?
+        //     Carbon::parse($this->filters['startDate']) :
+        //     null;
 
-        $endDate = ! is_null($this->filters['endDate'] ?? null) ?
-            Carbon::parse($this->filters['endDate']) :
-            now();
+        // $endDate = ! is_null($this->filters['endDate'] ?? null) ?
+        //     Carbon::parse($this->filters['endDate']) :
+        //     now();
 
         $totalPemasukan = Pemasukan::sum('jumlah_pemasukan');
         $totalPengeluaran = Pengeluaran::sum('jumlah_pengeluaran');
