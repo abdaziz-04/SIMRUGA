@@ -13,7 +13,7 @@ class Jadwal extends Model
     protected $table = 'jadwal';
 
     // Specify the primary key of the table (optional if 'id' is used)
-    protected $primaryKey = 'id_pertemuan';
+    protected $primaryKey = 'id';
 
     // Indicate if the primary key is auto-incrementing (default is true)
     public $incrementing = true;

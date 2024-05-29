@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-    
         $this->call(KKSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(ArsipanSuratSeeder::class);
@@ -36,6 +35,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KegiatanRWSeeder::class);
         $this->call(KKSeeder::class);
         $this->call(LembagaPendukungSeeder::class);
-
+        $this->call(JadwalSeeder::class);
     }
 }

@@ -29,6 +29,14 @@ class KartuKeluargaResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Kartu Keluarga';
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_kartu_keluarga')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
