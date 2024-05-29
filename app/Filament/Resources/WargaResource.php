@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\WargaResource\RelationManagers;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
+use Illuminate\Support\Facades\Storage;
+
 
 class WargaResource extends Resource
 {
@@ -54,12 +56,27 @@ class WargaResource extends Resource
                     'L' => 'Laki-laki',
                     'P' => 'Perempuan',
                 ])->label('Jenis Kelamin')->required(),
-            TextInput::make('status_kawin')->label('Status Kawin')->required(),
             TextInput::make('pekerjaan')->label('Pekerjaan')->required(),
-            FileUpload::make('foto_warga')->label('Foto Warga')->nullable()->directory('warga')->visibility('public'),
+            FileUpload::make('foto_warga')
+            ->label('Foto Warga')
+            ->nullable()
+            ->visibility('public'),
             TextInput::make('transportasi')->label('Transportasi')->required(),
-            TextInput::make('status_kepemilikan_rumah')->label('Status Kepemilikan Rumah')->required(),
-            TextInput::make('status_perkawinan')->label('Status Perkawinan')->required(),
+            Select::make('status_kepemilikan_rumah')
+            ->options([
+                'Milik Sendiri' => 'Milik Sendiri',
+                'Sewa' => 'Sewa',
+                'Kontrak' => 'Kontrak',
+                'Tinggal Bersama Orang Tua' => 'Tinggal Bersama Orang Tua',
+                'Dinas' => 'Dinas',
+            ])
+            ->label('Status Kepemilikan Rumah')->required(),
+            Select::make('status_perkawinan')
+            ->options([
+                'Kawin' => 'Kawin',
+                'Belum Kawin' => 'Belum Kawin',
+            ])
+            ->label('Status Perkawinan')->required(),
             TextInput::make('sumber_air_bersih')->label('Sumber Air Bersih')->required(),
             TextInput::make('penerangan_rumah')->label('Penerangan Rumah')->required(),
             TextInput::make('luas_bangunan')->label('Luas Bangunan')->required(),
@@ -76,6 +93,10 @@ class WargaResource extends Resource
 {
     return $table->columns([
         TextColumn::make('nama_warga')->label('Nama')->searchable(),
+        ImageColumn::make('foto_warga')
+        ->label('Foto Warga')
+        ->disk('public') // Ensure this is the same as your configured disk
+        ->visibility('public'),
         TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable(),
         TextColumn::make('jenis_kelamin')->label('Jenis Kelamin'),
         TextColumn::make('status_kawin')->label('Status Kawin'),

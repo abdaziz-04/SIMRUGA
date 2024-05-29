@@ -76,15 +76,22 @@ class PermissionSeeder extends Seeder
             'view_users',
             'view_daftar_rt',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'view_pengaduan',
         ]);
 =======
+=======
+            'view_pengaduan',
+>>>>>>> 834e1d200cda416a8370b69160a6ad88645c81b4
             'view_jadwal_pertemuan',
             'view_pengaduan', 
             'view_pengajuan_surat',
             'view_kartu_keluarga'
          ]);
+<<<<<<< HEAD
 >>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
+=======
+>>>>>>> 834e1d200cda416a8370b69160a6ad88645c81b4
 
         $sekretarisRole->givePermissionTo([
             'view_bansos',
@@ -92,9 +99,13 @@ class PermissionSeeder extends Seeder
             'view_pengajuan_surat',
             'view_jadwal_pertemuan',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'view_kartu_keluarga'
 >>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
+=======
+            'view_kartu_keluarga'
+>>>>>>> 834e1d200cda416a8370b69160a6ad88645c81b4
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -103,11 +114,16 @@ class PermissionSeeder extends Seeder
             'view_pemasukan_keuangan',
             'view_pengeluaran_keuangan',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'view_pembayaran_iuran',
 =======
             'view_jadwal_pertemuan',
             'view_pembayaran_iuran'
 >>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
+=======
+            'view_pembayaran_iuran',
+            'view_jadwal_pertemuan',
+>>>>>>> 834e1d200cda416a8370b69160a6ad88645c81b4
         ]);
 
         $rwRole->givePermissionTo([
