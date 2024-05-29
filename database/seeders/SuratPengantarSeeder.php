@@ -32,6 +32,8 @@ class SuratPengantarSeeder extends Seeder
         ];
 
         // Masukkan data ke dalam tabel 'surat_pengantar'
-        DB::table('surat_pengantar')->insert($suratPengantar);
+        foreach ($suratPengantar as $surat) {
+            DB::table('surat_pengantar')->insert($surat);
+        }
     }
 }

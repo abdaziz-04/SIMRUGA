@@ -17,14 +17,14 @@ class PengumumanSeeder extends Seeder
             'gambar' => 'image1.jpg',
             'isi_pengumuman' => 'Isi pengumuman 1',
             'tanggal_pengumuman' => '2024-05-24',
-            'tempat_kematian' => 'Tempat Kematian 1'
+            
         ]);
 
         Pengumuman::create([
             'gambar' => 'image2.jpg',
             'isi_pengumuman' => 'Isi pengumuman 2',
             'tanggal_pengumuman' => '2024-05-25',
-            'tempat_kematian' => 'Tempat Kematian 2'
+            
         ]);
     }
 }

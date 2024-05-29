@@ -15,16 +15,16 @@ class PemasukanKeuanganSeeder extends Seeder
     {
         DB::table('pemasukan_keuangan')->insert([
             [
-                'jenis_pemasukan' => 'Iuran Warga',
-                'tanggal' => Carbon::create(2024, 1, 10),
+                'jenis_pemasukan' => 'Iuran',
+                'tanggal' => '2024-01-10',
                 'jumlah_pemasukan' => '5000000',
-                'keterangan' => 'Iuran bulanan warga',
+                'keterangan' => 'Iuran warga RW 9',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'jenis_pemasukan' => 'Donasi',
-                'tanggal' => Carbon::create(2024, 2, 20),
+                'tanggal' => '2024-02-20',
                 'jumlah_pemasukan' => '2000000',
                 'keterangan' => 'Donasi dari sponsor acara lingkungan',
                 'created_at' => Carbon::now(),
@@ -32,9 +32,17 @@ class PemasukanKeuanganSeeder extends Seeder
             ],
             [
                 'jenis_pemasukan' => 'Sumbangan Acara',
-                'tanggal' => Carbon::create(2024, 3, 15),
+                'tanggal' => '2024-03-30',
                 'jumlah_pemasukan' => '1500000',
                 'keterangan' => 'Sumbangan untuk acara RT',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'jenis_pemasukan' => 'Iuran',
+                'tanggal' => '2024-05-28',
+                'jumlah_pemasukan' => '200000',
+                'keterangan' => 'Iuran warga RW 9',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],

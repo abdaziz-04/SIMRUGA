@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -14,42 +13,22 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-         // Buat peran
-         $adminRole = Role::create(['name' => 'admin']);
-         $sekretarisRole = Role::create(['name' => 'sekretaris']);
-         $bendaharaRole = Role::create(['name' => 'bendahara']);
-         $rwRole = Role::create(['name' => 'ketua_rw']);
-         $rtRole = Role::create(['name' => 'ketua_rt']);
-         $wargaRole = Role::create(['name' => 'warga']); 
- 
-        //  // Admin
-        //  Permission::create(['name' => 'view_admin']); 
-        //  Permission::create(['name' => 'view_users']); // rw rt
+        // Define roles
+        $roles = [
+            'admin',
+            'sekretaris',
+            'bendahara',
+            'ketua_rw',
+            'ketua_rt',
+            'warga',
+        ];
 
-        //  // Sekretaris
-        //  Permission::create(['name' => 'view_bansos']); 
-        //  Permission::create(['name' => 'view_warga']); // RW JUGA
-        //  Permission::create(['name' => 'view_pengajuan_surat']);
+        // Create roles if they do not exist
+        foreach ($roles as $roleName) {
+            Role::firstOrCreate(['name' => $roleName]);
+        }
 
-        // // Bendahara
-        //  Permission::create(['name' => 'view_jenis_iuran']); 
-        //  Permission::create(['name' => 'view_laporan_keuangan']); 
-        //  Permission::create(['name' => 'view_pemasukan_keuangan']); 
-        //  Permission::create(['name' => 'view_pengeluaran_keuangan']);
-        //  Permission::create(['name' => 'view_pembayaran_iuran']);
-
-        // //  RT
-        //  Permission::create(['name' => 'view_daftar_rt']);
-
-        // //  RW
-        //  Permission::create(['name' => 'view_jadwal_pertemuan']); // RT RW Sekretaris
-        //  Permission::create(['name' => 'view_laporan_keuangan_warga']);
-        //  Permission::create(['name' => 'view_pengumuman']);
-
-        // //  Warga
-        // Permission::create(['name' => 'view_pengaduan']);
-        // Permission::create(['name' => 'view_pengajuan_surat']);
-        
+        // Define permissions
         $permissions = [
             'view_admin',
             'view_users',
@@ -66,68 +45,77 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan_warga',
             'view_pengumuman',
             'view_pengaduan',
+            'view_kartu_keluarga'
         ];
 
-        foreach ($permissions as $permission) {
-            Permission::firstOrCreate(['name' => $permission]);
+        // Create permissions if they do not exist
+        foreach ($permissions as $permissionName) {
+            Permission::firstOrCreate(['name' => $permissionName]);
         }
 
-         // Assign permissions to roles
-         $adminRole->givePermissionTo([
+        // Retrieve roles
+        $adminRole = Role::where('name', 'admin')->first();
+        $sekretarisRole = Role::where('name', 'sekretaris')->first();
+        $bendaharaRole = Role::where('name', 'bendahara')->first();
+        $rwRole = Role::where('name', 'ketua_rw')->first();
+        $rtRole = Role::where('name', 'ketua_rt')->first();
+        $wargaRole = Role::where('name', 'warga')->first();
+
+        // Assign permissions to roles
+        $adminRole->givePermissionTo([
             'view_admin',
-            'view_bansos', 
-            'view_warga', 
+            'view_bansos',
+            'view_warga',
             'view_pengajuan_surat',
             'view_jadwal_pertemuan',
-            'view_jenis_iuran', 
-            'view_laporan_keuangan', 
-            'view_pemasukan_keuangan', 
+            'view_jenis_iuran',
+            'view_laporan_keuangan',
+            'view_pemasukan_keuangan',
             'view_pengeluaran_keuangan',
             'view_pembayaran_iuran',
             'view_users',
-            'view_warga',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan_warga',
-            'view_pengumuman',
-            'view_users',
             'view_daftar_rt',
+            'view_pengaduan',
             'view_jadwal_pertemuan',
             'view_pengaduan', 
-            'view_pengajuan_surat'
+            'view_pengajuan_surat',
+            'view_kartu_keluarga'
          ]);
 
-         $sekretarisRole->givePermissionTo([
-            'view_bansos', 
-            'view_warga', 
+        $sekretarisRole->givePermissionTo([
+            'view_bansos',
+            'view_warga',
             'view_pengajuan_surat',
-            'view_jadwal_pertemuan'
+            'view_jadwal_pertemuan',
+            'view_kartu_keluarga'
         ]);
-        
+
         $bendaharaRole->givePermissionTo([
-            'view_jenis_iuran', 
-            'view_laporan_keuangan', 
-            'view_pemasukan_keuangan', 
+            'view_jenis_iuran',
+            'view_laporan_keuangan',
+            'view_pemasukan_keuangan',
             'view_pengeluaran_keuangan',
-            'view_pembayaran_iuran'
+            'view_pembayaran_iuran',
+            'view_jadwal_pertemuan',
         ]);
-        
+
         $rwRole->givePermissionTo([
             'view_users',
             'view_warga',
             'view_jadwal_pertemuan',
             'view_laporan_keuangan_warga',
-            'view_pengumuman'
+            'view_pengumuman',
         ]);
-        
+
         $rtRole->givePermissionTo([
             'view_users',
             'view_daftar_rt',
-            'view_jadwal_pertemuan'
+            'view_jadwal_pertemuan',
         ]);
-        
+
         $wargaRole->givePermissionTo([
-            'view_pengaduan', 
-            'view_pengajuan_surat'
+            'view_pengaduan',
+            'view_pengajuan_surat',
         ]);
     }
 }
