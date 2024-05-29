@@ -45,6 +45,7 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan_warga',
             'view_pengumuman',
             'view_pengaduan',
+            'view_kartu_keluarga'
         ];
 
         // Create permissions if they do not exist
@@ -74,14 +75,26 @@ class PermissionSeeder extends Seeder
             'view_pembayaran_iuran',
             'view_users',
             'view_daftar_rt',
+<<<<<<< HEAD
             'view_pengaduan',
         ]);
+=======
+            'view_jadwal_pertemuan',
+            'view_pengaduan', 
+            'view_pengajuan_surat',
+            'view_kartu_keluarga'
+         ]);
+>>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
 
         $sekretarisRole->givePermissionTo([
             'view_bansos',
             'view_warga',
             'view_pengajuan_surat',
             'view_jadwal_pertemuan',
+<<<<<<< HEAD
+=======
+            'view_kartu_keluarga'
+>>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -89,7 +102,12 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan',
             'view_pemasukan_keuangan',
             'view_pengeluaran_keuangan',
+<<<<<<< HEAD
             'view_pembayaran_iuran',
+=======
+            'view_jadwal_pertemuan',
+            'view_pembayaran_iuran'
+>>>>>>> 26013d2ef3c33171716d03c729d2318769ced2d7
         ]);
 
         $rwRole->givePermissionTo([

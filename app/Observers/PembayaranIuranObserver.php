@@ -28,8 +28,8 @@ class PembayaranIuranObserver
 
         $pemasukan = Pemasukan::firstOrNew(['tanggal' => $tanggal]);
         $pemasukan->jumlah_pemasukan = $totalPembayaranIuran;
-        $pemasukan->jenis_pemasukan = 'iuran';
-        $pemasukan->keterangan = 'iuran warga RW 9';
+        $pemasukan->jenis_pemasukan = 'Iuran';
+        $pemasukan->keterangan = 'Iuran warga RW 9';
         $pemasukan->save();
     }
 }

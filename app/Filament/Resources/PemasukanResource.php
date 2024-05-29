@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PemasukanResource\Pages;
 use App\Filament\Resources\PemasukanResource\RelationManagers;
 use App\Models\Pemasukan;
+use App\Models\PembayaranIuran;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,7 +27,7 @@ class PemasukanResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-down';
     protected static ?string $navigationLabel = 'Pemasukan Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationGroup = 'Menu Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {

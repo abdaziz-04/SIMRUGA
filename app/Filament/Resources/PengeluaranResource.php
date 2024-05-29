@@ -19,6 +19,8 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 
 class PengeluaranResource extends Resource
 {
@@ -26,7 +28,7 @@ class PengeluaranResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
     protected static ?string $navigationLabel = 'Pengeluaran Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationGroup = 'Menu Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
@@ -45,6 +47,7 @@ class PengeluaranResource extends Resource
                     TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->required(),
                     DatePicker::make('tanggal')->label('Tanggal')->required(),
                     TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran')->required(),
+                    FileUpload::make('foto_struk')->label('Foto Struk')->nullable()->directory('struk')->visibility('public'),
                     TextInput::make('keterangan')->label('Keterangan'),
                 ])->columns(1),
             ]);
@@ -57,6 +60,7 @@ class PengeluaranResource extends Resource
                 TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable(),
                 TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable(),
                 TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                ImageColumn::make('foto_struk')->label('Foto Struk')->height(200),
                 TextColumn::make('keterangan')->label('Keterangan'),
             ])
             ->filters([
