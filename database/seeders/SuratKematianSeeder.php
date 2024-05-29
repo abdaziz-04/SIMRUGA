@@ -15,7 +15,7 @@ class SuratKematianSeeder extends Seeder
     {
         DB::table('surat_kematian')->insert([
             [
-                'id_warga' => 11, // Sesuaikan dengan ID yang ada di tabel warga
+                'id_warga' => 1, // Sesuaikan dengan ID yang ada di tabel warga
                 'waktu_kematian' => Carbon::create(2024, 5, 1, 14, 30, 0),
                 'sebab_kematian' => 'Sakit',
                 'tempat_kematian' => 'Rumah Sakit Umum',
@@ -23,7 +23,7 @@ class SuratKematianSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id_warga' => 12, // Sesuaikan dengan ID yang ada di tabel warga
+                'id_warga' => 2, // Sesuaikan dengan ID yang ada di tabel warga
                 'waktu_kematian' => Carbon::create(2024, 7, 23, 21, 15, 0),
                 'sebab_kematian' => 'Usia Tua',
                 'tempat_kematian' => 'Rumah',

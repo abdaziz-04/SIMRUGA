@@ -15,7 +15,6 @@ class RtSeeder extends Seeder
     public function run(): void
     {
         // Hapus data lama untuk menghindari konflik
-        DB::table('rt')->delete();
 
         DB::table('rt')->insert([
             [
