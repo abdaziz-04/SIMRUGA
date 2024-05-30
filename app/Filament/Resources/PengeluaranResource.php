@@ -17,7 +17,10 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 
 class PengeluaranResource extends Resource
 {
@@ -25,16 +28,26 @@ class PengeluaranResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
     protected static ?string $navigationLabel = 'Pengeluaran Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationGroup = 'Menu Bendahara';
+
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_pengeluaran_keuangan')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Grid::make()->schema([
-                    TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran'),
-                    TextInput::make('tanggal')->label('Tanggal'),
-                    TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                Card::make()
+                ->schema([
+                    TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->required(),
+                    DatePicker::make('tanggal')->label('Tanggal')->required(),
+                    TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran')->required(),
+                    FileUpload::make('foto_struk')->label('Foto Struk')->nullable()->directory('struk')->visibility('public'),
                     TextInput::make('keterangan')->label('Keterangan'),
                 ])->columns(1),
             ]);
@@ -44,9 +57,10 @@ class PengeluaranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable()->sortable(),
+                TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable(),
                 TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable(),
                 TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                ImageColumn::make('foto_struk')->label('Foto Struk')->height(200),
                 TextColumn::make('keterangan')->label('Keterangan'),
             ])
             ->filters([

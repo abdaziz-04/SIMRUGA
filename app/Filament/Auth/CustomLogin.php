@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Filament\Auth;
+
 use Filament\Pages\Auth\Login;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Component;
+use Filament\Forms\Components\Placeholder;
+use Illuminate\Validation\ValidationException;
 
 class CustomLogin extends Login
 {
@@ -38,5 +41,12 @@ class CustomLogin extends Login
             'username' => $data['login'],
             'password' => $data['password'],
         ];
+    }
+
+    protected function throwFailureValidationException(): never
+    {
+        throw ValidationException::withMessages([
+            'data.login' => __('filament-panels::pages/auth/login.messages.failed'),
+        ]);
     }
 }

@@ -6,7 +6,10 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\Widgets;
 use Filament\PanelProvider;
+use App\Filament\Auth\CustomLogin;
 use Filament\Support\Colors\Color;
+use App\Filament\Widgets\WargaChart;
+use App\Filament\Pages\Settings\Settings;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -17,11 +20,11 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use App\Filament\Auth\CustomLogin;
-use App\Filament\Pages\Settings\Settings;
-use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
- 
+use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -44,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
+                WargaChart::class,
 
             ])
             ->middleware([
@@ -62,8 +66,48 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
-            ->plugin(
-                \Hasnayeen\Themes\ThemesPlugin::make()
-            );
+            ->plugin(\Hasnayeen\Themes\ThemesPlugin::make());
+            // ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+            //     return $builder->groups([
+            //         NavigationGroup::make()
+            //             ->items([
+            //                 NavigationItem::make('Dashboard')
+            //                     ->icon('heroicon-o-home')
+            //                     ->isActiveWhen(fn (): bool => request()->routeIs('filament.admin.pages.dashboard'))
+            //                     ->url(fn (): string => route('filament.admin.pages.dashboard')),
+            //             ]),
+            //         NavigationGroup::make()
+            //             ->label('Ketua')
+            //             ->items([
+            //                 NavigationItem::make('Daftar RT')
+            //                     ->icon('heroicon-o-globe-asia-australia')
+            //                     ->isActiveWhen(fn (): bool => request()->routeIs('filament.admin.pages.rts'))
+            //                     ->url(fn (): string => route('filament.admin.pages.rts')),
+            //             ]),
+            //         NavigationGroup::make()
+            //             ->label('Settings')
+            //             ->icon('heroicon-o-wrench')
+            //             ->items([
+            //                 NavigationItem::make('Roles')
+            //                     ->icon('heroicon-o-user-group')
+            //                     ->isActiveWhen(fn (): bool => in_array(request()->route()->getName(), [
+            //                         'filament.admin.resources.roles.index',
+            //                         'filament.admin.resources.roles.create',
+            //                         'filament.admin.resources.roles.view',
+            //                         'filament.admin.resources.roles.edit',
+            //                     ]))
+            //                     ->url(fn (): string => '/admin/roles'),
+            //                 NavigationItem::make('Permissions')
+            //                     ->icon('heroicon-o-lock-closed')
+            //                     ->isActiveWhen(fn (): bool => in_array(request()->route()->getName(), [
+            //                         'filament.admin.resources.permissions.index',
+            //                         'filament.admin.resources.permissions.create',
+            //                         'filament.admin.resources.permissions.view',
+            //                         'filament.admin.resources.permissions.edit',
+            //                     ]))
+            //                     ->url(fn (): string => '/admin/permissions'),
+            //             ]),
+            //     ]);
+            // });
     }
 }

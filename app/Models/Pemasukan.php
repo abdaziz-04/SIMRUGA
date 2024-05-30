@@ -12,6 +12,9 @@ class Pemasukan extends Model
     // Nama tabel
     protected $table = 'pemasukan_keuangan';
 
+    // Primary key
+    protected $primaryKey = 'id';
+
     // Kolom yang dapat diisi
     protected $fillable = [
         'jenis_pemasukan',
@@ -26,6 +29,6 @@ class Pemasukan extends Model
      */
     public function pembayaranIuran()
     {
-        return $this->belongsTo(PembayaranIuran::class, 'id_pembayaran');
+        return $this->belongsTo(PembayaranIuran::class, 'id_pembayaran', 'id');
     }
 }

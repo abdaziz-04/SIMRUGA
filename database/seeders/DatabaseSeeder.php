@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-    
+        $this->call(KKSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(ArsipanSuratSeeder::class);
         $this->call(AdminSeeder::class);
@@ -26,11 +26,17 @@ class DatabaseSeeder extends Seeder
         $this->call(PembayaranIuranSeeder::class);
         $this->call(PemasukanKeuanganSeeder::class);
         $this->call(PenerimaBansosSeeder::class);
+        $this->call(LembagaPendukungSeeder::class);
+        $this->call(pengurus_rwSeeder::class);
         $this->call(PengaduanSeeder::class);
-        $this->call(PengurusRWSeeder::class);
         $this->call(PengeluaranKeuanganSeeder::class);
+        $this->call(LaporanKeuanganSeeder::class);
         $this->call(SuratTidakMampuSeeder::class);
         $this->call(SuratKematianSeeder::class);
-        $this->call(KegiatanRWSeeder::class);
+        // $this->call(KegiatanRWSeeder::class);
+        $this->call(KKSeeder::class);
+        $this->call(JadwalSeeder::class);
+        $this->call(JadwalSeeder::class);
+        $this->call(JadwalSeeder::class);
     }
 }

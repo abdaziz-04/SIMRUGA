@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Warga;
+use App\Models\RT;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
@@ -18,6 +19,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\WargaResource\RelationManagers;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
+use Illuminate\Support\Facades\Storage;
+
 
 class WargaResource extends Resource
 {
@@ -25,6 +28,11 @@ class WargaResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationLabel = 'Daftar Warga';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
@@ -37,32 +45,60 @@ class WargaResource extends Resource
 
     public static function form(Form $form): Form
     {
+
+        $daftarRT = RT::pluck('nama_rt', 'id')->toArray();
+
         return $form->schema([
             TextInput::make('nama_warga')->label('Nama')->required(),
-            TextInput::make('NIK')->label('NIK')->required()->unique(),
+            TextInput::make('NIK')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
             TextInput::make('no_telepon')->label('No Telepon')->required(),
-            TextInput::make('email')->label('Email')->required(),
+            Select::make('id_rt')
+            ->label('RT')->options($daftarRT)
+            ->required(),
             DatePicker::make('tanggal_lahir')->label('Tanggal Lahir')->required(),
             Select::make('jenis_kelamin')
                 ->options([
                     'L' => 'Laki-laki',
                     'P' => 'Perempuan',
                 ])->label('Jenis Kelamin')->required(),
-            TextInput::make('status_kawin')->label('Status Kawin')->required(),
             TextInput::make('pekerjaan')->label('Pekerjaan')->required(),
-            FileUpload::make('foto_warga')->label('Foto Warga')->nullable()->directory('warga')->visibility('public'),
-            TextInput::make('transportasi')->label('Transportasi')->required(),
-            TextInput::make('status_kepemilikan_rumah')->label('Status Kepemilikan Rumah')->required(),
-            TextInput::make('status_perkawinan')->label('Status Perkawinan')->required(),
-            TextInput::make('sumber_air_bersih')->label('Sumber Air Bersih')->required(),
-            TextInput::make('penerangan_rumah')->label('Penerangan Rumah')->required(),
-            TextInput::make('luas_bangunan')->label('Luas Bangunan')->required(),
-            TextInput::make('pengeluaran_bulanan')->label('Pengeluaran Bulanan')->required(),
+            FileUpload::make('foto_warga')
+            ->label('Foto Warga')
+            ->nullable()
+            ->visibility('public'),
+            Select::make('status_kepemilikan_rumah')
+            ->options([
+                'Milik Sendiri' => 'Milik Sendiri',
+                'Sewa' => 'Sewa',
+                'Kontrak' => 'Kontrak',
+                'Tinggal Bersama Orang Tua' => 'Tinggal Bersama Orang Tua',
+                'Dinas' => 'Dinas',
+            ])
+            ->label('Status Kepemilikan Rumah')->required(),
+            Select::make('status_kawin')
+            ->options([
+                'Kawin' => 'Kawin',
+                'Belum Kawin' => 'Belum Kawin',
+            ])
+            ->label('Status Perkawinan')->required(),
+            Select::make('sumber_air_bersih')
+            ->label('Sumber Air Bersih')
+            ->options([
+                'PDAM' => 'PDAM',
+                'Sumur' => 'Sumur',
+                'Mata Air' => 'Mata Air',
+                'Sungai' => 'Sungai',
+            ])
+            ->required(),
             TextInput::make('jumlah_anggota_keluarga')->label('Jumlah Anggota Keluarga')->required(),
             TextInput::make('penghasilan')->label('Penghasilan')->required(),
             TextInput::make('tanggungan')->label('Tanggungan')->required(),
-            TextInput::make('jenis_warga')->label('Jenis Warga')->required(),
+            Select::make('jenis_warga')->label('Jenis Warga')
+            ->options([
+                'Lokal' => 'Lokal',
+                'Pendatang' => 'Pendatang',
+            ])->required(),
         ]);
 
     }
@@ -75,6 +111,7 @@ class WargaResource extends Resource
         TextColumn::make('jenis_kelamin')->label('Jenis Kelamin'),
         TextColumn::make('status_kawin')->label('Status Kawin'),
         TextColumn::make('pekerjaan')->label('Pekerjaan'),
+        TextColumn::make('rt.nama_rt')->label('RT'),
     ])
     ->filters([
         //

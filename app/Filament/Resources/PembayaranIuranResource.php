@@ -4,7 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PembayaranIuranResource\Pages;
 use App\Filament\Resources\PembayaranIuranResource\RelationManagers;
+use App\Models\JenisIuran;
 use App\Models\PembayaranIuran;
+use App\Models\KK;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -17,7 +19,9 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\DatePicker;
 
 
 class PembayaranIuranResource extends Resource
@@ -26,15 +30,33 @@ class PembayaranIuranResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
     protected static ?string $navigationLabel = 'Pembayaran Iuran';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationGroup = 'Menu Bendahara';
+
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_pembayaran_iuran')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Grid::make()->schema([
-                    TextInput::make('tanggal_pembayaran')->label('Tanggal Pembayaran'),
-                    TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
+                Card::make()->schema([
+                    DatePicker::make('tanggal')->label('Tanggal Pembayaran'),
+                    Select::make('id_kk')
+                        ->label('Nama Kepala Keluarga')
+                        ->options(KK::all()->pluck('nama_kepala_keluarga', 'id'))
+                        ->searchable()
+                        ->required(),
+                    Select::make('id_iuran')
+                        ->label('Jenis Iuran')
+                        ->options(JenisIuran::all()->pluck('nama_iuran', 'id'))
+                        ->searchable()
+                        ->required(),    
+                    TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran')
                 ])->columns(1),
             ]);
     }
@@ -43,8 +65,10 @@ class PembayaranIuranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('tanggal_pembayaran')->label('Tanggal Pembayaran')->searchable()->sortable(),
-                TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
+                TextColumn::make('tanggal')->label('Tanggal Pembayaran')->sortable(),
+                TextColumn::make('kk.nama_kepala_keluarga')->label('Nama Kepala Keluarga')->searchable(),
+                TextColumn::make('jenisIuran.nama_iuran')->label('Jenis Iuran')->searchable(),
+                TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran')->searchable()->sortable(),
             ])
             ->filters([
                 //

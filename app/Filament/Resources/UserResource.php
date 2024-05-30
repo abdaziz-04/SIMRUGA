@@ -24,6 +24,11 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -33,7 +38,9 @@ class UserResource extends Resource
                         TextInput::make('username'),
                         TextInput::make('name'),
                         Password::make('password')
-                                ->label('Password'),
+                                ->label('Password')
+                                ->regeneratePassword()
+                                ->copyable(),
                         Select::make('roles')->multiple()->relationship('roles', 'name'),
                     ])
                     ->columns(2),

@@ -16,6 +16,9 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Grid;
+ 
 
 class LaporanKeuanganResource extends Resource
 {
@@ -23,7 +26,15 @@ class LaporanKeuanganResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
     protected static ?string $navigationLabel = 'Laporan Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationGroup = 'Menu Bendahara';
+
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if(auth()->user()->can('view_laporan_keuangan')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
 
     public static function form(Form $form): Form
     {
@@ -37,20 +48,21 @@ class LaporanKeuanganResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('pemasukan_keuangan.tanggal')->label('Tanggal Pemasukan'),
-                TextColumn::make('pemasukan_keuangan.jumlah_pemasukan')->label('Jumlah Pemasukan'),
-                TextColumn::make('pengeluaran_keuangan.tanggal')->label('Tanggal Pengeluaran'),
-                TextColumn::make('pengeluaran_keuangan.jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
-                TextColumn::make('total_saldo')->label('Sisa Saldo'),
-            ])
+                TextColumn::make('tanggal')->label('Tanggal')->sortable(),
+                TextColumn::make('keterangan_pemasukan')->label('Keterangan Pemasukan')->searchable(),
+                TextColumn::make('total_pemasukan')->label('Jumlah Pemasukan')->sortable(),
+                TextColumn::make('keterangan_pengeluaran')->label('Keterangan Pengeluaran')->sortable(),
+                TextColumn::make('total_pengeluaran')->label('Jumlah Pengeluaran')->sortable(),
+                TextColumn::make('total_saldo')->label('Sisa Saldo')->sortable(),
+        ])
 
             ->filters([
                 //
             ])
             ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
+                // ViewAction::make(),
+                // EditAction::make(),
+                // DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -73,5 +85,10 @@ class LaporanKeuanganResource extends Resource
             'create' => Pages\CreateLaporanKeuangan::route('/create'),
             'edit' => Pages\EditLaporanKeuangan::route('/{record}/edit'),
         ];
+    }
+
+    public static function indexQuery(Builder $query): Builder
+    {
+        return $query->with(['pemasukanKeuangan', 'pengeluaranKeuangan']);
     }
 }

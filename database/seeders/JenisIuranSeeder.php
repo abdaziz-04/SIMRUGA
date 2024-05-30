@@ -17,20 +17,23 @@ class JenisIuranSeeder extends Seeder
         // Example data to seed
         $jenisIuran = [
             [
-                'nama_iuran' => 'Iuran Bulanan',
+                'nama_iuran' => 'Iuran Mingguan Sampah',
                 'jumlah_iuran' => '50000',
-                // 'id_warga' => 1, // Adjust this according to your requirement
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama_iuran' => 'Iuran Tahunan',
-                'jumlah_iuran' => '250000',
-                // 'id_warga' => 2, // Adjust this according to your requirement
+                'nama_iuran' => 'Iuran Mingguan Kematian',
+                'jumlah_iuran' => '50000',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // Add more data as needed
+            [
+                'nama_iuran' => 'Iuran Kas Bulanan',
+                'jumlah_iuran' => '100000',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ];
 
         // Insert data into jenis_iuran table

@@ -16,7 +16,7 @@ use App\Http\Controllers\SuratKematianController;
 */
 
 Route::get('/', function () {
-    return redirect('/admin/login');
+    return redirect('admin/login');
 });
 
 Route::get('kematian/download/pdf/{record}', [SuratKematianController::class, 'downloadPdf'])->name('download.pdf');
