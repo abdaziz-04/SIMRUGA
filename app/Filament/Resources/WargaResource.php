@@ -53,7 +53,7 @@ class WargaResource extends Resource
             TextInput::make('NIK')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
             TextInput::make('no_telepon')->label('No Telepon')->required(),
-            Select::make('rt_id')
+            Select::make('id_rt')
             ->label('RT')->options($daftarRT)
             ->required(),
             DatePicker::make('tanggal_lahir')->label('Tanggal Lahir')->required(),
