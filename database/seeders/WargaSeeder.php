@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class WargaSeeder extends Seeder
 {
@@ -34,7 +33,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 4,
                 'penghasilan' => 5000000,
                 'tanggungan' => 2,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 2,
@@ -54,7 +55,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 5,
                 'penghasilan' => 6000000,
                 'tanggungan' => 3,
-                'jenis_warga' => 'Pendatang'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 3,
@@ -74,7 +77,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 3,
                 'penghasilan' => 7000000,
                 'tanggungan' => 1,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 4,
@@ -94,7 +99,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 4,
                 'penghasilan' => 4000000,
                 'tanggungan' => 2,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 5,
@@ -114,7 +121,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 4,
                 'penghasilan' => 6000000,
                 'tanggungan' => 2,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 6,
@@ -134,7 +143,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 3,
                 'penghasilan' => 7000000,
                 'tanggungan' => 1,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 7,
@@ -154,7 +165,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 4,
                 'penghasilan' => 5000000,
                 'tanggungan' => 2,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 8,
@@ -174,7 +187,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 3,
                 'penghasilan' => 4500000,
                 'tanggungan' => 1,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 9,
@@ -194,7 +209,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 4,
                 'penghasilan' => 4000000,
                 'tanggungan' => 2,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_kk' => 10,
@@ -214,7 +231,9 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 3,
                 'penghasilan' => 3500000,
                 'tanggungan' => 1,
-                'jenis_warga' => 'Tetap'
+                'jenis_warga' => 'Pendatang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
     }
