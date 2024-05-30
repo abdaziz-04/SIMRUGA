@@ -17,24 +17,25 @@ class PembayaranIuranSeeder extends Seeder
     {
         DB::table('pembayaran_iuran')->insert([
             [
-                'id_kk' => 1,
                 'id_iuran' => 1,
+                'id_warga' => 23,
                 'tanggal' => '2024-05-28',
                 'jumlah_pembayaran' => 50000,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'id_kk' => 2,
+                
                 'id_iuran' => 2,
+                'id_warga' => 14,
                 'tanggal' => '2024-05-28',
                 'jumlah_pembayaran' => 50000,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'id_kk' => 3,
-                'id_iuran' => 3,
+                'id_iuran' => 2,
+                'id_warga' => 25,
                 'tanggal' => '2024-05-28',
                 'jumlah_pembayaran' => 100000,
                 'created_at' => Carbon::now(),

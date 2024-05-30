@@ -15,7 +15,7 @@ class PengaduanSeeder extends Seeder
         // Sample active data for pengaduan
         $pengaduans = [
             [
-                'id_warga' => 69,
+                'id_warga' => 1,
                 'id_pengurus' => 7,
                 'id_lembagaPendukung' => 1, // Polisi
                 'tanggal_pengaduan' => '2024-05-01',
@@ -26,7 +26,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id_warga' => 70,
+                'id_warga' => 7,
                 'id_pengurus' => 5,
                 'id_lembagaPendukung' => 2, // Dinas Pemadam Kebakaran
                 'tanggal_pengaduan' => '2024-05-10',
@@ -37,7 +37,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id_warga' => 64,
+                'id_warga' => 4,
                 'id_pengurus' => 6,
                 'id_lembagaPendukung' => 3, // Dinas Kebersihan
                 'tanggal_pengaduan' => '2024-05-15',
@@ -48,7 +48,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id_warga' => 66,
+                'id_warga' => 10,
                 'id_pengurus' => 8,
                 'id_lembagaPendukung' => 4, // Rumah Sakit
                 'tanggal_pengaduan' => '2024-05-20',

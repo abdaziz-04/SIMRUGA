@@ -36,5 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KKSeeder::class);
         $this->call(LembagaPendukungSeeder::class);
         $this->call(JadwalSeeder::class);
+        $this->call(JadwalSeeder::class);
+        $this->call(JadwalSeeder::class);
     }
 }

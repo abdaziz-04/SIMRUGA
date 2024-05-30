@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+
 class KKSeeder extends Seeder
 {
     /**
@@ -13,8 +14,7 @@ class KKSeeder extends Seeder
      */
     public function run(): void
     {
-        // Hapus semua data dalam tabel kartu_keluarga
-        DB::table('kartu_keluarga')->delete();
+ 
 
         DB::table('kartu_keluarga')->insert([
             [
@@ -48,18 +48,21 @@ class KKSeeder extends Seeder
                 'alamat' => 'Jl. Example No. 5, Jakarta',
             ],
             [
+            
                 'nama_kepala_keluarga' => 'Linda Brown',
                 'no_kk' => '1234567890123461',
                 'rt_rw' => '06/07',
                 'alamat' => 'Jl. Example No. 6, Jakarta',
             ],
             [
+        
                 'nama_kepala_keluarga' => 'David Johnson',
                 'no_kk' => '1234567890123462',
                 'rt_rw' => '07/08',
                 'alamat' => 'Jl. Example No. 7, Jakarta',
             ],
             [
+            
                 'nama_kepala_keluarga' => 'Susan Williams',
                 'no_kk' => '1234567890123463',
                 'rt_rw' => '08/09',
