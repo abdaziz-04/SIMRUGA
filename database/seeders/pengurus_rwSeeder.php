@@ -19,26 +19,26 @@ class pengurus_rwSeeder extends Seeder
                 'nama_pengurus' => 'Budi Santoso',
                 'jabatan' => 'Ketua RW',
                 'no_telepon' => '081234567890',
-                'id_warga' => 1// Pastikan ID ini sesuai dengan data di tabel warga
+                'id_warga' => 1
             ],
             [
                 'nama_pengurus' => 'Gina Lestar',
                 'jabatan' => 'Bendahara RW',
                 'no_telepon' => '081234567891',
-                'id_warga' => 2 // Pastikan ID ini sesuai dengan data di tabel warga
+                'id_warga' => 2
             ],
             [
                 'nama_pengurus' => 'Eko ',
                 'jabatan' => 'Sekretaris RW',
                 'no_telepon' => '081234567892',
-                'id_warga' => 3 // Pastikan ID ini sesuai dengan data di tabel warga
+                'id_warga' => 3
             ],
             [
-                
+
                 'nama_pengurus' => 'Erci ',
                 'jabatan' => 'Ketua RT',
                 'no_telepon' => '081234567892',
-                'id_warga' => 4 // Pastikan ID ini sesuai dengan data di tabel warga
+                'id_warga' => 4
             ],
         ]);
     }

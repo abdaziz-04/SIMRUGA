@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('surat_kematian', function (Blueprint $table) {
-            $table->increments('id_surat_kematian');
-            $table->unsignedInteger('id_warga'); // relasi ke tabel warga
+            $table->id();
+            $table->foreignId('id_warga')->references('id')->on('warga')->onDelete('cascade');
             $table->dateTime('waktu_kematian');
             $table->string('sebab_kematian');
             $table->string('tempat_kematian');
             $table->timestamps();
 
             // Menambahkan constraint foreign key
-            $table->foreign('id_warga')->references('id_warga')->on('warga')->onDelete('cascade');
+
         });
     }
 

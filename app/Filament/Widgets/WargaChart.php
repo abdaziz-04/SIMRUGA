@@ -24,6 +24,7 @@ class WargaChart extends ChartWidget
             $data['datasets'][0]['data'][] = Warga::where('id_rt', $rt->id)->count();
         }
 
+        $data['datasets'][0]['label'] = 'RT';
         return $data;
     }
 

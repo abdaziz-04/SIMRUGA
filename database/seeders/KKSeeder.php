@@ -14,8 +14,6 @@ class KKSeeder extends Seeder
      */
     public function run(): void
     {
- 
-
         DB::table('kartu_keluarga')->insert([
             [
                 'nama_kepala_keluarga' => 'John Doe',
@@ -48,21 +46,18 @@ class KKSeeder extends Seeder
                 'alamat' => 'Jl. Example No. 5, Jakarta',
             ],
             [
-            
                 'nama_kepala_keluarga' => 'Linda Brown',
                 'no_kk' => '1234567890123461',
                 'rt_rw' => '06/07',
                 'alamat' => 'Jl. Example No. 6, Jakarta',
             ],
             [
-        
                 'nama_kepala_keluarga' => 'David Johnson',
                 'no_kk' => '1234567890123462',
                 'rt_rw' => '07/08',
                 'alamat' => 'Jl. Example No. 7, Jakarta',
             ],
             [
-            
                 'nama_kepala_keluarga' => 'Susan Williams',
                 'no_kk' => '1234567890123463',
                 'rt_rw' => '08/09',
@@ -110,7 +105,6 @@ class KKSeeder extends Seeder
                 'rt_rw' => '15/16',
                 'alamat' => 'Jl. Example No. 15, Jakarta',
             ],
-            // Tambahkan 3 data baru
             [
                 'nama_kepala_keluarga' => 'Anna Taylor',
                 'no_kk' => '1234567890123471',
@@ -129,80 +123,6 @@ class KKSeeder extends Seeder
                 'rt_rw' => '18/19',
                 'alamat' => 'Jl. Example No. 18, Jakarta',
             ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-            [
-                'nama_kepala_keluarga' => 'Maria Thomas',
-                'no_kk' => '1234567890123473',
-                'rt_rw' => '18/19',
-                'alamat' => 'Jl. Example No. 18, Jakarta',
-            ],
-
         ]);
     }
 }
-
