@@ -18,7 +18,7 @@ class WargaSeeder extends Seeder
         DB::table('warga')->insert([
             [
                 'id_kk' => 1,
-                'id_rt' => 1,
+                'id_rt' => 4,
                 'nama_warga' => 'Ahmad Fauzi',
                 'alamat' => 'Jl. Merdeka No. 1',
                 'no_telepon' => '081234567890',
@@ -38,7 +38,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 2,
-                'id_rt' => 2,
+                'id_rt' => 6,
                 'nama_warga' => 'Siti Aminah',
                 'alamat' => 'Jl. Merdeka No. 2',
                 'no_telepon' => '081234567891',

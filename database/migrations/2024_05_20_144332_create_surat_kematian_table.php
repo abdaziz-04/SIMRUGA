@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('surat_kematian', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_warga'); // relasi ke tabel warga
+            $table->foreignId('id_warga')->references('id')->on('warga')->onDelete('cascade');
             $table->dateTime('waktu_kematian');
             $table->string('sebab_kematian');
             $table->string('tempat_kematian');
-            
             $table->timestamps();
 
             // Menambahkan constraint foreign key
-            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
+
         });
     }
 
