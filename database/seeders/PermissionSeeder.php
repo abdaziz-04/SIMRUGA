@@ -82,7 +82,6 @@ class PermissionSeeder extends Seeder
             'view_bansos',
             'view_warga',
             'view_pengajuan_surat',
-            'view_jadwal_pertemuan',
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -94,7 +93,6 @@ class PermissionSeeder extends Seeder
             'view_pembayaran_iuran',
             'view_jadwal_pertemuan',
             'view_pembayaran_iuran',
-            'view_jadwal_pertemuan',
         ]);
 
         $rwRole->givePermissionTo([
