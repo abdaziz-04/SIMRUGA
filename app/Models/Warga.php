@@ -57,7 +57,7 @@ class Warga extends Model
      */
     public function kartuKeluarga()
     {
-        return $this->belongsTo(KartuKeluarga::class, 'id_kk');
+        return $this->belongsTo(KK::class, 'id_kk');
     }
 
     /**

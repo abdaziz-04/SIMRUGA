@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::create('pengurus_RW', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('id_warga'); // Menggunakan unsignedInteger()
             $table->string('nama_pengurus');
             $table->string('jabatan');
             $table->string('no_telepon');
             $table->timestamps();
 
-            // Menambahkan constraint foreign key
-            // $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
             $table->foreignId('id_warga')->constrained('warga')->onDelete('cascade');
         });
     }
