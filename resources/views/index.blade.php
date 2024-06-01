@@ -29,7 +29,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in"><span>Selamat Datang di</span></div>
                 <div class="intro-heading text-uppercase">
-    <span>RW 9, Tulusrejo, Lowokwaru</span>
+    <span>RW 8, Sawojajar, Kedungkandang</span>
     </div>
     <a class="btn btn-primary btn-xl text-uppercase" role="button" href="/admin/login">
         BUKA SISTEM INFORMASI RUKUN WARGA
@@ -37,6 +37,19 @@
             </div>
         </div>
     </header>
+
+    <section id="map">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase section-heading">Lokasi</h2>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1959812314476!2d112.65307167368537!3d-7.978684992046556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62842c935c8f1%3A0x72cecd5a022b06fa!2sJl.%20Simpang%20Danau%20Maninjau%20Sel.%20Dalam%20I%2C%20Sawojajar%2C%20Kec.%20Kedungkandang%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065139!5e0!3m2!1sid!2sid!4v1717262417808!5m2!1sid!2sid" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="services">
         <div class="container">
             <div class="row">
