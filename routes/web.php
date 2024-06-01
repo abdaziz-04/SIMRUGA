@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Filament\Resources\SuratResource\Pages\ViewSurat;
 use App\Http\Controllers\SuratKematianController;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,6 @@ use App\Http\Controllers\SuratKematianController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [LandingController::class, 'index']);
 
 Route::get('kematian/download/pdf/{record}', [SuratKematianController::class, 'downloadPdf'])->name('download.pdf');
