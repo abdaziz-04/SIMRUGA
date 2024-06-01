@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_pengurus');
             $table->string('jabatan');
             $table->string('no_telepon');
+            $table->string('image');
             $table->timestamps();
 
             $table->foreignId('id_warga')->constrained('warga')->onDelete('cascade');
