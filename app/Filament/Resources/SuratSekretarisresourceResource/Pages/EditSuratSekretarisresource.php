@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Filament\Resources\SuratWargaResource\Pages;
+namespace App\Filament\Resources\SuratSekretarisresourceResource\Pages;
 
-use App\Filament\Resources\SuratWargaResource;
+use App\Filament\Resources\SuratSekretarisresourceResource;
 use Filament\Actions;
-use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Notifications\Notification;
 
-class EditSuratWarga extends EditRecord
+class EditSuratSekretarisresource extends EditRecord
 {
-    protected static string $resource = SuratWargaResource::class;
-
+    protected static string $resource = SuratSekretarisresourceResource::class;
+    protected static ?string $navigationLabel = 'Arsipan Surat';
+    
     protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),
         ];
     }
-
     protected function getSavedNotification(): ?Notification
     {
         return Notification::make()
