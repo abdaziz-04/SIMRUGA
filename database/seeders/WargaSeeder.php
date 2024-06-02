@@ -17,12 +17,12 @@ class WargaSeeder extends Seeder
         DB::table('warga')->insert([
             [
                 'id_kk' => 1,
-                'id_rt' => 4,
-                'nama_warga' => 'Ahmad Fauzi',
-                'alamat' => 'Jl. Merdeka No. 1',
+                'id_rt' => 1,
+                'nama_warga' => 'Andi Sutrisno',
+                'alamat' => 'Jalan Simpang Danau Meninjau Selatan No. 1, Malang',
                 'no_telepon' => '081234567890',
-                'NIK' => '3201234567890001',
-                'tanggal_lahir' => '1980-01-01',
+                'NIK' => '327601040111001',
+                'tanggal_lahir' => '1975-01-01',
                 'jenis_kelamin' => 'L',
                 'status_kawin' => 'Menikah',
                 'pekerjaan' => 'PNS',
@@ -33,13 +33,13 @@ class WargaSeeder extends Seeder
                 'jumlah_anggota_keluarga' => 4,
                 'penghasilan' => 5000000,
                 'tanggungan' => 2,
-                'jenis_warga' => 'Pendatang',
+                'jenis_warga' => 'Lokal',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id_kk' => 2,
-                'id_rt' => 6,
+                'id_rt' => 3,
                 'nama_warga' => 'Siti Aminah',
                 'alamat' => 'Jl. Merdeka No. 2',
                 'no_telepon' => '081234567891',
@@ -61,7 +61,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 3,
-                'id_rt' => 3,
+                'id_rt' => 2,
                 'nama_warga' => 'Budi Santoso',
                 'alamat' => 'Jl. Kemerdekaan No. 3',
                 'no_telepon' => '081234567892',
@@ -83,7 +83,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 4,
-                'id_rt' => 4,
+                'id_rt' => 2,
                 'nama_warga' => 'Ani Setiani',
                 'alamat' => 'Jl. Kemerdekaan No. 4',
                 'no_telepon' => '081234567893',
@@ -105,7 +105,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 5,
-                'id_rt' => 5,
+                'id_rt' => 1,
                 'nama_warga' => 'Dewi Sartika',
                 'alamat' => 'Jl. Harmoni No. 5',
                 'no_telepon' => '081234567894',
@@ -127,7 +127,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 6,
-                'id_rt' => 6,
+                'id_rt' => 2,
                 'nama_warga' => 'Eko Purwanto',
                 'alamat' => 'Jl. Harmoni No. 6',
                 'no_telepon' => '081234567895',
@@ -149,7 +149,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 7,
-                'id_rt' => 7,
+                'id_rt' => 3,
                 'nama_warga' => 'Fajar Nugroho',
                 'alamat' => 'Jl. Harmoni No. 7',
                 'no_telepon' => '081234567896',
@@ -171,7 +171,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 8,
-                'id_rt' => 8,
+                'id_rt' => 3,
                 'nama_warga' => 'Gina Lestari',
                 'alamat' => 'Jl. Harmoni No. 8',
                 'no_telepon' => '081234567897',
@@ -193,7 +193,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 9,
-                'id_rt' => 9,
+                'id_rt' => 1,
                 'nama_warga' => 'Hariyanto',
                 'alamat' => 'Jl. Sejahtera No. 9',
                 'no_telepon' => '081234567898',
@@ -215,7 +215,7 @@ class WargaSeeder extends Seeder
             ],
             [
                 'id_kk' => 10,
-                'id_rt' => 10,
+                'id_rt' => 1,
                 'nama_warga' => 'Ika Nuraini',
                 'alamat' => 'Jl. Sejahtera No. 10',
                 'no_telepon' => '081234567899',
