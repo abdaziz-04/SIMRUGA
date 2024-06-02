@@ -17,7 +17,6 @@ class Pengumuman extends Model
         'gambar',
         'isi_pengumuman',
         'tanggal_pengumuman',
-        'tempat_kematian',
     ];
 
     // Menentukan nama kolom primary key

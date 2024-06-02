@@ -19,8 +19,8 @@ class RT extends Model
         'jumlah_anggota',
     ];
 
-    public function warga()
-    {
-        return $this->hasMany(Warga::class, 'id', 'id');
-    }
+    // public function warga()
+    // {
+    //     return $this->hasMany(Warga::class, 'id', 'id');
+    // }
 }

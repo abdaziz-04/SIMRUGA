@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surat', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_surat');
-            
+        Schema::create('surat_sekretaris',function(Blueprint $table)
+        {
+            $table->id('arsipan_id');
+            $table->string('instansi');
+            $table->string('kegiatan');
+            $table->string('file');
             $table->timestamps();
+
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surat');
+        //
     }
 };

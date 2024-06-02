@@ -33,11 +33,9 @@ class Warga extends Model
         'status_kawin',
         'pekerjaan',
         'foto_warga',
-        'transportasi',
         'status_kepemilikan_rumah',
         'sumber_air_bersih',
         'token_listrik',
-        'pengeluaran_bulanan',
         'jumlah_anggota_keluarga',
         'penghasilan',
         'tanggungan',
@@ -59,14 +57,14 @@ class Warga extends Model
      */
     public function kartuKeluarga()
     {
-        return $this->belongsTo(KartuKeluarga::class, 'id_kk');
+        return $this->belongsTo(KK::class, 'id_kk');
     }
 
     /**
      * Get the RT that owns the warga.
      */
     public function rt()
-    {
-        return $this->belongsTo(RT::class, 'id_rt');
-    }
+{
+    return $this->belongsTo(RT::class, 'id_rt', 'id');
+}
 }
