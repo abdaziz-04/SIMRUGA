@@ -9,7 +9,7 @@ use Filament\Resources\Pages\ListRecords;
 class ListSuratSekretarisresources extends ListRecords
 {
     protected static string $resource = SuratSekretarisresourceResource::class;
-
+    
     protected function getHeaderActions(): array
     {
         return [

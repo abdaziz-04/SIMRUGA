@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('instansi');
             $table->string('kegiatan');
             $table->string('file');
+            $table->timestamps();
 
         });
     }

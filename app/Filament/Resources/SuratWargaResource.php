@@ -24,6 +24,14 @@ class SuratWargaResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Surat';
 
+    public static function shouldRegisterNavigation(array $parameters = []): bool
+    {
+        if(auth()->user()->can('view_buat_surat_warga')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     public static function getTitle(Model $record): string
     {
         return "Surat";
@@ -153,7 +161,7 @@ class SuratWargaResource extends Resource
                     ->label('Jenis Surat'),
                 TextColumn::make('created_at')
                     ->label('Tanggal Surat')
-                    ->date(), // Menambahkan pengaturan format tanggal
+                    ->date(), 
             ])
             ->filters([
                 // Add filters here if needed
