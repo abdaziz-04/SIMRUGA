@@ -24,10 +24,10 @@ return new class extends Migration
             $table->string('status_kawin', 25);
             $table->string('pekerjaan', 255);
             $table->string('foto_warga')->nullable();
-            $table->string('status_kepemilikan_rumah');
-            $table->string('sumber_air_bersih');
+            $table->integer('status_kepemilikan_rumah');
+            $table->integer('sumber_air_bersih');
             $table->integer('token_listrik');
-            $table->integer('jumlah_anggota_keluarga');
+            $table->integer('umur');
             $table->integer('penghasilan');
             $table->integer('tanggungan');
             $table->string('jenis_warga');
