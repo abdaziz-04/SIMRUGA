@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('status_kepemilikan_rumah');
             $table->integer('sumber_air_bersih');
             $table->integer('token_listrik');
-            $table->integer('jumlah_anggota_keluarga');
+            $table->integer('umur');
             $table->integer('penghasilan');
             $table->integer('tanggungan');
             $table->string('jenis_warga');
