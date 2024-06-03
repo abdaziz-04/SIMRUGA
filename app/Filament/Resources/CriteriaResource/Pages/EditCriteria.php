@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\BansosResource\Pages;
+namespace App\Filament\Resources\CriteriaResource\Pages;
 
-use App\Filament\Resources\BansosResource;
+use App\Filament\Resources\CriteriaResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditBansos extends EditRecord
+class EditCriteria extends EditRecord
 {
-    protected static string $resource = BansosResource::class;
+    protected static string $resource = CriteriaResource::class;
 
     protected function getHeaderActions(): array
     {

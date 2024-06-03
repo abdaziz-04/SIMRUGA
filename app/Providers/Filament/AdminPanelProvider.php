@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            // ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
@@ -67,47 +67,5 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
             ->plugin(\Hasnayeen\Themes\ThemesPlugin::make());
-            // ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
-            //     return $builder->groups([
-            //         NavigationGroup::make()
-            //             ->items([
-            //                 NavigationItem::make('Dashboard')
-            //                     ->icon('heroicon-o-home')
-            //                     ->isActiveWhen(fn (): bool => request()->routeIs('filament.admin.pages.dashboard'))
-            //                     ->url(fn (): string => route('filament.admin.pages.dashboard')),
-            //             ]),
-            //         NavigationGroup::make()
-            //             ->label('Ketua')
-            //             ->items([
-            //                 NavigationItem::make('Daftar RT')
-            //                     ->icon('heroicon-o-globe-asia-australia')
-            //                     ->isActiveWhen(fn (): bool => request()->routeIs('filament.admin.pages.rts'))
-            //                     ->url(fn (): string => route('filament.admin.pages.rts')),
-            //             ]),
-            //         NavigationGroup::make()
-            //             ->label('Settings')
-            //             ->icon('heroicon-o-wrench')
-            //             ->items([
-            //                 NavigationItem::make('Roles')
-            //                     ->icon('heroicon-o-user-group')
-            //                     ->isActiveWhen(fn (): bool => in_array(request()->route()->getName(), [
-            //                         'filament.admin.resources.roles.index',
-            //                         'filament.admin.resources.roles.create',
-            //                         'filament.admin.resources.roles.view',
-            //                         'filament.admin.resources.roles.edit',
-            //                     ]))
-            //                     ->url(fn (): string => '/admin/roles'),
-            //                 NavigationItem::make('Permissions')
-            //                     ->icon('heroicon-o-lock-closed')
-            //                     ->isActiveWhen(fn (): bool => in_array(request()->route()->getName(), [
-            //                         'filament.admin.resources.permissions.index',
-            //                         'filament.admin.resources.permissions.create',
-            //                         'filament.admin.resources.permissions.view',
-            //                         'filament.admin.resources.permissions.edit',
-            //                     ]))
-            //                     ->url(fn (): string => '/admin/permissions'),
-            //             ]),
-            //     ]);
-            // });
     }
 }
