@@ -31,6 +31,16 @@ return [
 
     ],
 
+    'navigation' => [
+        // menu lainnya
+        [
+            'label' => 'Perhitungan Penerima Bansos',
+            'url' => '/admin/perhitungan-bansos',
+            'icon' => 'heroicon-o-calculator',
+        ],
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeeder::class);
         $this->call(ArsipanSuratSeeder::class);
         $this->call(AdminSeeder::class);
-        // $this->call(LevelSeeder::class);
+        $this->call(KriteriaSeeder::class);
         $this->call(RtSeeder::class);
         $this->call(WargaSeeder::class);
         $this->call(JenisIuranSeeder::class);
