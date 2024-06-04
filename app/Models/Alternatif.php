@@ -13,6 +13,7 @@ class Alternatif extends Model
 
     protected $fillable  = [
         'id',
+        'id_warga',
         'alternatif',
         'kondisi_rumah',
         'kelayakan',
@@ -22,4 +23,9 @@ class Alternatif extends Model
         'umur_yang_bekerja',
         'phk',
     ];
+
+    public function warga()
+    {
+        return $this->belongsTo(Warga::class);
+    }
 }

@@ -14,15 +14,18 @@ return new class extends Migration
     {
         Schema::create('optimisasi', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_warga')->nullable();
             $table->string('alternatif');
-            $table->string('kondisi_rumah');
-            $table->string('kelayakan');
-            $table->string('status_pernikahan');
+            $table->integer('kondisi_rumah');
+            $table->integer('kelayakan');
+            $table->integer('status_pernikahan');
             $table->integer('jumlah_anak');
             $table->integer('jumlah_tanggungan');
             $table->integer('umur_yang_bekerja');
-            $table->string('phk');
+            $table->integer('phk');
             $table->timestamps();
+
+            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 

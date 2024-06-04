@@ -30,16 +30,8 @@ class Warga extends Model
         'NIK',
         'tanggal_lahir',
         'jenis_kelamin',
-        'status_kawin',
-        'pekerjaan',
         'foto_warga',
-        'status_kepemilikan_rumah',
-        'sumber_air_bersih',
-        'token_listrik',
-        'jumlah_anggota_keluarga',
-        'penghasilan',
-        'tanggungan',
-        'jenis_warga',
+        'jenis_warga'
     ];
 
     /**
@@ -64,7 +56,7 @@ class Warga extends Model
      * Get the RT that owns the warga.
      */
     public function rt()
-{
-    return $this->belongsTo(RT::class, 'id_rt', 'id');
-}
+    {
+        return $this->belongsTo(RT::class, 'id_rt', 'id');
+    }
 }

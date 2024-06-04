@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Warga;
+use App\Models\Rangking;
 use Filament\Forms\Form;
 use App\Models\Alternatif;
 use Filament\Tables\Table;
@@ -37,6 +38,7 @@ class AlternatifResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $daftarWarga = Warga::pluck('nama_warga', 'id')->toArray();
         return $form
             ->schema([
                 Select::make('alternatif')->required()->label('Nama Warga')
@@ -97,26 +99,88 @@ class AlternatifResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('alternatif')->label('Nama Warga')->formatStateUsing(function ($state) {
+                    $warga = Warga::find($state);
+                    return $warga->nama_warga;
+                }),
                 TextColumn::make('kondisi_rumah')->label('Kondisi Rumah')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->kondisi_rumah_options[$record->kondisi_rumah]),
+                    ->formatStateUsing(function ($state) {
+                        $kondisi_rumah = [
+                            1 => 'Layak',
+                            2 => 'Cukup Layak',
+                            3 => 'Tidak Layak',
+                        ];
+                        return $kondisi_rumah[$state];
+                    }),
 
                 TextColumn::make('kelayakan')->label('Kelayakan')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->kelayakan_options[$record->kelayakan]),
+                    ->formatStateUsing(function ($state) {
+                        $kelayakan = [
+                            1 => 'Tidak Layak',
+                            2 => 'Cukup Layak',
+                            3 => 'Layak',
+                            4 => 'Sangat Layak',
+                        ];
+                        return $kelayakan[$state];
+                    }),
 
                 TextColumn::make('status_pernikahan')->label('Status Pernikahan')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->status_pernikahan_options[$record->status_pernikahan]),
+                    ->formatStateUsing(function ($state) {
+                        $status_pernikahan = [
+                            1 => 'Belum Menikah',
+                            2 => 'Sudah Menikah',
+                            3 => 'Cerai',
+                        ];
+                        return $status_pernikahan[$state];
+                    }),
 
                 TextColumn::make('jumlah_anak')->label('Jumlah Anak')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->jumlah_anak_options[$record->jumlah_anak]),
+                    ->formatStateUsing(function ($state) {
+                        $jumlah_anak = [
+                            1 => 'Anak 1',
+                            2 => 'Anak 2',
+                            3 => 'Anak 3',
+                            4 => 'Anak 4',
+                            5 => 'Anak lebih dari 4',
+                        ];
+                        return $jumlah_anak[$state];
+                    }),
 
                 TextColumn::make('jumlah_tanggungan')->label('Jumlah Tanggungan')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->jumlah_tanggungan_options[$record->jumlah_tanggungan]),
+                    ->formatStateUsing(function ($state) {
+                        $jumlah_tanggungan = [
+                            1 => 'Tidak Ada',
+                            2 => '1 - 2 Tanggungan',
+                            3 => '3 - 4 Tanggungan',
+                            4 => 'Lebih dari 4 Tanggungan',
+                        ];
+                        return $jumlah_tanggungan[$state];
+                    }),
 
                 TextColumn::make('umur_yang_bekerja')->label('Umur Yang Bekerja')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->umur_yang_bekerja_options[$record->umur_yang_bekerja]),
+                    ->formatStateUsing(function ($state) {
+                        $umur_yang_bekerja = [
+                            1 => '20 - 30 Tahun',
+                            2 => '31 - 40 Tahun',
+                            3 => '41 - 50 Tahun',
+                            4 => 'Lebih dari 50 Tahun',
+                        ];
+                        return $umur_yang_bekerja[$state];
+                    }),
 
                 TextColumn::make('phk')->label('PHK')
-                    ->formatStateUsing(fn (Alternatif $record) => $record->phk_options[$record->phk]),
+                    ->formatStateUsing(function ($state) {
+                        $phk = [
+                            1 => 'Tidak Sedang PHK',
+                            2 => 'Sedang PHK',
+                        ];
+                        return $phk[$state];
+                    }),
+                TextColumn::make('rangking')->label('Rangking')
+                    ->formatStateUsing(function ($state) {
+                        $rangking = Rangking::where('alternatif_id', $state)->first();
+                        return $rangking ? $rangking->rangking : '-';
+                    }),
             ])
             ->filters([
                 //

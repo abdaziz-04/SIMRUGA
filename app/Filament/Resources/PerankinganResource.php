@@ -4,14 +4,17 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
+use App\Models\Warga;
 use App\Models\Rangking;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use App\Models\Perankingan;
 use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PerankinganResource\Pages;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\PerankinganResource\RelationManagers;
 
 class PerankinganResource extends Resource
@@ -42,19 +45,20 @@ class PerankinganResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('alternatif_id')->label('Nama Warga')->formatStateUsing(function ($state) {
+                    $warga = Warga::find($state);
+                    return $warga->nama_warga;
+                }),
+                TextColumn::make('moora_value'),
+                TextColumn::make('rangking'),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+                ExportBulkAction::make()
+            ])
+            ->actions([]);
     }
 
     public static function getRelations(): array
@@ -68,8 +72,6 @@ class PerankinganResource extends Resource
     {
         return [
             'index' => Pages\ListPerankingans::route('/'),
-            'create' => Pages\CreatePerankingan::route('/create'),
-            'edit' => Pages\EditPerankingan::route('/{record}/edit'),
         ];
     }
 }

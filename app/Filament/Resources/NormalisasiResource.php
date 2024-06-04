@@ -19,16 +19,6 @@ class NormalisasiResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Perhitungan Bansos';
-
-    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
-    {
-        if (auth()->user()->can('view_bansos')) // string dalem can sesuain sama permission yang dibuat
-            return true;
-        else
-            return false;
-    }
-
     public static function form(Form $form): Form
     {
         return $form

@@ -2,18 +2,43 @@
 
 namespace App\Filament\Resources\PerankinganResource\Pages;
 
-use App\Filament\Resources\PerankinganResource;
 use Filament\Actions;
+use App\Services\MooraService;
+use Filament\Pages\Actions\ButtonAction;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\PerankinganResource;
 
 class ListPerankingans extends ListRecords
 {
     protected static string $resource = PerankinganResource::class;
 
-    protected function getHeaderActions(): array
+
+    protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            ButtonAction::make('Normalisasi Data')
+                ->action('normalisasi')
+                ->color('primary')
+                ->label('Normalisasi Data'),
+            ButtonAction::make('Hapus Data')
+                ->action('hapusData')
+                ->color('danger')
+                ->label('Hapus Data'),
         ];
+    }
+
+    public function normalisasi()
+    {
+        $service = new MooraService();
+        $service->calculateMoora();
+
+        // $this->notify('success', 'Berhasil normalisasi data.');
+    }
+    public function hapusData()
+    {
+        $service = new MooraService();
+        $service->deleteData();
+
+        // $this->notify('success', 'Berhasil hapus data.');
     }
 }

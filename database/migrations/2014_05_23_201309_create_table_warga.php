@@ -21,15 +21,8 @@ return new class extends Migration
             $table->string('NIK', 25);
             $table->date('tanggal_lahir');
             $table->char('jenis_kelamin', 1);
-            $table->string('status_kawin', 25)->nullable();
             $table->string('pekerjaan', 255)->nullable();
             $table->string('foto_warga')->nullable();
-            $table->integer('status_kepemilikan_rumah')->nullable();
-            $table->integer('sumber_air_bersih')->nullable();
-            $table->integer('token_listrik')->nullable();
-            $table->integer('umur')->nullable();
-            $table->integer('penghasilan')->nullable();
-            $table->integer('tanggungan')->nullable();
             $table->string('jenis_warga');
             $table->timestamps();
         });

@@ -71,81 +71,6 @@ class WargaResource extends Resource
                 ->nullable()
                 ->visibility('public'),
 
-            // Kriteria
-            Select::make('umur')
-                ->options([
-                    1 => '25 - 30 Tahun',
-                    2 => '31 - 40 Tahun',
-                    3 => '41 - 50 Tahun',
-                    4 => 'Lebih dari 50 Tahun',
-                ])
-                ->label('Umur')->required(),
-
-            Select::make('status_kepemilikan_rumah')
-                ->options([
-                    1 => 'Milik Sendiri',
-                    2 => 'Kontrak',
-                    3 => 'Numpang',
-                ])
-                ->label('Status Kepemilikan Rumah')->required(),
-
-            Select::make('pekerjaan')
-                ->options([
-                    1 => 'Swasta atau PNS',
-                    2 => 'Petani',
-                    3 => 'Buruh',
-                    4 => 'IRT',
-                ])
-                ->label('Status Perkawinan')->required(),
-
-            Select::make('status_kawin')
-                ->options([
-                    1 => 'Belum Menikah',
-                    2 => 'Nikah',
-                    3 => 'Cerai',
-                ])
-                ->label('Status Perkawinan')->required(),
-
-            Select::make('sumber_air_bersih')
-                ->label('Sumber Air Bersih')
-                ->options([
-                    5 => 'Sumur Swadaya',
-                    4 => 'Sumur Tetangga',
-                    3 => 'Sumur Sendiri',
-                    2 => 'PDAM Terbatas',
-                    1 => 'PDAM Bebas',
-                ])
-                ->required(),
-
-            Select::make('penghasilan')
-                ->options([
-                    1 => 'Lebih dari 4.500.0000',
-                    2 => '3.500.0000 - 4.499.0000',
-                    3 => '2.500.0000 - 3.499.0000',
-                    4 => '1.500.0000 - 2.499.0000',
-                    5 => 'Kurang dari 1.500.0000',
-                ])
-                ->label('Penghasilan')->required(),
-
-            Select::make('tanggungan')
-                ->options([
-                    1 => '1 Sampai 2 Orang',
-                    2 => '3 Orang',
-                    3 => '4 Orang',
-                    4 => '5 Orang',
-                    5 => 'Lebih dari 6 Orang',
-                ])
-                ->label('Tanggungan')->required(),
-
-            Select::make('token_listrik')
-                ->options([
-                    1 => 'Lebih dari 900 Watt',
-                    2 => '900 Watt',
-                    3 => '450 Watt',
-                    4 => 'Menumpang',
-                ])
-                ->label('Token Listrik')->required(),
-
             Select::make('jenis_warga')->label('Jenis Warga')
                 ->options([
                     'Lokal' => 'Lokal',
@@ -161,23 +86,6 @@ class WargaResource extends Resource
             TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable(),
             TextColumn::make('jenis_kelamin')->label('Jenis Kelamin')->formatStateUsing(function ($state) {
                 return $state === 'L' ? 'Laki-laki' : 'Perempuan';
-            }),
-            TextColumn::make('status_kawin')->label('Status Kawin')->formatStateUsing(function ($state) {
-                $statusKawinOptions = [
-                    1 => 'Belum Menikah',
-                    2 => 'Nikah',
-                    3 => 'Cerai',
-                ];
-                return $statusKawinOptions[$state] ?? 'Unknown';
-            }),
-            TextColumn::make('pekerjaan')->label('Pekerjaan')->formatStateUsing(function ($state) {
-                $pekerjaanOptions = [
-                    1 => 'Swasta atau PNS',
-                    2 => 'Petani',
-                    3 => 'Buruh',
-                    4 => 'IRT',
-                ];
-                return $pekerjaanOptions[$state] ?? 'Unknown';
             }),
             TextColumn::make('rt.nama_rt')->label('RT'),
         ])

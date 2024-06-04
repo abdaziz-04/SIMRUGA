@@ -14,10 +14,13 @@ return new class extends Migration
     {
         Schema::create('rangking', function (Blueprint $table) {
             $table->id();
-            $table->string('alternatif');
-            $table->double('skor');
+            $table->unsignedBigInteger('id_warga')->nullable();
+            $table->unsignedBigInteger('alternatif_id');
+            $table->float('moora_value');
             $table->integer('rangking');
             $table->timestamps();
+
+            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 
