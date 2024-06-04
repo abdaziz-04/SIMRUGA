@@ -11,32 +11,151 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- aos --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
-    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark" id="mainNav" style="--bs-secondary: #eff6ff;--bs-secondary-rgb: 239,246,255;color: rgb(10,10,11);background: rgb(239,246,255);">
-        <div class="container"><a class="navbar-brand" href="#page-top" style=" font-family: 'Georgia', serif; color: rgb(255, 255, 255);font-size: 24px;">SIMRUGA</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+
+
+<body id="page-top" class="mt-4" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark" id="mainNav"
+        style="--bs-secondary: #eff6ff;--bs-secondary-rgb: 239,246,255;color: rgb(10,10,11);background: rgb(239,246,255);">
+        <div class="container"><a class="navbar-brand" href="#page-top"
+                style=" font-family: 'Liberation Sans'; color: rgb(255, 255, 255);font-size: 24px;">SIMRUGA</a><button
+                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
+                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
+                    class="fa fa-bars"></i></button>
+            {{-- <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto text-uppercase">
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="#team" data-bs-target="#team">STRUKTUR</a></li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </nav>
-    <header class="masthead" style="background-image: url('assets/img/header-bg.jpg');">
+    <div id="carouselExampleRide" class="carousel slide mt-4" data-bs-ride="true">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/img/1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption top-0 mt-4 bottom-0 d-none d-md-block " style="padding-bottom: 40px">
+
+
+                    <p class="welcome-text fs-3 text-uppercase " style="margin-top: 30px">Selamat Datang di</p>
+                    <h3 class="location-text display-3 fw-bolder">RW 8, Sawojajar, Kedungkandang</h3>
+                    <a class="btn btn-primary btn-lg text-uppercase" role="button" href="/admin/login">
+                        BUKA SISTEM INFORMASI RUKUN WARGA
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="assets/img/2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/img/3.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+    {{-- <header class="masthead" style="background-image: url('assets/img/header-bg.jpg');">
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in"><span>Selamat Datang di</span></div>
                 <div class="intro-heading text-uppercase">
-    <span>RW 8, Sawojajar, Kedungkandang</span>
-    </div>
-    <a class="btn btn-primary btn-xl text-uppercase" role="button" href="/admin/login">
-        BUKA SISTEM INFORMASI RUKUN WARGA
-    </a>
+            <span>RW 8, Sawojajar, Kedungkandang</span>
+            </div>
+            <a class="btn btn-primary btn-xl text-uppercase" role="button" href="/admin/login">
+            BUKA SISTEM INFORMASI RUKUN WARGA
+            </a>
             </div>
         </div>
-    </header>
+    </header> --}}
+
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                @foreach ($pengurus->take(4) as $member)
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <!-- Use col-lg-3 for a 1x4 grid, col-md-4 for a 1x3 grid, and col-sm-6 for a 1x2 grid -->
+                        <div class="team-member">
+                            <img class="rounded-circle mx-auto" src="assets/img/team/{{ $member->jabatan }}.jpg"
+                                alt="{{ $member->nama_pengurus }}">
+                            <h4>{{ $member->nama_pengurus }}</h4>
+                            <p class="text-muted">{{ $member->jabatan }}</p>
+                            <ul class="list-inline social-buttons">
+                                <li class="list-inline-item"><a href="https://wa.me/{{ $member->no_telepon }}?text=Halo,%20saya%20tertarik%20untuk%20menghubungi%20Anda." target="_blank">
+                                    <i class="fa fa-whatsapp"></i></li>
+                                </a>
+                                {{-- <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
+                                            class="fa fa-whatsapp"></i></a></li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+
+    <section id="services">
+        <div class="container" style="margin-top: 2px">
+            {{-- <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase section-heading">FITUR SERBA DIGITAL</h2>
+                    <h3 class="text-muted section-subheading">Akses semua fitur dengan mudah hanya menggunakan perangkat digital</h3>
+                </div>
+            </div> --}}
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                        <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="section-heading">BERITA TERBARU</h4>
+                    <p class="text-muted">Menyajikan berita terupdate seputar RW 8 Kelurahan Sawojajar Kecamatan
+                        Kedungkandang</p>
+                </div>
+                <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                        <i class="fa fa-paste fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="section-heading">PENGAJUAN LAYANAN & PELAPORAN</h4>
+                    <p class="text-muted">Memberikan sistem pelayanan dan pelaporan yang efisien, agar mempermudah
+                        warga
+                        di dalam kondisi apapun</p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                        <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="section-heading">KEUANGAN DESA</h4>
+                    <p class="text-muted">Menampilkan pelaporan keuangan RW mulai dari uang masuk hingga uang keluar
+                        secara real time</p>
+                </div>
+                <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                        <i class="fa fa-database fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="section-heading">STATISTIK PENDUDUK</h4>
+                    <p class="text-muted">Rekap data penduduk RW 8 untuk membantu pemerintah dalam mengendalikan
+                        pertumbuhan warga</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="map">
         <div class="container">
@@ -45,71 +164,11 @@
                     <h2 class="text-uppercase section-heading">Lokasi</h2>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1959812314476!2d112.65307167368537!3d-7.978684992046556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62842c935c8f1%3A0x72cecd5a022b06fa!2sJl.%20Simpang%20Danau%20Maninjau%20Sel.%20Dalam%20I%2C%20Sawojajar%2C%20Kec.%20Kedungkandang%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065139!5e0!3m2!1sid!2sid!4v1717262417808!5m2!1sid!2sid" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">FITUR SERBA DIGITAL</h2>
-                    <h3 class="text-muted section-subheading">Akses semua fitur dengan mudah hanya menggunakan perangkat digital</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1959812314476!2d112.65307167368537!3d-7.978684992046556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62842c935c8f1%3A0x72cecd5a022b06fa!2sJl.%20Simpang%20Danau%20Maninjau%20Sel.%20Dalam%20I%2C%20Sawojajar%2C%20Kec.%20Kedungkandang%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065139!5e0!3m2!1sid!2sid!4v1717262417808!5m2!1sid!2sid"
+                        width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
-                        <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="section-heading">BERITA TERBARU</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
-                        <i class="fa fa-paste fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="section-heading">PENGAJUAN LAYANAN DAN PELAPORAN</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
-                        <i class="fa fa-money fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="section-heading">KEUANGAN DESA</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-blue"></i>
-                        <i class="fa fa-database fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="section-heading">STATISTIK PENDUDUK</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-    <section class="bg-light" id="team">
-        <div class="container">
-            <div class="row">
-                @foreach($pengurus as $member)
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img class="rounded-circle mx-auto" src="assets/img/team/{{ $member->id }}.jpg" alt="{{ $member->nama_pengurus }}">
-                            <h4>{{ $member->nama_pengurus }}</h4>
-                            <p class="text-muted">{{ $member->jabatan }}</p>
-                            <ul class="list-inline social-buttons">
-                                <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i class="fa fa-whatsapp"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endforeach
             </div>
         </div>
     </section>

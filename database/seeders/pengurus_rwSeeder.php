@@ -36,7 +36,7 @@ class pengurus_rwSeeder extends Seeder
             [
 
                 'nama_pengurus' => 'Erci ',
-                'jabatan' => 'Ketua RT',
+                'jabatan' => 'Ketua RT 1',
                 'no_telepon' => '081234567892',
                 'id_warga' => 4
             ],
