@@ -9,15 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
-        Schema::create('criterias', function (Blueprint $table) {
+        Schema::create('rangking', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('slug')->unique()->nullable();
-            $table->string('kategori');
-            $table->string('keterangan')->nullable();
+            $table->unsignedBigInteger('id_warga')->nullable();
+            $table->unsignedBigInteger('alternatif_id');
+            $table->float('moora_value');
+            $table->integer('rangking');
             $table->timestamps();
+
+            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kriterias');
+        Schema::dropIfExists('rangking');
     }
 };
