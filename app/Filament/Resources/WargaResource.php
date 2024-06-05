@@ -66,6 +66,14 @@ class WargaResource extends Resource
                     'P' => 'Perempuan',
                 ])->label('Jenis Kelamin')->required(),
 
+            Select::make('agama')
+                ->options([
+                    'Islam' => 'Islam',
+                    'Kristen' => 'Kristen',
+                    'Hindu' => 'Hindu',
+                    'Buddha' => 'Buddha',
+                ])->label('Agama')->required(),
+
             FileUpload::make('foto_warga')
                 ->label('Foto Warga')
                 ->nullable()
@@ -83,6 +91,7 @@ class WargaResource extends Resource
     {
         return $table->columns([
             TextColumn::make('nama_warga')->label('Nama')->searchable(),
+            TextColumn::make('agama')->label('Agama')->searchable(),
             TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable(),
             TextColumn::make('jenis_kelamin')->label('Jenis Kelamin')->formatStateUsing(function ($state) {
                 return $state === 'L' ? 'Laki-laki' : 'Perempuan';

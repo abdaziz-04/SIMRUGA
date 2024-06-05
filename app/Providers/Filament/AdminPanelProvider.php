@@ -9,8 +9,12 @@ use Filament\PanelProvider;
 use App\Filament\Auth\CustomLogin;
 use Filament\Support\Colors\Color;
 use App\Filament\Widgets\WargaChart;
+use Filament\Navigation\NavigationItem;
+use Filament\Navigation\NavigationGroup;
 use App\Filament\Pages\Settings\Settings;
 use Filament\Http\Middleware\Authenticate;
+use Filament\Navigation\NavigationBuilder;
+use App\Filament\Widgets\PermintaanLayanan;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
@@ -22,9 +26,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
-use Filament\Navigation\NavigationBuilder;
-use Filament\Navigation\NavigationGroup;
-use Filament\Navigation\NavigationItem;
+use App\Filament\Widgets\PermintaanLayananWidget;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -46,9 +48,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
                 WargaChart::class,
-
             ])
             ->middleware([
                 EncryptCookies::class,

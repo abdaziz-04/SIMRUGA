@@ -24,8 +24,9 @@ class WargaSeeder extends Seeder
                 'NIK' => '327601040111001',
                 'tanggal_lahir' => '1975-01-01',
                 'jenis_kelamin' => 'L',
-                'foto_warga' => 'https://example.com/photos/ahmad_fauzi.jpg',
+                'foto_warga' => 'https://example.com/photos/andi_sutrisno.jpg',
                 'jenis_warga' => 'Lokal',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 2,
@@ -38,6 +39,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/siti_aminah.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 3,
@@ -50,6 +52,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/budi_santoso.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Kristen',
             ],
             [
                 'id_kk' => 4,
@@ -62,6 +65,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/ani_setiani.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 5,
@@ -74,6 +78,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/dewi_sartika.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 6,
@@ -86,6 +91,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/eko_purwanto.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Kristen',
             ],
             [
                 'id_kk' => 7,
@@ -98,6 +104,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/fajar_nugroho.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 8,
@@ -110,6 +117,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/gina_lestari.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 9,
@@ -122,6 +130,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/hariyanto.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Hindu',
             ],
             [
                 'id_kk' => 10,
@@ -134,6 +143,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/ika_nuraini.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 11,
@@ -146,6 +156,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/joko_susilo.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Buddha',
             ],
             [
                 'id_kk' => 12,
@@ -158,6 +169,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/kartika_sari.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 13,
@@ -170,6 +182,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/luthfi_rahman.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 14,
@@ -182,6 +195,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/maya_sari.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Kristen',
             ],
             [
                 'id_kk' => 15,
@@ -194,6 +208,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/nanda_putra.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Hindu',
             ],
             [
                 'id_kk' => 16,
@@ -206,6 +221,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/olivia_putri.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 17,
@@ -218,6 +234,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/prasetyo_adi.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 18,
@@ -230,6 +247,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/qoriatul_aini.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Kristen',
             ],
             [
                 'id_kk' => 19,
@@ -242,6 +260,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'L',
                 'foto_warga' => 'https://example.com/photos/rangga_putra.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
             [
                 'id_kk' => 20,
@@ -254,6 +273,7 @@ class WargaSeeder extends Seeder
                 'jenis_kelamin' => 'P',
                 'foto_warga' => 'https://example.com/photos/sari_dewi.jpg',
                 'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
             ],
         ]);
     }
