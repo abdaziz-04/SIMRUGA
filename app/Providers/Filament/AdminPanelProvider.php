@@ -17,6 +17,8 @@ use Filament\Navigation\NavigationBuilder;
 use App\Filament\Widgets\PermintaanLayanan;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use App\Filament\Widgets\PermintaanLayananWidget;
+use App\Filament\Resources\PermintaanLayananResource;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -26,7 +28,6 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
-use App\Filament\Widgets\PermintaanLayananWidget;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -50,6 +51,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 WargaChart::class,
                 PermintaanLayananWidget::class,
+                \App\Filament\Widgets\PermintaanLayananWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

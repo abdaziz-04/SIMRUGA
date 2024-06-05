@@ -2,22 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LaporanKeuanganResource\Pages;
-use App\Filament\Resources\LaporanKeuanganResource\RelationManagers;
-use App\Models\LaporanKeuangan;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Actions\DeleteAction;
+use App\Models\LaporanKeuangan;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Grid;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Tables\Actions\DeleteAction;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\LaporanKeuanganResource\Pages;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use App\Filament\Resources\LaporanKeuanganResource\RelationManagers;
 
 
 class LaporanKeuanganResource extends Resource
@@ -64,9 +65,7 @@ class LaporanKeuanganResource extends Resource
                 // DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ExportBulkAction::make()
             ]);
     }
 
@@ -81,8 +80,8 @@ class LaporanKeuanganResource extends Resource
     {
         return [
             'index' => Pages\ListLaporanKeuangans::route('/'),
-            'create' => Pages\CreateLaporanKeuangan::route('/create'),
-            'edit' => Pages\EditLaporanKeuangan::route('/{record}/edit'),
+            // 'create' => Pages\CreateLaporanKeuangan::route('/create'),
+            // 'edit' => Pages\EditLaporanKeuangan::route('/{record}/edit'),
         ];
     }
 

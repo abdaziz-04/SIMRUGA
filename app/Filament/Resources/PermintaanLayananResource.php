@@ -27,6 +27,7 @@ class PermintaanLayananResource extends Resource
     protected static ?string $model = PermintaanLayanan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
+    protected static ?string $navigationLabel = 'Permintaan Layanan';
 
     public static function getNavigationBadge(): ?string
     {
@@ -90,6 +91,7 @@ class PermintaanLayananResource extends Resource
                         'primary' => 'proses',
                     ]),
                 TextColumn::make('deskripsi')->visible(fn () => auth()->user()->hasRole('warga')),
+                TextColumn::make('catatan')->visible(fn () => auth()->user()->hasRole('warga')),
                 TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
             ])
             ->filters([
@@ -109,9 +111,11 @@ class PermintaanLayananResource extends Resource
                                 'selesai' => 'Completed',
                             ])
                             ->required(),
+                        Textarea::make('catatan')->label('Catatan'),
                     ])
                     ->action(function (PermintaanLayanan $record, array $data): void {
                         $record->status = $data['status'];
+                        $record->catatan = $data['catatan']; // Simpan catatan yang diberikan oleh sekretaris
                         $record->save();
                     })
                     ->visible(fn () => auth()->user()->hasRole('sekretaris')),
