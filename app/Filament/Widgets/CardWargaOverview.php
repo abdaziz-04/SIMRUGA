@@ -2,9 +2,10 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use Illuminate\Support\Facades\Auth;
 use Filament\Widgets\StatsOverviewWidget\Card;
 use App\Models\Warga; // Pastikan model Warga ada
+use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class CardWargaOverview extends BaseWidget
 {
@@ -35,5 +36,9 @@ class CardWargaOverview extends BaseWidget
                 ->icon('heroicon-o-users')
                 ->extraAttributes(['class' => 'hover-shadow']),
         ];
+    }
+    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    {
+        return Auth::user()->hasPermissionTo('view_warga_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }

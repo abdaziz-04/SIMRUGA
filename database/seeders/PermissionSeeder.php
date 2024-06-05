@@ -61,6 +61,7 @@ class PermissionSeeder extends Seeder
             'view_kartu_keluarga',
             'view_layanan',
             'view_layanan_widget',
+            'view_warga_widget',
             'view_rt1',
             'view_rt2',
             'view_rt3',
@@ -115,15 +116,17 @@ class PermissionSeeder extends Seeder
             'view_daftar_rt',
             'view_pengaduan',
             'view_pengumuman',
-            'view_layanan'
+            'view_layanan',
+            'view_warga_widget',
         ]);
 
         $sekretarisRole->givePermissionTo([
             'view_bansos',
-            'view_warga',
             'view_pengajuan_surat',
             'view_layanan',
-            'view_layanan_widget'
+            'view_layanan_widget',
+            'view_jadwal_pertemuan'
+
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -143,13 +146,15 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'view_laporan_keuangan_warga',
             'view_pengumuman',
-            'view_layanan'
+            'view_layanan',
+            'view_warga_widget'
         ]);
 
         $wargaRole->givePermissionTo([
             'view_pengaduan',
             'view_pengajuan_surat',
             'view_laporan_keuangan',
+            'view_layanan'
         ]);
 
         $rt1Role->givePermissionTo([

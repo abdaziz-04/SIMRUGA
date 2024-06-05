@@ -23,12 +23,9 @@ class PengumumanResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Pengumuman';
 
-    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    public static function getNavigationBadge(): ?string
     {
-        if(auth()->user()->can('view_pengumuman')) // string dalem can sesuain sama permission yang dibuat
-            return true;
-        else
-            return false;
+        return static::getModel()::count();
     }
 
     public static function form(Form $form): Form
@@ -55,12 +52,12 @@ class PengumumanResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->visible(fn () => auth()->user()->hasRole('sekretaris', 'admin', 'ketua_rw', 'ketua_rt1', 'ketua_rt2', 'ketua_rt3')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ])->visible(fn () => auth()->user()->hasRole('sekretaris', 'admin', 'ketua_rw', 'ketua_rt1', 'ketua_rt2', 'ketua_rt3')),
             ]);
     }
 
