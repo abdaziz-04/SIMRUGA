@@ -24,7 +24,7 @@ class SuratSekretarisresourceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Arsipan Surat';
-    protected static ?string $navigationGroup = 'Sekretaris';
+    // protected static ?string $navigationGroup = 'Sekretaris';
 
     
     public static function shouldRegisterNavigation(array $parameters = []): bool

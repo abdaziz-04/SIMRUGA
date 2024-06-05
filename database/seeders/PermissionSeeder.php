@@ -112,6 +112,7 @@ class PermissionSeeder extends Seeder
             'view_users',
             'view_daftar_rt',
             'view_pengaduan',
+            'view_pengumuman'
         ]);
 
         $sekretarisRole->givePermissionTo([
@@ -142,6 +143,7 @@ class PermissionSeeder extends Seeder
         $wargaRole->givePermissionTo([
             'view_pengaduan',
             'view_pengajuan_surat',
+            'view_laporan_keuangan',
         ]);
 
         $rt1Role->givePermissionTo([
