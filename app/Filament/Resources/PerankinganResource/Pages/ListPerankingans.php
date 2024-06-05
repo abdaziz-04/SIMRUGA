@@ -16,10 +16,9 @@ class ListPerankingans extends ListRecords
     protected function getActions(): array
     {
         return [
-            ButtonAction::make('Normalisasi Data')
-                ->action('normalisasi')
-                ->color('primary')
-                ->label('Normalisasi Data'),
+            ButtonAction::make('Prediksi Penerima Bantuan')
+                ->action('perangkingan')
+                ->color('primary'),
             ButtonAction::make('Hapus Data')
                 ->action('hapusData')
                 ->color('danger')
@@ -27,7 +26,7 @@ class ListPerankingans extends ListRecords
         ];
     }
 
-    public function normalisasi()
+    public function perangkingan()
     {
         $service = new MooraService();
         $service->calculateMoora();

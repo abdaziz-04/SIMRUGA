@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\RTScope;
 
 class Warga extends Model
 {
@@ -33,6 +34,15 @@ class Warga extends Model
         'foto_warga',
         'jenis_warga'
     ];
+
+    // Filter warga berdasarkan roles user
+    protected static function booted()
+    {
+        parent::booted();
+
+        static::addGlobalScope(new RTScope);
+    }
+
 
     /**
      * The attributes that should be cast to native types.

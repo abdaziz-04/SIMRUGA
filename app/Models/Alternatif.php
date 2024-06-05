@@ -26,6 +26,6 @@ class Alternatif extends Model
 
     public function warga()
     {
-        return $this->belongsTo(Warga::class);
+        return $this->belongsTo(Warga::class, 'id_warga', 'nama_warga', 'NIK', 'alamat', 'no_telepon', 'foto_warga');
     }
 }

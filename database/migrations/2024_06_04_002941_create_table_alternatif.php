@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('alternatif', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_warga')->nullable();
-            $table->string('alternatif');
+            $table->unsignedBigInteger('alternatif');
             $table->integer('kondisi_rumah');
             $table->integer('kelayakan');
             $table->integer('status_pernikahan');
@@ -23,8 +22,6 @@ return new class extends Migration
             $table->integer('umur_yang_bekerja');
             $table->integer('phk');
             $table->timestamps();
-
-            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 
