@@ -2,10 +2,11 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
-use Filament\Widgets\StatsOverviewWidget\Stat;
+use App\Models\Rangking;
+use Illuminate\Support\Facades\Auth;
 use Filament\Widgets\StatsOverviewWidget\Card;
-use App\Models\Rangking; 
+use Filament\Widgets\StatsOverviewWidget\Stat;
+use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class CardBansosOverview extends BaseWidget
 {
@@ -22,5 +23,10 @@ class CardBansosOverview extends BaseWidget
                 ->icon('heroicon-o-users')
                 ->extraAttributes(['class' => 'hover-shadow']),
         ];
+    }
+
+    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    {
+        return Auth::user()->hasPermissionTo('view_bansos'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }
