@@ -20,8 +20,4 @@ class Pengumuman extends Model
         'isi_pengumuman',
         'tanggal_pengumuman',
     ];
-
-    
-
-    
 }

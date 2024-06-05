@@ -112,6 +112,7 @@ class PermissionSeeder extends Seeder
             'view_users',
             'view_daftar_rt',
             'view_pengaduan',
+            'view_pengumuman'
         ]);
 
         $sekretarisRole->givePermissionTo([
