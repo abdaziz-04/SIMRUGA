@@ -17,6 +17,7 @@ class Warga extends Model
      */
     protected $table = 'warga';
 
+    // sjsj
     /**
      * The attributes that are mass assignable.
      *
