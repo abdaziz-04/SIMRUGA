@@ -12,25 +12,31 @@ class MooraService
         // Ambil data dari tabel alternatif
         $alternatifs = Alternatif::all();
 
+        // Langkah optimisasi
+        $alternatifs = $this->optimizeValues($alternatifs);
+
         // Bobot kriteria dengan nama asli
         $weights = [
             // Benefit
-            'kondisi_rumah' => 0.15,
-            'kelayakan' => 0.13,
-            'status_pernikahan' => 0.13,
-            'jumlah_anak' => 0.12,
-            'jumlah_tanggungan' => 0.08,
+            'kondisi_rumah' => 0.37,
+            'kelayakan' => 0.23,
+            'status_pernikahan' => 0.16,
+            'jumlah_anak' => 0.11,
+            'jumlah_tanggungan' => 0.07,
 
             // Cost
-            'umur_yang_bekerja' => -0.10,
-            'phk' => -0.05,
+            'umur_yang_bekerja' => 0.04,
+            'phk' => 0.02,
         ];
 
         // Hitung nilai normalisasi
         $normalizedValues = $this->calculateNormalizedValues($alternatifs);
 
+        // Hitung nilai Yi
+        $yiValues = $this->calculateYiValues($alternatifs);
+
         // Hitung nilai MOORA
-        $mooraValues = $this->calculateMooraValues($normalizedValues, $weights);
+        $mooraValues = $this->calculateMooraValues($normalizedValues, $weights, $yiValues);
 
         // Hitung peringkat
         $rankings = $this->calculateRankings($mooraValues);
@@ -50,15 +56,19 @@ class MooraService
         // Hitung jumlah kuadrat nilai kriteria untuk setiap alternatif
         $squares = [];
         foreach ($alternatifs as $alternatif) {
+            $squares[$alternatif->id] = 0;
             foreach ($criteria as $criterion) {
-                $squares[$alternatif->id][$criterion] = pow($alternatif[$criterion], 2);
+                $squares[$alternatif->id] += pow($alternatif[$criterion], 2);
             }
         }
 
         // Hitung jumlah kuadrat untuk setiap kriteria
         $totalSquares = [];
         foreach ($criteria as $criterion) {
-            $totalSquares[$criterion] = array_sum(array_column($squares, $criterion));
+            $totalSquares[$criterion] = 0;
+            foreach ($alternatifs as $alternatif) {
+                $totalSquares[$criterion] += pow($alternatif[$criterion], 2);
+            }
         }
 
         // Normalisasikan nilai kriteria untuk setiap alternatif
@@ -72,29 +82,42 @@ class MooraService
         return $normalizedValues;
     }
 
+    private function optimizeValues($alternatifs)
+    {
+        return $alternatifs;
+    }
+
+    private function calculateYiValues($alternatifs)
+    {
+        $yiValues = [];
+        $criteria = [
+            'kondisi_rumah', 'kelayakan', 'status_pernikahan',
+            'jumlah_anak', 'jumlah_tanggungan', 'umur_yang_bekerja', 'phk'
+        ];
+
+        foreach ($criteria as $criterion) {
+            $maxValue = $alternatifs->max($criterion);
+            $minValue = $alternatifs->min($criterion);
+            $yiValues[$criterion] = $maxValue - $minValue;
+        }
+
+        return $yiValues;
+    }
+
     private function calculateMooraValues($normalizedValues, $weights)
     {
         $mooraValues = [];
 
         foreach ($normalizedValues as $alternatifId => $values) {
-            $benefit = 0;
-            $cost = 0;
+            $value = 0;
             foreach ($values as $criterion => $normalizedValue) {
-                if ($weights[$criterion] > 0) {
-                    // Kriteria benefit
-                    $benefit += $normalizedValue * $weights[$criterion];
-                } else {
-                    // Kriteria cost
-                    $cost += $normalizedValue * $weights[$criterion];
-                }
+                $value += $normalizedValue * $weights[$criterion];
             }
-            // Hitung nilai MOORA sebagai selisih antara total benefit dan total cost
-            $mooraValues[$alternatifId] = $benefit - $cost;
+            $mooraValues[$alternatifId] = $value;
         }
 
         return $mooraValues;
     }
-
 
     private function calculateRankings($mooraValues)
     {

@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\AlternatifResource\Pages;
 
-use App\Filament\Resources\AlternatifResource;
 use Filament\Actions;
+use Filament\Pages\Actions\ButtonAction;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\AlternatifResource;
 
 class ListAlternatifs extends ListRecords
 {
@@ -16,7 +17,13 @@ class ListAlternatifs extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            \EightyNine\ExcelImport\ExcelImportAction::make()
+                ->color("primary"),
             Actions\CreateAction::make(),
+            ButtonAction::make('Hapus Data')
+                ->action('hapusData')
+                ->color('danger')
+                ->label('Hapus Data'),
         ];
     }
 }

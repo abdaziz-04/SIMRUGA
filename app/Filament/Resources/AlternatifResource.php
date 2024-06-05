@@ -103,6 +103,7 @@ class AlternatifResource extends Resource
                     $warga = Warga::find($state);
                     return $warga->nama_warga;
                 }),
+                TextColumn::make('warga.no_telepon')->label('Kondisi Rumah'),
                 TextColumn::make('kondisi_rumah')->label('Kondisi Rumah')
                     ->formatStateUsing(function ($state) {
                         $kondisi_rumah = [
