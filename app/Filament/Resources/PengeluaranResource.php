@@ -27,6 +27,7 @@ class PengeluaranResource extends Resource
     protected static ?string $model = Pengeluaran::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
+
     protected static ?string $navigationLabel = 'Pengeluaran Keuangan RW';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
