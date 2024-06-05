@@ -23,4 +23,3 @@ Route::get('/', [LandingController::class, 'index']);
 Route::get('/admin/perhitungan-bansos', [PerhitunganBansosController::class, 'index'])->name('perhitungan-bansos.index');
 Route::post('/admin/perhitungan-bansos/calculate', [PerhitunganBansosController::class, 'calculate'])->name('perhitungan-bansos.calculate');
 
-Route::get('kematian/download/pdf/{record}', [SuratKematianController::class, 'downloadPdf'])->name('download.pdf');

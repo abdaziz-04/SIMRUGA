@@ -83,7 +83,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($pengurus->take(4) as $member)
-                    <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-0">
                         <!-- Use col-lg-3 for a 1x4 grid, col-md-4 for a 1x3 grid, and col-sm-6 for a 1x2 grid -->
                         <div class="team-member">
                             <img class="rounded-circle mx-auto" src="assets/img/team/{{ $member->jabatan }}.jpg"
@@ -91,8 +91,10 @@
                             <h4>{{ $member->nama_pengurus }}</h4>
                             <p class="text-muted">{{ $member->jabatan }}</p>
                             <ul class="list-inline social-buttons">
-                                <li class="list-inline-item"><a href="https://wa.me/{{ $member->no_telepon }}?text=Halo,%20saya%20tertarik%20untuk%20menghubungi%20Anda." target="_blank">
-                                    <i class="fa fa-whatsapp"></i></li>
+                                <li class="list-inline-item"><a
+                                        href="https://wa.me/{{ $member->no_telepon }}?text=Halo,%20saya%20tertarik%20untuk%20menghubungi%20Anda."
+                                        target="_blank">
+                                        <i class="fa fa-whatsapp"></i></li>
                                 </a>
                                 {{-- <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
                                             class="fa fa-whatsapp"></i></a></li> --}}
@@ -104,7 +106,20 @@
         </div>
     </section>
 
-
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Grafik Data Warga</h2>
+            </div>
+            <div class="col-lg-12 text-center">
+                <iframe class="embed-responsive-item"
+                src="https://lookerstudio.google.com/embed/reporting/9dc8b6f2-d297-4e95-9e74-4c5c9ad17a12"
+                width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    
     <section id="services">
         <div class="container" style="margin-top: 2px">
             {{-- <div class="row">
