@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('id_kk')->constrained('kartu_keluarga')->onDelete('cascade');
             $table->foreignId('id_rt')->constrained('rt');
             $table->string('nama_warga', 255);
+            $table->string('agama', 50);
             $table->string('alamat', 255);
             $table->string('no_telepon', 25);
             $table->string('NIK', 25);

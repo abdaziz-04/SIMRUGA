@@ -22,6 +22,7 @@ class AdminSeeder extends Seeder
             ['username' => 'ketua_rt2', 'rt_id' => 2, 'name' => 'Ketua RT 2', 'password' => '12345'],
             ['username' => 'ketua_rt3', 'rt_id' => 3, 'name' => 'Ketua RT 3', 'password' => '12345'],
             ['username' => 'warga', 'name' => 'Warga', 'password' => '12345'],
+            ['username' => 'abdaziz', 'name' => 'Abdul Aziz', 'password' => '12345'],
         ];
 
         foreach ($usersData as $userData) {
@@ -58,6 +59,9 @@ class AdminSeeder extends Seeder
                     $user->assignRole('ketua_rt3');
                     break;
                 case 'warga':
+                    $user->assignRole('warga');
+                    break;
+                case 'abdaziz':
                     $user->assignRole('warga');
                     break;
             }
