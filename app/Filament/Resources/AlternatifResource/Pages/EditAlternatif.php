@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\WargaResource\Pages;
+namespace App\Filament\Resources\AlternatifResource\Pages;
 
-use App\Filament\Resources\WargaResource;
+use App\Filament\Resources\AlternatifResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditWarga extends EditRecord
+class EditAlternatif extends EditRecord
 {
-    protected static string $resource = WargaResource::class;
-
+    protected static string $resource = AlternatifResource::class;
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
     }
-
     protected function getHeaderActions(): array
     {
         return [

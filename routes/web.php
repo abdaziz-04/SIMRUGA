@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Filament\Resources\SuratResource\Pages\ViewSurat;
-use App\Http\Controllers\SuratKematianController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\SuratKematianController;
 use App\Http\Controllers\PerhitunganBansosController;
+use App\Filament\Resources\SuratResource\Pages\ViewSurat;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,5 @@ use App\Http\Controllers\PerhitunganBansosController;
 
 Route::get('/', [LandingController::class, 'index']);
 
-// Hitung bansos
-Route::get('/admin/perhitungan-bansos', [PerhitunganBansosController::class, 'index'])->name('perhitungan-bansos.index');
-Route::post('/admin/perhitungan-bansos/calculate', [PerhitunganBansosController::class, 'calculate'])->name('perhitungan-bansos.calculate');
+
 
