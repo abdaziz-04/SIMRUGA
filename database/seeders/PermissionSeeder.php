@@ -68,6 +68,8 @@ class PermissionSeeder extends Seeder
             'view_warga_pendatang',
             'view_layanan_widget',
             'view_surat_widget',
+            'view_laporan_keuangan_widget',
+            'view_pengumuman_widget',
             'view_rt1',
             'view_rt2',
             'view_rt3',
@@ -141,12 +143,14 @@ class PermissionSeeder extends Seeder
         $bendaharaRole->givePermissionTo([
             'view_jenis_iuran',
             'view_laporan_keuangan',
+            'view_laporan_keuangan_widget',
             'view_pemasukan_keuangan',
             'view_pengeluaran_keuangan',
             'view_pembayaran_iuran',
             'view_pembayaran_iuran',
             'view_jadwal_pertemuan',
             'view_pembayaran_iuran',
+            'view_laporan_keuangan_widget',
         ]);
 
         $rwRole->givePermissionTo([
@@ -164,9 +168,11 @@ class PermissionSeeder extends Seeder
         $wargaRole->givePermissionTo([
             'view_pengaduan',
             'view_pengajuan_surat',
+            // 'view_laporan_keuangan_widget',
             'view_laporan_keuangan',
             'view_layanan',
             'view_buat_surat_warga'
+            'view_pengumuman_widget'
         ]);
 
         $rt1Role->givePermissionTo([
