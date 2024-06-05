@@ -18,18 +18,18 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Grid;
- 
+
 
 class LaporanKeuanganResource extends Resource
 {
     protected static ?string $model = LaporanKeuangan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationLabel = 'Laporan Keuangan';
+    protected static ?string $navigationLabel = 'Laporan Keuangan RW';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('view_laporan_keuangan')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_laporan_keuangan')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -53,7 +53,7 @@ class LaporanKeuanganResource extends Resource
                 TextColumn::make('keterangan_pengeluaran')->label('Keterangan Pengeluaran')->sortable(),
                 TextColumn::make('total_pengeluaran')->label('Jumlah Pengeluaran')->sortable(),
                 TextColumn::make('total_saldo')->label('Sisa Saldo')->sortable(),
-        ])
+            ])
 
             ->filters([
                 //
