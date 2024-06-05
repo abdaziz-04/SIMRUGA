@@ -28,7 +28,6 @@ class PengeluaranResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
     protected static ?string $navigationLabel = 'Pengeluaran Keuangan';
-    protected static ?string $navigationGroup = 'Menu Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {

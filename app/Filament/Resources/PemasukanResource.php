@@ -27,7 +27,6 @@ class PemasukanResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-down';
     protected static ?string $navigationLabel = 'Pemasukan Keuangan';
-    protected static ?string $navigationGroup = 'Menu Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {

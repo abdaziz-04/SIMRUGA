@@ -26,7 +26,6 @@ class LaporanKeuanganResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
     protected static ?string $navigationLabel = 'Laporan Keuangan';
-    protected static ?string $navigationGroup = 'Menu Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
