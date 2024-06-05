@@ -18,44 +18,44 @@ class WidgetPemasukanChart extends ChartWidget
 
     protected function getData(): array
     {
-            $data = [];
+        $data = [];
 
-            // Daftar lengkap nama bulan
-            $allMonths = collect([
-                'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-            ]);
+        // Daftar lengkap nama bulan
+        $allMonths = collect([
+            'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+        ]);
 
-            // Ambil data pemasukan
-            $pemasukan = Pemasukan::all();
+        // Ambil data pemasukan
+        $pemasukan = Pemasukan::all();
 
-            // Kelompokkan data pemasukan per bulan
-            $pemasukanPerBulan = $pemasukan->groupBy(function ($pemasukan) {
-                return Carbon::parse($pemasukan->tanggal)->format('F'); // Formatkan tanggal menjadi nama bulan
-            });
+        // Kelompokkan data pemasukan per bulan
+        $pemasukanPerBulan = $pemasukan->groupBy(function ($pemasukan) {
+            return Carbon::parse($pemasukan->tanggal)->format('F'); // Formatkan tanggal menjadi nama bulan
+        });
 
-            // Siapkan data jumlah pemasukan per bulan
-            $jumlahPemasukanPerBulan = [];
+        // Siapkan data jumlah pemasukan per bulan
+        $jumlahPemasukanPerBulan = [];
 
-            // Isi data jumlah pemasukan per bulan dengan 0 jika tidak ada data pemasukan untuk bulan tersebut
-            foreach ($allMonths as $month) {
-                $jumlahPemasukanPerBulan[$month] = $pemasukanPerBulan->has($month) ? $pemasukanPerBulan[$month]->sum('jumlah_pemasukan') : 0;
-            }
-
-            // Masukkan data ke dalam array data untuk chart
-            $data['labels'] = $allMonths->toArray();
-            $data['datasets'][0]['label'] = 'Pemasukan';
-            $data['datasets'][0]['data'] = array_values($jumlahPemasukanPerBulan);
-
-            return $data;
+        // Isi data jumlah pemasukan per bulan dengan 0 jika tidak ada data pemasukan untuk bulan tersebut
+        foreach ($allMonths as $month) {
+            $jumlahPemasukanPerBulan[$month] = $pemasukanPerBulan->has($month) ? $pemasukanPerBulan[$month]->sum('jumlah_pemasukan') : 0;
         }
 
-        protected function getType(): string
-        {
-            return 'line';
-        }
+        // Masukkan data ke dalam array data untuk chart
+        $data['labels'] = $allMonths->toArray();
+        $data['datasets'][0]['label'] = 'Pemasukan';
+        $data['datasets'][0]['data'] = array_values($jumlahPemasukanPerBulan);
 
-        public static function canView(): bool // Fungsi untuk memeriksa hak akses
-        {
-            return Auth::user()->hasPermissionTo('view_pemasukan_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
-        }
+        return $data;
+    }
+
+    protected function getType(): string
+    {
+        return 'line';
+    }
+
+    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    {
+        return Auth::user()->hasPermissionTo('view_pemasukan_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+    }
 }

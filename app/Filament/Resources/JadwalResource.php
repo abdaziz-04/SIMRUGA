@@ -30,24 +30,29 @@ class JadwalResource extends Resource
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('view_jadwal_pertemuan')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_jadwal_pertemuan')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
     }
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Card::make()
             ->schema([
-                TextInput::make('nama_pertemuan')->label('Nama Pertemuan')->required(),
-                DatePicker::make('tanggal_pertemuan')->label('Tanggal Pertemuan')->required(),
-                TextInput::make('keterangan_jadwal')->label('Keterangan')->required(),
-                TextInput::make('pihak_terlibat')->label('Pihak Terlibat')->required(),
-            ])->columns(1)
-        ]);
+                Card::make()
+                    ->schema([
+                        TextInput::make('nama_pertemuan')->label('Nama Pertemuan')->required(),
+                        DatePicker::make('tanggal_pertemuan')->label('Tanggal Pertemuan')->required(),
+                        TextInput::make('keterangan_jadwal')->label('Keterangan')->required(),
+                        TextInput::make('pihak_terlibat')->label('Pihak Terlibat')->required(),
+                    ])->columns(1)
+            ]);
     }
 
     public static function table(Table $table): Table

@@ -61,7 +61,10 @@ class PermissionSeeder extends Seeder
             'view_kartu_keluarga',
             'view_layanan',
             'view_layanan_widget',
+            'view_warga_widget',
             'view_buat_surat_warga',
+            'view_pemasukan_keuangan_widget',
+            'view_pengeluaran_keuangan_widget',
             'view_rt1',
             'view_rt2',
             'view_rt3',
@@ -116,15 +119,17 @@ class PermissionSeeder extends Seeder
             'view_daftar_rt',
             'view_pengaduan',
             'view_pengumuman',
-            'view_layanan'
+            'view_layanan',
+            'view_warga_widget',
         ]);
 
         $sekretarisRole->givePermissionTo([
             'view_bansos',
-            'view_warga',
             'view_pengajuan_surat',
             'view_layanan',
-            'view_layanan_widget'
+            'view_layanan_widget',
+            'view_jadwal_pertemuan'
+
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -144,14 +149,15 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'view_laporan_keuangan_warga',
             'view_pengumuman',
-            'view_layanan'
+            'view_layanan',
+            'view_warga_widget'
         ]);
 
         $wargaRole->givePermissionTo([
             'view_pengaduan',
             'view_pengajuan_surat',
             'view_laporan_keuangan',
-            'view_buat_surat_warga'
+            'view_layanan'
         ]);
 
         $rt1Role->givePermissionTo([
@@ -173,59 +179,59 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'view_laporan_keuangan',
         ]);
-        $rt4Role->givePermissionTo([
-            'view_rt4',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt5Role->givePermissionTo([
-            'view_rt5',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt6Role->givePermissionTo([
-            'view_rt6',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt7Role->givePermissionTo([
-            'view_rt7',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt8Role->givePermissionTo([
-            'view_rt8',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt9Role->givePermissionTo([
-            'view_rt9',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt10Role->givePermissionTo([
-            'view_rt10',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt11Role->givePermissionTo([
-            'view_rt11',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
-        $rt12Role->givePermissionTo([
-            'view_rt12',
-            'view_users',
-            'view_jadwal_pertemuan',
-            'view_laporan_keuangan',
-        ]);
+        // $rt4Role->givePermissionTo([
+        //     'view_rt4',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt5Role->givePermissionTo([
+        //     'view_rt5',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt6Role->givePermissionTo([
+        //     'view_rt6',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt7Role->givePermissionTo([
+        //     'view_rt7',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt8Role->givePermissionTo([
+        //     'view_rt8',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt9Role->givePermissionTo([
+        //     'view_rt9',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt10Role->givePermissionTo([
+        //     'view_rt10',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt11Role->givePermissionTo([
+        //     'view_rt11',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
+        // $rt12Role->givePermissionTo([
+        //     'view_rt12',
+        //     'view_users',
+        //     'view_jadwal_pertemuan',
+        //     'view_laporan_keuangan',
+        // ]);
     }
 }
