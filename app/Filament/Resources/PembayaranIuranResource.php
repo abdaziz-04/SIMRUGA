@@ -30,11 +30,10 @@ class PembayaranIuranResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
     protected static ?string $navigationLabel = 'Pembayaran Iuran';
-    protected static ?string $navigationGroup = 'Menu Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('view_pembayaran_iuran')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_pembayaran_iuran')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -55,7 +54,7 @@ class PembayaranIuranResource extends Resource
                         ->label('Jenis Iuran')
                         ->options(JenisIuran::all()->pluck('nama_iuran', 'id'))
                         ->searchable()
-                        ->required(),    
+                        ->required(),
                     TextInput::make('jumlah_pembayaran')->label('Jumlah Pembayaran')
                 ])->columns(1),
             ]);
@@ -79,7 +78,7 @@ class PembayaranIuranResource extends Resource
                 DeleteAction::make(),
             ])
             ->bulkActions([
-                    Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
