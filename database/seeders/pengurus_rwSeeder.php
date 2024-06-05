@@ -40,6 +40,13 @@ class pengurus_rwSeeder extends Seeder
                 'no_telepon' => '081234567892',
                 'id_warga' => 4
             ],
+            [
+                'nama_pengurus' => 'Erci Sukaesi ',
+                'jabatan' => 'Ketua RT 2',
+                'no_telepon' => '081234587892',
+                'id_warga' => 5
+            ],
+
         ]);
     }
 }
