@@ -159,6 +159,7 @@ class PermissionSeeder extends Seeder
             'view_layanan',
             'view_warga_widget',
             'edit_lembaga',
+            'view_admin'
         ]);
 
         $wargaRole->givePermissionTo([

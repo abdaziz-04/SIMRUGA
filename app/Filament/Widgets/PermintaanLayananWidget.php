@@ -16,7 +16,7 @@ class PermintaanLayananWidget extends BaseWidget
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasPermissionTo('view_layanan_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_layanan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 
     protected function getTableQuery(): Builder
@@ -54,7 +54,8 @@ class PermintaanLayananWidget extends BaseWidget
                 ->form([
                     Select::make('status')
                         ->options([
-                            'pending' => 'Pending',
+                            'pending'
+                            => 'Pending',
                             'proses' => 'Processed',
                             'ditolak' => 'Rejected',
                             'selesai' => 'Completed',

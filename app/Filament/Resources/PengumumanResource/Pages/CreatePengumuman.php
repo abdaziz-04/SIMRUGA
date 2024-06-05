@@ -18,6 +18,4 @@ class CreatePengumuman extends CreateRecord
     {
         return $this->getResource()::getUrl('index');
     }
-
-
 }
