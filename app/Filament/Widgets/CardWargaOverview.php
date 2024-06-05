@@ -8,6 +8,7 @@ use App\Models\Warga; // Pastikan model Warga ada
 
 class CardWargaOverview extends BaseWidget
 {
+    protected static ?string $pollingInterval = '5s';
 
     protected function getCards(): array
     {
