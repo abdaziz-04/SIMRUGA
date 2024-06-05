@@ -37,6 +37,14 @@ class PermintaanLayananResource extends Resource
         }
     }
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if (auth()->user()->can('view_layanan')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
 
     public static function form(Form $form): Form
     {

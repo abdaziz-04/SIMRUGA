@@ -16,7 +16,7 @@ class PermintaanLayananWidget extends BaseWidget
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasPermissionTo('view_warga'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_layanan_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 
     protected function getTableQuery(): Builder
