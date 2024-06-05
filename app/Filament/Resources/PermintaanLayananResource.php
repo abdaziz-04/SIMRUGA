@@ -26,7 +26,17 @@ class PermintaanLayananResource extends Resource
 {
     protected static ?string $model = PermintaanLayanan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
+
+    public static function getNavigationBadge(): ?string
+    {
+        if (auth()->user()->hasRole('sekretaris')) {
+            return static::getModel()::count();
+        } else {
+            return static::getModel()::where('Nama Pengaju', auth()->user()->name)->count();
+        }
+    }
+
 
     public static function form(Form $form): Form
     {
@@ -52,7 +62,15 @@ class PermintaanLayananResource extends Resource
 
     public static function table(Table $table): Table
     {
+        $query = static::getModel()::query();
+
+        // If the authenticated user is not a secretary, filter records based on the user's name
+        if (!auth()->user()->hasRole('sekretaris')) {
+            $query->where('Nama Pengaju', auth()->user()->name);
+        }
+
         return $table
+            ->query($query)
             ->columns([
                 TextColumn::make('Nama Pengaju'),
                 TextColumn::make('Tipe Layanan'),
@@ -96,6 +114,7 @@ class PermintaanLayananResource extends Resource
                 ]),
             ]);
     }
+
 
     public static function getRelations(): array
     {

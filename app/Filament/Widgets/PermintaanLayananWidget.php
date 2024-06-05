@@ -4,14 +4,20 @@ namespace App\Filament\Widgets;
 
 use Filament\Tables;
 use App\Models\PermintaanLayanan;
+use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Select;
-use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Widgets\TableWidget as BaseWidget;
 
 class PermintaanLayananWidget extends BaseWidget
 {
     protected static ?string $heading = 'Daftar Permintaan Layanan';
     protected int | String | array $columnSpan = 'full';
+
+    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    {
+        return Auth::user()->hasPermissionTo('view_warga'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+    }
 
     protected function getTableQuery(): Builder
     {
