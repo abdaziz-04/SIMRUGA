@@ -12,6 +12,8 @@ use Spatie\Permission\Models\Role;
 class WargaChart extends ChartWidget
 {
     protected static ?string $heading = 'Jumlah Warga per RT';
+    protected static ?string $pollingInterval = '5s';
+    protected static bool $isLazy = false;
 
     protected function getData(): array
     {

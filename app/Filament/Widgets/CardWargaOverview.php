@@ -9,6 +9,7 @@ use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class CardWargaOverview extends BaseWidget
 {
+    protected static ?string $pollingInterval = '5s';
 
     protected function getCards(): array
     {

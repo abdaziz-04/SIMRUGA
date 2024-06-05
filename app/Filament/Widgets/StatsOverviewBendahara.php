@@ -18,6 +18,8 @@ class StatsOverviewBendahara extends BaseWidget
     use InteractsWithPageFilters;
 
     protected static ?string $heading = 'Keuangan RW 8';
+    protected static ?string $pollingInterval = '5s';
+
 
     protected function getStats(): array
     {
