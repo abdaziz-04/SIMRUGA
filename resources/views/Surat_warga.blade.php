@@ -1,51 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Surat Keterangan</title>
-    <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 14px;
-        }
-        .content {
-            margin: 12px;
-        }
-        .footer {
-            text-align: right;
-            margin-top: 12px;
-        }
-        .footer p.signature {
-            margin-top: 50px;
-        }
-        table {
-            width: 100%;
-        }
-        table td {
-            vertical-align: top;
-            padding: 4px 0;
-        }
-        table td:first-child {
-            width: 30%;
-        }
-        table td:nth-child(2) {
-            width: 5%;
-        }
-    </style>
+    <title>Surat Warga</title>
 </head>
 <body>
     <div class="header">
+        <center>
+            <div class="mb-0">
+                <h3>Pemerintah Kelurahan Sawojajar</h3>
+                <h2>Ketua RW 08</h2>
+                <h4>Kelurahan Sawojajar Kecamatan Kedungkandang Kota Malang</h4>
+            </div>
+            <hr>
+            <br>
         @if ($surat->jenis_surat == "Kematian")
-            <h1>Surat Keterangan Kematian</h1>
+            <h4>Surat Keterangan Kematian</h4>
+
         @elseif($surat->jenis_surat == "TidakMampu")
-            <h1>Surat Keterangan Tidak Mampu</h1>
+            <h4>Surat Keterangan Tidak Mampu</h4>
         @elseif($surat->jenis_surat == "Pengantar")
-            <h1>Surat Pengantar</h1>       
+            <h4>Surat Pengantar</h4>       
         @endif
+        
+    </center>
     </div>
     <div class="content">
+        <br>
         <p>Yang bertanda tangan dibawah ini Ketua RW 8 Kelurahan Sawojajar Kota Malang</p>
         <p>Menarangkan bahwa</p>
         @if ($surat->jenis_surat == "Kematian")
@@ -148,9 +128,11 @@
         @endif
         <p>Demikian surat ini dibuat, atas perhatian dan kerjasamanya kami ucapkan terima kasih.</p>
     </div>
-    <div class="footer">
+    <div class="footer" style="text-align: right;">
         <p>Malang, {{ \Carbon\Carbon::parse($surat->created_at)->format('F Y') }}</p>
-        <p class="signature">Yuma Rakha S</p>
-    </div>
+        <br>
+        <br>
+        <p>Budi Santoso</p>
+    </div>    
 </body>
 </html>

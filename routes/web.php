@@ -22,4 +22,3 @@ Route::get('/', [LandingController::class, 'index']);
 
 
 
-// Route::get('kematian/download/pdf/{record}', [SuratKematianController::class, 'downloadPdf'])->name('download.pdf');
