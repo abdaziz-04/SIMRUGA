@@ -7,6 +7,8 @@ use Filament\Widgets\StatsOverviewWidget\Card;
 
 class CardLembagaOverview extends BaseWidget
 {
+    protected static ?string $pollingInterval = '5s';
+
     protected function getCards(): array
     {
         // Definisikan data lembaga dalam array

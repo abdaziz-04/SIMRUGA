@@ -5,22 +5,21 @@ namespace App\Filament\Widgets;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Filament\Widgets\StatsOverviewWidget\Card;
-use App\Models\Pengumuman; 
+use App\Models\Rangking; 
 
-class CardPengumumanOverview extends BaseWidget
+class CardBansosOverview extends BaseWidget
 {
     protected static ?string $pollingInterval = '5s';
 
     protected function getCards(): array
     {
-        // Menghitung jumlah pengumuman
-        $jumlahPengumuman = Pengumuman::count();
+        $jumlahPenerimaBansos = Rangking::where('alternatif_id')->count();
 
         return [
-            Card::make('Pengumuman', $jumlahPengumuman)
-                ->url('admin/pengumumen')
+            Card::make('Penerima Bansos', $jumlahPenerimaBansos)
+                ->url('admin/perankingans')
                 ->color('primary')
-                ->icon('heroicon-o-megaphone')
+                ->icon('heroicon-o-users')
                 ->extraAttributes(['class' => 'hover-shadow']),
         ];
     }
