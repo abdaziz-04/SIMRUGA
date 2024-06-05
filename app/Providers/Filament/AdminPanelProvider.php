@@ -66,6 +66,8 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
-            ->plugin(\Hasnayeen\Themes\ThemesPlugin::make());
+            ->plugin(\Hasnayeen\Themes\ThemesPlugin::make())
+
+            ->databaseNotifications();
     }
 }

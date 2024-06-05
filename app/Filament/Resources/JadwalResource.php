@@ -42,7 +42,7 @@ class JadwalResource extends Resource
         ->schema([
             Card::make()
             ->schema([
-                TextInput::make('nama_pertemuan')->label('Nama Iuran')->required(),
+                TextInput::make('nama_pertemuan')->label('Nama Pertemuan')->required(),
                 DatePicker::make('tanggal_pertemuan')->label('Tanggal Pertemuan')->required(),
                 TextInput::make('keterangan_jadwal')->label('Keterangan')->required(),
                 TextInput::make('pihak_terlibat')->label('Pihak Terlibat')->required(),

@@ -142,6 +142,7 @@ class PermissionSeeder extends Seeder
         $wargaRole->givePermissionTo([
             'view_pengaduan',
             'view_pengajuan_surat',
+            'view_laporan_keuangan',
         ]);
 
         $rt1Role->givePermissionTo([

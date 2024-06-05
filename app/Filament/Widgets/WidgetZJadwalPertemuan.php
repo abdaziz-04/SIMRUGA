@@ -10,7 +10,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Auth; // Import Auth
 
-class JadwalPertemuan extends BaseWidget
+class WidgetZJadwalPertemuan extends BaseWidget
 {
     protected int | string | array $columnSpan = 'full';
 
@@ -24,10 +24,6 @@ class JadwalPertemuan extends BaseWidget
                 TextColumn::make('keterangan_jadwal')->label('Keterangan Jadwal')->searchable(),
                 TextColumn::make('pihak_terlibat')->label('Pihak Terlibat'),
             ]);
-            // ->actions([
-            //     Tables\Actions\ViewAction::make('edit')
-            //         ->url(fn (Jadwal $record): string => JadwalResource::getUrl('edit', ['record' => $record])),
-            // ]);
     }
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses

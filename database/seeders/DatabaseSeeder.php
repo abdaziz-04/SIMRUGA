@@ -33,11 +33,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PengeluaranKeuanganSeeder::class);
         $this->call(LaporanKeuanganSeeder::class);
         $this->call(AlternatifSeeder::class);
+        $this->call(PengumumanSeeder::class);
+        // $this->call(SuratTidakMampuSeeder::class);
         // $this->call(SuratKematianSeeder::class);
         // $this->call(KegiatanRWSeeder::class);
         $this->call(KKSeeder::class);
-        $this->call(JadwalSeeder::class);
-        $this->call(JadwalSeeder::class);
         $this->call(JadwalSeeder::class);
     }
 }
