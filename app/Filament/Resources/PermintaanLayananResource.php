@@ -99,7 +99,18 @@ class PermintaanLayananResource extends Resource
                 TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
             ])
             ->filters([
-                //
+                Action::make('status')
+                    ->label('Status')
+                    ->form([
+                        Select::make('status')
+                            ->options([
+                                'pending' => 'Pending',
+                                'proses' => 'Diproses',
+                                'ditolak' => 'Ditolak',
+                                'selesai' => 'Selesai',
+                            ])
+                            ->required(),
+                    ])
             ])
             ->actions([
                 ViewAction::make()->visible(fn () => auth()->user()->hasRole('sekretaris')),
