@@ -127,14 +127,14 @@ class PermissionSeeder extends Seeder
             'view_pengumuman',
             'view_layanan',
             'view_warga_widget',
-<<<<<<< HEAD
-            'edit_lembaga'
-||||||| 58700bb
-=======
+<<<<<<<<< Temporary merge branch 1
             'view_warga_pendatang',
             'view_layanan_widget',
             'view_surat_widget'
->>>>>>> dcca51ca3855315bfbb84910f640c2751e4aa106
+||||||||| 58700bb
+=========
+            'edit_lembaga'
+>>>>>>>>> Temporary merge branch 2
         ]);
 
         $sekretarisRole->givePermissionTo([
@@ -142,14 +142,14 @@ class PermissionSeeder extends Seeder
             'view_pengajuan_surat',
             'view_layanan',
             'view_layanan_widget',
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+            'view_jadwal_pertemuan',
+||||||||| 58700bb
+            'view_jadwal_pertemuan'
+=========
             'view_jadwal_pertemuan',
             'edit_lembaga',
-||||||| 58700bb
-            'view_jadwal_pertemuan'
-=======
-            'view_jadwal_pertemuan',
->>>>>>> dcca51ca3855315bfbb84910f640c2751e4aa106
+>>>>>>>>> Temporary merge branch 2
 
         ]);
 
@@ -173,17 +173,17 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan_warga',
             'view_pengumuman',
             'view_layanan',
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+            'view_warga_widget',
+            'view_warga_pendatang',
+
+||||||||| 58700bb
+            'view_warga_widget'
+=========
             'view_warga_widget',
             'edit_lembaga',
             'view_admin'
-||||||| 58700bb
-            'view_warga_widget'
-=======
-            'view_warga_widget',
-            'view_warga_pendatang',
-            
->>>>>>> dcca51ca3855315bfbb84910f640c2751e4aa106
+>>>>>>>>> Temporary merge branch 2
         ]);
 
         $wargaRole->givePermissionTo([
