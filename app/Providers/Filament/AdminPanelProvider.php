@@ -29,6 +29,7 @@ use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -74,6 +75,8 @@ class AdminPanelProvider extends PanelProvider
         if ($this->userIsAdmin()) {
             $panel->plugin(FilamentSpatieRolesPermissionsPlugin::make());
         }
+
+        $panel->plugin(FilamentProgressbarPlugin::make()->color('#29b'));
 
         $panel->plugin(\Hasnayeen\Themes\ThemesPlugin::make())
             ->plugins([

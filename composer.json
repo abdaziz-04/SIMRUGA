@@ -29,6 +29,7 @@
         "laraveldaily/laravel-invoices": "4.0",
         "livewire/livewire": "^3.0",
         "mpdf/mpdf": "^8.2",
+        "njxqlus/filament-progressbar": "^1.0",
         "pxlrbt/filament-excel": "^2.3",
         "rawilk/filament-password-input": "^2.0",
         "spatie/laravel-permission": "^6.7"
