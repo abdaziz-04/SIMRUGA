@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6e2929e461634e79f470ebd5ad624f9",
+    "content-hash": "423384afc4683047386139ea5e2762cf",
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
@@ -2927,16 +2927,16 @@
         },
         {
             "name": "joaopaulolndev/filament-edit-profile",
-            "version": "v1.0.10",
+            "version": "v1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joaopaulolndev/filament-edit-profile.git",
-                "reference": "777c3662bb9739d90205c7053e049ef964162b64"
+                "reference": "052232e700508c08d59f76ae9742e3d937d52c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joaopaulolndev/filament-edit-profile/zipball/777c3662bb9739d90205c7053e049ef964162b64",
-                "reference": "777c3662bb9739d90205c7053e049ef964162b64",
+                "url": "https://api.github.com/repos/joaopaulolndev/filament-edit-profile/zipball/052232e700508c08d59f76ae9742e3d937d52c1e",
+                "reference": "052232e700508c08d59f76ae9742e3d937d52c1e",
                 "shasum": ""
             },
             "require": {
@@ -2999,7 +2999,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-31T08:01:35+00:00"
+            "time": "2024-06-06T10:28:12+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
