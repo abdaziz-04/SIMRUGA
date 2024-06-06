@@ -127,10 +127,10 @@ class PermissionSeeder extends Seeder
             'view_pengumuman',
             'view_layanan',
             'view_warga_widget',
-            'edit_lembaga'
             'view_warga_pendatang',
             'view_layanan_widget',
-            'view_surat_widget'
+            'view_surat_widget',
+            'edit_lembaga'
         ]);
 
         $sekretarisRole->givePermissionTo([
@@ -139,8 +139,8 @@ class PermissionSeeder extends Seeder
             'view_layanan',
             'view_layanan_widget',
             'view_jadwal_pertemuan',
+            'view_jadwal_pertemuan',
             'edit_lembaga',
-
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -164,10 +164,10 @@ class PermissionSeeder extends Seeder
             'view_pengumuman',
             'view_layanan',
             'view_warga_widget',
+            'view_warga_pendatang',
+            'view_warga_widget',
             'edit_lembaga',
             'view_admin'
-            'view_warga_pendatang',
-            
         ]);
 
         $wargaRole->givePermissionTo([
@@ -177,7 +177,7 @@ class PermissionSeeder extends Seeder
             // 'view_laporan_keuangan_widget',
             'view_laporan_keuangan',
             'view_layanan',
-            'view_buat_surat_warga'
+            'view_buat_surat_warga',
             'view_pengumuman_widget'
         ]);
 
