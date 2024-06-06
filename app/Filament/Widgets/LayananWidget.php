@@ -9,7 +9,7 @@ use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Widgets\TableWidget as BaseWidget;
 
-class PermintaanLayananWidget extends BaseWidget
+class LayananWidget extends BaseWidget
 {
     protected static ?string $heading = 'Daftar Permintaan Layanan';
     protected int | String | array $columnSpan = 'full';
@@ -48,13 +48,14 @@ class PermintaanLayananWidget extends BaseWidget
     {
         return [
             Tables\Actions\EditAction::make()->visible(fn () => auth()->user()->hasRole('warga')),
-            Tables\Actions\ViewAction::make()->visible(fn () => auth()->user()->hasRole('sekretaris')),
+            Tables\Actions\ViewAction::make()->visible(fn () => !auth()->user()->hasRole('sekretaris')),
             Tables\Actions\Action::make('ubahStatus')
                 ->label('Ubah Status')
                 ->form([
                     Select::make('status')
                         ->options([
-                            'pending' => 'Pending',
+                            'pending'
+                            => 'Pending',
                             'proses' => 'Processed',
                             'ditolak' => 'Rejected',
                             'selesai' => 'Completed',

@@ -19,7 +19,7 @@ class ListPermintaanLayanans extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make()->label('Ajukan Layanan'),
+            Actions\CreateAction::make()->label('Ajukan Layanan')->visible(fn () => !auth()->user()->hasRole('sekretaris')),
         ];
     }
 }

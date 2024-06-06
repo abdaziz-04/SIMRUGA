@@ -2,7 +2,7 @@
 
 namespace App\Filament\Widgets;
 
-use Illuminate\Support\Facades\Auth;  
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
