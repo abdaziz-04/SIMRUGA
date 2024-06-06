@@ -110,9 +110,9 @@ class PermintaanLayananResource extends Resource
                         Select::make('status')
                             ->options([
                                 'pending' => 'Pending',
-                                'proses' => 'Processed',
-                                'ditolak' => 'Rejected',
-                                'selesai' => 'Completed',
+                                'proses' => 'Diproses',
+                                'ditolak' => 'Ditolak',
+                                'selesai' => 'Selesai',
                             ])
                             ->required(),
                         Textarea::make('catatan')->label('Catatan'),

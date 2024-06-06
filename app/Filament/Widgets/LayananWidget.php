@@ -6,6 +6,7 @@ use Filament\Tables;
 use App\Models\PermintaanLayanan;
 use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Widgets\TableWidget as BaseWidget;
 
@@ -54,16 +55,17 @@ class LayananWidget extends BaseWidget
                 ->form([
                     Select::make('status')
                         ->options([
-                            'pending'
-                            => 'Pending',
-                            'proses' => 'Processed',
-                            'ditolak' => 'Rejected',
-                            'selesai' => 'Completed',
+                            'pending' => 'Pending',
+                            'proses' => 'Diproses',
+                            'ditolak' => 'Ditolak',
+                            'selesai' => 'Selesai',
                         ])
                         ->required(),
+                    Textarea::make('catatan')->label('Catatan'),
                 ])
                 ->action(function (PermintaanLayanan $record, array $data): void {
                     $record->status = $data['status'];
+                    $record->catatan = $data['catatan']; // Simpan catatan yang diberikan oleh sekretaris
                     $record->save();
                 })
                 ->visible(fn () => auth()->user()->hasRole('sekretaris')),
