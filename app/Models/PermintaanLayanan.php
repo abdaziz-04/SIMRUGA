@@ -12,7 +12,7 @@ class PermintaanLayanan extends Model
 
     protected $table = 'permintaan_layanan';
 
-    protected $fillable = ['user_id', 'Nama Pengaju', 'Tipe Layanan', 'status', 'deskripsi'];
+    protected $fillable = ['user_id', 'Nama Pengaju', 'Tipe Layanan', 'status', 'deskripsi', 'catatan', 'berkas'];
 
     /**
      * The attributes that should be cast.

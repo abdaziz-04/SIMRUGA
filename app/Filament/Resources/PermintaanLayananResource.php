@@ -17,10 +17,12 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PermintaanLayananResource\Pages;
 use App\Filament\Resources\PermintaanLayananResource\RelationManagers;
+use Filament\Tables\Columns\ImageColumn;
 
 class PermintaanLayananResource extends Resource
 {
@@ -66,6 +68,7 @@ class PermintaanLayananResource extends Resource
                 Select::make('Tipe Layanan')
                     ->options($options),
                 Textarea::make('deskripsi'),
+                FileUpload::make('berkas')->label('Unggah Berkas')->visibility('public'),
             ]);
     }
 
@@ -90,8 +93,9 @@ class PermintaanLayananResource extends Resource
                         'success' => 'selesai',
                         'primary' => 'proses',
                     ]),
-                TextColumn::make('deskripsi')->visible(fn () => auth()->user()->hasRole('warga')),
+                TextColumn::make('deskripsi'),
                 TextColumn::make('catatan')->visible(fn () => auth()->user()->hasRole('warga')),
+                ImageColumn::make('berkas'),
                 TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
             ])
             ->filters([
