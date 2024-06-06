@@ -65,21 +65,25 @@
         <span class="visually-hidden">Next</span>
     </button>
     </div>
-    {{-- <header class="masthead" style="background-image: url('assets/img/header-bg.jpg');">
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in"><span>Selamat Datang di</span></div>
-                <div class="intro-heading text-uppercase">
-            <span>RW 8, Sawojajar, Kedungkandang</span>
-            </div>
-            <a class="btn btn-primary btn-xl text-uppercase" role="button" href="/admin/login">
-            BUKA SISTEM INFORMASI RUKUN WARGA
-            </a>
-            </div>
-        </div>
-    </header> --}}
 
-    <section id="team">
+    <div class="card-body">
+        <section id="services">
+            <div class="container">
+                <div class="row text-left">
+                    @foreach ($data_pengumuman as $pengumuman )
+                        <div class="col-md-6">
+                            <div>{{ $pengumuman['gambar'] }}</div>
+                            <div>{{ $pengumuman['nama_pengumuman'] }}</div>
+                            <a href="{{route('pengumuman',$pengumuman->id_pengumuman)}}">liat pengumuman</a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    {{-- <section id="team">
         <div class="container">
             <div class="row">
                 @foreach ($pengurus->take(4) as $member)
@@ -96,38 +100,30 @@
                                         target="_blank">
                                         <i class="fa fa-whatsapp"></i></li>
                                 </a>
-                                {{-- <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
-                                            class="fa fa-whatsapp"></i></a></li> --}}
+                                <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
+                                            class="fa fa-whatsapp"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <div class="container">
-        <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="text-uppercase section-heading">Grafik Data Warga</h2>
-            </div>
-            <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase section-heading">Data Grafik</h2>
+                </div>
                 <iframe class="embed-responsive-item"
-                src="https://lookerstudio.google.com/embed/reporting/9dc8b6f2-d297-4e95-9e74-4c5c9ad17a12"
-                width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    src="https://lookerstudio.google.com/embed/reporting/d5d1ecd9-9d72-47e6-8eb7-a2e443e4b460/page/p_vfix41czhd"
+                    width="100%" height="1050" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div>
     </div>
-    
+
     <section id="services">
         <div class="container" style="margin-top: 2px">
-            {{-- <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">FITUR SERBA DIGITAL</h2>
-                    <h3 class="text-muted section-subheading">Akses semua fitur dengan mudah hanya menggunakan perangkat digital</h3>
-                </div>
-            </div> --}}
             <div class="row text-center">
                 <div class="col-md-6">
                     <span class="fa-stack fa-4x">
