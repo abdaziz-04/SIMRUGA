@@ -6,6 +6,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SuratKematianController;
 use App\Http\Controllers\PerhitunganBansosController;
 use App\Filament\Resources\SuratResource\Pages\ViewSurat;
+use App\Http\Controllers\PengumumanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Filament\Resources\SuratResource\Pages\ViewSurat;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::get('/',[PengumumanController::class,'index']);
+Route::get('/pengumuman/{id}', [PengumumanController::class,'show'])->name('pengumuman');
 
 
 
