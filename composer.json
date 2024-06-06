@@ -16,6 +16,7 @@
         "eightynine/filament-excel-import": "^3.0",
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
+        "filament/infolists": "^3.2",
         "filament/notifications": "^3.2",
         "filament/tables": "^3.2",
         "filament/widgets": "^3.2",
