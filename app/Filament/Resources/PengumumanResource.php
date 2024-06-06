@@ -7,7 +7,8 @@ use App\Models\Pengumuman;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -22,12 +23,18 @@ class PengumumanResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Pengumuman';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                FileUpload::make('gambar')->label('Gambar')->nullable()->directory('struk')->visibility('public'),
-                RichEditor::make('isi_pengumuman')->label('Isi Pengumuman')->required(),
+                FileUpload::make('gambar')->label('Gambar')->nullable()->directory('gambar')->visibility('public'),
+                TextInput::make('nama_pengumuman')->label('Nama Pengumuman')->required(),
+                TextArea::make('isi_pengumuman')->label('Isi Pengumuman')->required(),
                 DatePicker::make('tanggal_pengumuman')->label('Tanggal Pengumuman')->required(),
             ]);
     }
@@ -37,6 +44,7 @@ class PengumumanResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('gambar')->label('Gambar'),
+                TextColumn::make('nama_pengumuman')->label('Nama Pengumuman'),
                 TextColumn::make('isi_pengumuman')->label('Isi Pengumuman'),
                 TextColumn::make('tanggal_pengumuman')->label('Tanggal Pengumuman'),
             ])
@@ -44,12 +52,12 @@ class PengumumanResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->visible(fn () => auth()->user()->hasRole('sekretaris', 'admin', 'ketua_rw', 'ketua_rt1', 'ketua_rt2', 'ketua_rt3')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ])->visible(fn () => auth()->user()->hasRole('sekretaris', 'admin', 'ketua_rw', 'ketua_rt1', 'ketua_rt2', 'ketua_rt3')),
             ]);
     }
 
@@ -67,16 +75,5 @@ class PengumumanResource extends Resource
             'create' => Pages\CreatePengumuman::route('/create'),
             'edit' => Pages\EditPengumuman::route('/{record}/edit'),
         ];
-    }
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::serving(function () {
-            \Filament::registerScript('popup_pengumuman', function () {
-                return view('filament.scripts.popup_pengumuman');
-            });
-        });
     }
 }

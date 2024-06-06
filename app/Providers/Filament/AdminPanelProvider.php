@@ -9,10 +9,16 @@ use Filament\PanelProvider;
 use App\Filament\Auth\CustomLogin;
 use Filament\Support\Colors\Color;
 use App\Filament\Widgets\WargaChart;
+use Filament\Navigation\NavigationItem;
+use Filament\Navigation\NavigationGroup;
 use App\Filament\Pages\Settings\Settings;
 use Filament\Http\Middleware\Authenticate;
+use Filament\Navigation\NavigationBuilder;
+use App\Filament\Widgets\PermintaanLayanan;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use App\Filament\Widgets\PermintaanLayananWidget;
+use App\Filament\Resources\PermintaanLayananResource;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -22,9 +28,6 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
-use Filament\Navigation\NavigationBuilder;
-use Filament\Navigation\NavigationGroup;
-use Filament\Navigation\NavigationItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -46,9 +49,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
                 WargaChart::class,
-
+                PermintaanLayananWidget::class,
+                \App\Filament\Widgets\PermintaanLayananWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -66,6 +69,8 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
-            ->plugin(\Hasnayeen\Themes\ThemesPlugin::make());
+            ->plugin(\Hasnayeen\Themes\ThemesPlugin::make())
+
+            ->databaseNotifications();
     }
 }

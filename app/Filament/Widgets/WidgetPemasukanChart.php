@@ -13,34 +13,11 @@ class WidgetPemasukanChart extends ChartWidget
 {
     protected static ?string $heading = 'Pemasukan';
     protected static string $color = 'success';
+    protected static ?string $pollingInterval = '5s';
+    protected static bool $isLazy = false;
 
-//     protected function getData(): array
-// {
-//     $data = [];
-
-//     // Ambil data pemasukan
-//     $pemasukan = Pemasukan::all();
-
-//     // Kelompokkan data pemasukan per bulan
-//     $pemasukanPerBulan = $pemasukan->groupBy(function ($pemasukan) {
-//         return Carbon::parse($pemasukan->tanggal)->format('F'); // Formatkan tanggal menjadi nama bulan
-//     });
-
-//     // Hitung jumlah pemasukan per bulan
-//     $jumlahPemasukanPerBulan = $pemasukanPerBulan->map(function ($items) {
-//         return $items->sum('jumlah_pemasukan');
-//     });
-
-//     // Masukkan data ke dalam array data untuk chart
-//     $data['labels'] = $jumlahPemasukanPerBulan->keys()->toArray();
-//     $data['datasets'][0]['label'] = 'Pemasukan';
-//     $data['datasets'][0]['data'] = $jumlahPemasukanPerBulan->values()->toArray();
-
-//     return $data;
-// }
-
-protected function getData(): array
-{
+    protected function getData(): array
+    {
         $data = [];
 
         // Daftar lengkap nama bulan
@@ -79,6 +56,6 @@ protected function getData(): array
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasPermissionTo('view_laporan_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_pemasukan_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }

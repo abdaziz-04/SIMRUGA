@@ -2,6 +2,11 @@
 
 return [
 
+    'database_notifications' => [
+        'enabled' => true,
+        'polling_interval' => '30s',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Broadcasting
@@ -95,5 +100,4 @@ return [
     */
 
     'livewire_loading_delay' => 'default',
-
 ];

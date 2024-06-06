@@ -13,6 +13,8 @@ class WidgetPengeluaranChart extends ChartWidget
 {
     protected static ?string $heading = 'Pengeluaran';
     protected static string $color = 'danger';
+    protected static ?string $pollingInterval = '5s';
+    protected static bool $isLazy = false;
 
     protected function getData(): array
     {
@@ -53,6 +55,6 @@ class WidgetPengeluaranChart extends ChartWidget
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasPermissionTo('view_laporan_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_pengeluaran_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }

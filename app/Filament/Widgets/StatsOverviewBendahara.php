@@ -17,20 +17,17 @@ class StatsOverviewBendahara extends BaseWidget
 {
     use InteractsWithPageFilters;
 
+    protected static ?string $heading = 'Keuangan RW 8';
+    protected static ?string $pollingInterval = '5s';
+
 
     protected function getStats(): array
     {
         return $this->updateLaporanKeuangan();
     }
 
-    protected function updateLaporanKeuangan(){
-        // $startDate = ! is_null($this->filters['startDate'] ?? null) ?
-        //     Carbon::parse($this->filters['startDate']) :
-        //     null;
-
-        // $endDate = ! is_null($this->filters['endDate'] ?? null) ?
-        //     Carbon::parse($this->filters['endDate']) :
-        //     now();
+    protected function updateLaporanKeuangan()
+    {
 
         $totalPemasukan = Pemasukan::sum('jumlah_pemasukan');
         $totalPengeluaran = Pengeluaran::sum('jumlah_pengeluaran');
@@ -40,19 +37,19 @@ class StatsOverviewBendahara extends BaseWidget
 
         return [
             Stat::make('Total Pemasukan', $totalPemasukan)
-            ->descriptionIcon('heroicon-m-arrow-trending-up')
-            ->color('success'),
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->color('success'),
             Stat::make('Total Pengeluaran', $totalPengeluaran)
-            ->descriptionIcon('heroicon-m-arrow-trending-down')
-            ->color('danger'),
+                ->descriptionIcon('heroicon-m-arrow-trending-down')
+                ->color('danger'),
             Stat::make('Sisa Saldo', $totalPemasukan - $totalPengeluaran)
-            ->descriptionIcon('heroicon-m-arrow-trending-up')
-            ->color('success'),
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->color('success'),
         ];
-    } 
+    }
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasPermissionTo('view_laporan_keuangan'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_laporan_keuangan_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }
