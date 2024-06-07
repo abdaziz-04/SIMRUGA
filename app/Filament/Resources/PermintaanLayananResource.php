@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PermintaanLayananResource\Pages;
 use App\Filament\Resources\PermintaanLayananResource\RelationManagers;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Notifications\Notification;
 
 class PermintaanLayananResource extends Resource
 {
@@ -121,6 +122,14 @@ class PermintaanLayananResource extends Resource
                         $record->status = $data['status'];
                         $record->catatan = $data['catatan']; // Simpan catatan yang diberikan oleh sekretaris
                         $record->save();
+
+                        // Kirim notifikasi ke pengaju
+                        $userPengaju = $record->user;
+                        Notification::make()
+                            ->success()
+                            ->title('Status Permintaan Layanan Telah Diubah')
+                            ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
+                            ->sendTo($userPengaju);
                     })
                     ->visible(fn () => auth()->user()->hasRole('sekretaris')),
             ])
