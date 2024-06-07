@@ -24,6 +24,13 @@ use App\Filament\Resources\PermintaanLayananResource\Pages;
 use App\Filament\Resources\PermintaanLayananResource\RelationManagers;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Notifications\Notification;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Infolist;
 
 class PermintaanLayananResource extends Resource
 {
@@ -151,6 +158,27 @@ class PermintaanLayananResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('Nama Pengaju'),
+                                        TextEntry::make('Tipe Layanan'),
+                                        TextEntry::make('deskripsi'),
+                                        ImageEntry::make('berkas')->label('Unggah Berkas'),
+                                    ])
+                                ]),
+                        ])
+                    ])
+            ]);
+    }
+
 
     public static function getRelations(): array
     {
@@ -173,6 +201,7 @@ class PermintaanLayananResource extends Resource
         return [
             'index' => Pages\ListPermintaanLayanans::route('/'),
             'create' => Pages\CreatePermintaanLayanan::route('/create'),
+            'view' => Pages\ViewPermintaanLayanan::route('/{record}'),
             'edit' => Pages\EditPermintaanLayanan::route('/{record}/edit'),
         ];
     }

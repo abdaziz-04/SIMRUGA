@@ -15,6 +15,13 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Infolist;
 
 class PengumumanResource extends Resource
 {
@@ -61,6 +68,27 @@ class PengumumanResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('nama_pengumuman')->label('Nama Pengumuman'),
+                                        ImageEntry::make('gambar')->label('Foto Pengumuman'),
+                                        TextEntry::make('tanggal_pengumuman')->label('Tanggal Pengumuman')->badge()->date()->color('success'),
+                                        TextEntry::make('isi_pengumuman')->label('Isi Pengumuman'),
+                                    ])
+                                ]),
+                        ])
+                    ])
+            ]);
+    }
+
     public static function getRelations(): array
     {
         return [
@@ -73,6 +101,7 @@ class PengumumanResource extends Resource
         return [
             'index' => Pages\ListPengumuman::route('/'),
             'create' => Pages\CreatePengumuman::route('/create'),
+            'view' => Pages\ViewPengumuman::route('/{record}'),
             'edit' => Pages\EditPengumuman::route('/{record}/edit'),
         ];
     }

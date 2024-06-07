@@ -20,6 +20,12 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DatePicker;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Infolist;
 
 class PemasukanResource extends Resource
 {
@@ -74,6 +80,29 @@ class PemasukanResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('jenis_pemasukan')->label('Nama Pemasukan'),
+                                        TextEntry::make('tanggal')->label('Tanggal')->badge()->date()->color('success'),
+                                    ]),
+                                    Group::make([
+                                        TextEntry::make('jumlah_pemasukan')->label('Jumlah Pemasukan'),
+                                        TextEntry::make('keterangan')->label('Keterangan'),
+                                    ]),
+                                ])
+                        ])
+                    ])
+            ]);
+    }
+
     public static function getRelations(): array
     {
         return [
@@ -86,6 +115,7 @@ class PemasukanResource extends Resource
         return [
             'index' => Pages\ListPemasukans::route('/'),
             'create' => Pages\CreatePemasukan::route('/create'),
+            'view' => Pages\ViewPemasukan::route('/{record}'),
             'edit' => Pages\EditPemasukan::route('/{record}/edit'),
         ];
     }
