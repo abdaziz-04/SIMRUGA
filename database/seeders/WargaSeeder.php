@@ -275,6 +275,19 @@ class WargaSeeder extends Seeder
                 'jenis_warga' => 'Pendatang',
                 'agama' => 'Islam',
             ],
+            [
+                'id_kk' => 21,
+                'id_rt' => 2,
+                'nama_warga' => 'Erci Sukaesi',
+                'alamat' => 'Jl. Sejahtera No. 35',
+                'no_telepon' => '081234587892',
+                'NIK' => '3201254368970020',
+                'tanggal_lahir' => '1996-08-20',
+                'jenis_kelamin' => 'P',
+                'foto_warga' => 'https://example.com/photos/Erci_Sukaesi.jpg',
+                'jenis_warga' => 'Pendatang',
+                'agama' => 'Islam',
+            ],
         ]);
     }
 }
