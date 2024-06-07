@@ -15,7 +15,6 @@
         "blade-ui-kit/blade-heroicons": "^2.3",
         "eightynine/filament-excel-import": "^3.0",
         "filament/filament": "^3.2",
-        "filament/notifications": "^3.2",
         "filament/forms": "^3.2",
         "filament/notifications": "^3.2",
         "filament/tables": "^3.2",
@@ -30,6 +29,7 @@
         "laraveldaily/laravel-invoices": "4.0",
         "livewire/livewire": "^3.0",
         "mpdf/mpdf": "^8.2",
+        "njxqlus/filament-progressbar": "^1.0",
         "pxlrbt/filament-excel": "^2.3",
         "rawilk/filament-password-input": "^2.0",
         "spatie/laravel-permission": "^6.7"

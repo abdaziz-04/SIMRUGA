@@ -26,14 +26,16 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        $panel = $panel
             ->default()
             ->sidebarCollapsibleOnDesktop(true)
             ->id('admin')
@@ -67,10 +69,31 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])
-            ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
-            ->plugin(\Hasnayeen\Themes\ThemesPlugin::make())
+            ]);
 
+        // Conditionally register the plugin
+        if ($this->userIsAdmin()) {
+            $panel->plugin(FilamentSpatieRolesPermissionsPlugin::make());
+        }
+
+        $panel->plugin(FilamentProgressbarPlugin::make()->color('#29b'));
+
+        $panel->plugin(\Hasnayeen\Themes\ThemesPlugin::make())
+            ->plugins([
+                FilamentEditProfilePlugin::make()->setTitle('My Profile')
+                    ->setNavigationLabel('My Profile')
+                    ->setNavigationGroup('Setting')
+                    ->setIcon('heroicon-o-user')
+            ])
             ->databaseNotifications();
+
+        return $panel;
+    }
+
+    // Method to check if the current user is an admin
+    protected function userIsAdmin(): bool
+    {
+        $user = auth()->user();
+        return $user && $user->hasRole('admin');
     }
 }

@@ -70,6 +70,7 @@ class PermissionSeeder extends Seeder
             'view_surat_widget',
             'view_laporan_keuangan_widget',
             'view_pengumuman_widget',
+            'view_surat_widget',
             'edit_lembaga',
             'view_rt1',
             'view_rt2',
@@ -141,6 +142,7 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'view_jadwal_pertemuan',
             'edit_lembaga',
+            'view_surat_widget',
         ]);
 
         $bendaharaRole->givePermissionTo([
