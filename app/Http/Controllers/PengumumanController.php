@@ -9,7 +9,7 @@ class PengumumanController extends Controller
 {
     public function index()
     {
-        $data_pengumuman= Pengumuman::latest()->paginate(10);
+        $data_pengumuman= Pengumuman::latest()->paginate(4);
         return view(view:'index',data:compact('data_pengumuman'));
     }
 

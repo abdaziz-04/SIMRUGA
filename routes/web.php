@@ -20,7 +20,7 @@ use App\Http\Controllers\PengumumanController;
 */
 
 Route::get('/', [LandingController::class, 'index']);
-Route::get('/',[PengumumanController::class,'index']);
+// Route::get('/',[PengumumanController::class,'index']);
 Route::get('/pengumuman/{id}', [PengumumanController::class,'show'])->name('pengumuman');
 
 
