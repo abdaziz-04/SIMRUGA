@@ -35,10 +35,10 @@ class pengurus_rwSeeder extends Seeder
             ],
             [
 
-                'nama_pengurus' => 'Erci ',
+                'nama_pengurus' => 'Rangga Putra ',
                 'jabatan' => 'Ketua RT 1',
-                'no_telepon' => '081234567892',
-                'id_warga' => 4
+                'no_telepon' => '081234567908',
+                'id_warga' => 14
             ],
             [
                 'nama_pengurus' => 'Erci Sukaesi ',

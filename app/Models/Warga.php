@@ -32,7 +32,8 @@ class Warga extends Model
         'tanggal_lahir',
         'jenis_kelamin',
         'foto_warga',
-        'jenis_warga'
+        'jenis_warga',
+        'agama'
     ];
 
     // Filter warga berdasarkan roles user
