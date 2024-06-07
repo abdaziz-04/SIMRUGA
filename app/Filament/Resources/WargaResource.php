@@ -14,9 +14,11 @@ use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
 use Filament\Support\Enums\FontWeight;
 use Filament\Infolists\Components\Card;
+use Filament\Infolists\Components\Grid;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
+use Filament\Infolists\Components\Group;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\DatePicker;
@@ -130,54 +132,80 @@ class WargaResource extends Resource
             ]);
     }
 
+    // public static function infolist(Infolist $infolist): Infolist
+    // {
+    //     return $infolist
+    //         ->schema([
+
+    //             Split::make([
+    //                 Section::make([
+    //                     TextEntry::make('nama_warga')
+    //                         ->weight(FontWeight::Bold),
+    //                     TextEntry::make('NIK')
+    //                         ->label('NIK'),
+    //                     TextEntry::make('alamat')
+    //                         ->label('Alamat'),
+    //                     TextEntry::make('tanggal_lahir')->label('Tanggal Lahir'),
+    //                     TextEntry::make('jenis_kelamin')->label('Jenis Kelamin'),
+    //                     TextEntry::make('agama')->label('Agama'),
+    //                 ]),
+    //                 // Section::make([
+    //                 //     TextEntry::make('no_telepon')
+    //                 //         ->label('No Telepon'),
+    //                 //     TextEntry::make('rt.nama_rt')->label('RT'),
+    //                 //     TextEntry::make('jenis_warga')->label('Jenis Warga'),
+    //                 // ]),
+    //                 Section::make([
+    //                     ImageEntry::make('foto_warga')->label('Foto Warga')->defaultImageUrl(url('/gambar/placeholder.jpeg'))
+    //                         ->size(300),
+    //                 ])->grow(false),
+    //             ])->from('lg')
+
+    //             // Personal Information
+    //             //     Card::make('Informasi Pribadi')
+    //             //         ->schema([
+    //             //             TextEntry::make('nama_warga')->label('Nama Warga'),
+    //             //             TextEntry::make('NIK')->label('NIK'),
+    //             //             TextEntry::make('alamat')->label('Alamat'),
+    //             //             TextEntry::make('no_telepon')->label('No Telepon'),
+    //             //             TextEntry::make('rt.nama_rt')->label('RT'),
+    //             //
+    //             //             TextEntry::make('jenis_warga')->label('Jenis Warga'),
+    //             //         ]),
+
+    //             //     // Demographics
+    //             //     Card::make('Demografi')
+    //             //         ->schema([
+    //             //             TextEntry::make('tanggal_lahir')->label('Tanggal Lahir'),
+    //             //             TextEntry::make('jenis_kelamin')->label('Jenis Kelamin'),
+    //             //             TextEntry::make('agama')->label('Agama'),
+    //             //         ]),
+    //         ]);
+    // }
+
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist
             ->schema([
-
-                Split::make([
-                    Section::make([
-                        TextEntry::make('nama_warga')
-                            ->weight(FontWeight::Bold),
-                        TextEntry::make('NIK')
-                            ->label('NIK'),
-                        TextEntry::make('alamat')
-                            ->label('Alamat'),
-                        TextEntry::make('tanggal_lahir')->label('Tanggal Lahir'),
-                        TextEntry::make('jenis_kelamin')->label('Jenis Kelamin'),
-                        TextEntry::make('agama')->label('Agama'),
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('nama_warga'),
+                                        TextEntry::make('NIK')->label('NIK'),
+                                        TextEntry::make('agama'),
+                                        TextEntry::make('alamat'),
+                                        TextEntry::make('no_telepon'),
+                                        TextEntry::make('rt.nama_rt'),
+                                    ]),
+                                    Group::make([
+                                        ImageEntry::make('foto_warga')->size(300),
+                                    ]),
+                                ]),
+                        ])->from('lg'),
                     ]),
-                    // Section::make([
-                    //     TextEntry::make('no_telepon')
-                    //         ->label('No Telepon'),
-                    //     TextEntry::make('rt.nama_rt')->label('RT'),
-                    //     TextEntry::make('jenis_warga')->label('Jenis Warga'),
-                    // ]),
-                    Section::make([
-                        ImageEntry::make('foto_warga')->label('Foto Warga')->defaultImageUrl(url('/gambar/placeholder.jpeg'))
-                            ->size(300),
-                    ])->grow(false),
-                ])->from('lg')
-
-                // Personal Information
-                //     Card::make('Informasi Pribadi')
-                //         ->schema([
-                //             TextEntry::make('nama_warga')->label('Nama Warga'),
-                //             TextEntry::make('NIK')->label('NIK'),
-                //             TextEntry::make('alamat')->label('Alamat'),
-                //             TextEntry::make('no_telepon')->label('No Telepon'),
-                //             TextEntry::make('rt.nama_rt')->label('RT'),
-                //
-                //             TextEntry::make('jenis_warga')->label('Jenis Warga'),
-                //         ]),
-
-                //     // Demographics
-                //     Card::make('Demografi')
-                //         ->schema([
-                //             TextEntry::make('tanggal_lahir')->label('Tanggal Lahir'),
-                //             TextEntry::make('jenis_kelamin')->label('Jenis Kelamin'),
-                //             TextEntry::make('agama')->label('Agama'),
-                //         ]),
             ]);
     }
 
