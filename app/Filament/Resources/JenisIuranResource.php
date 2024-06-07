@@ -27,7 +27,6 @@ class JenisIuranResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-wallet';
     protected static ?string $navigationLabel = 'Jenis Iuran';
-    protected static ?string $navigationGroup = 'Bendahara';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {

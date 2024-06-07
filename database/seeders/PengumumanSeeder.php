@@ -15,16 +15,16 @@ class PengumumanSeeder extends Seeder
         // Seeding data example
         Pengumuman::create([
             'gambar' => 'image1.jpg',
+            'nama_pengumuman' => 'pengumuman 1',
             'isi_pengumuman' => 'Isi pengumuman 1',
             'tanggal_pengumuman' => '2024-05-24',
-            'tempat_kematian' => 'Tempat Kematian 1'
         ]);
 
         Pengumuman::create([
             'gambar' => 'image2.jpg',
+            'nama_pengumuman' => 'pengumuman 2',
             'isi_pengumuman' => 'Isi pengumuman 2',
             'tanggal_pengumuman' => '2024-05-25',
-            'tempat_kematian' => 'Tempat Kematian 2'
         ]);
     }
 }

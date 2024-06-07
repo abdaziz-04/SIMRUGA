@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 
 class AdminSeeder extends Seeder
@@ -16,19 +14,27 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         $usersData = [
-            ['username' => 'admin', 'name'=>'Admin', 'password' => Hash::make('12345admin'),],
-            ['username' => 'sekretaris', 'name' => 'Sekretaris', 'password' => Hash::make('12345')],
-            ['username' => 'bendahara', 'name' => 'Bendahara', 'password' => Hash::make('12345')],
-            ['username' => 'ketua_rw', 'name' => 'Ketua RW', 'password' => Hash::make('12345')],
-            ['username' => 'ketua_rt', 'name' => 'Ketua RT', 'password' => Hash::make('12345')],
-            ['username' => 'warga', 'name' => 'Warga', 'password' => Hash::make('12345')],
+            ['username' => 'admin', 'name' => 'Admin', 'password' => '12345admin'],
+            ['username' => 'sekretaris', 'name' => 'Sekretaris', 'password' => '12345'],
+            ['username' => 'bendahara', 'name' => 'Bendahara', 'password' => '12345'],
+            ['username' => 'ketua_rw', 'name' => 'Ketua RW', 'password' => '12345'],
+            ['rt_id' => 1, 'username' => 'ketua_rt1', 'name' => 'Ketua RT 1', 'password' => '12345'],
+            ['rt_id' => 2, 'username' => 'ketua_rt2',  'name' => 'Ketua RT 2', 'password' => '12345'],
+            ['rt_id' => 3, 'username' => 'ketua_rt3', 'name' => 'Ketua RT 3', 'password' => '12345'],
+            ['username' => 'warga', 'name' => 'Warga', 'password' => '12345'],
+            ['username' => 'abdaziz', 'name' => 'Abdul Aziz', 'password' => '12345'],
         ];
-    
-    
-        // DB::table('users')->insert($data);
+
         foreach ($usersData as $userData) {
-            // Create user
-            $user = User::create($userData);
+            // Check if the user already exists
+            $user = User::firstOrCreate(
+                ['username' => $userData['username']],
+                [
+                    'name' => $userData['name'],
+                    'password' => Hash::make($userData['password']),
+                    'rt_id' => $userData['rt_id'] ?? null,
+                ]
+            );
 
             // Assign role based on username
             switch ($userData['username']) {
@@ -44,10 +50,19 @@ class AdminSeeder extends Seeder
                 case 'ketua_rw':
                     $user->assignRole('ketua_rw');
                     break;
-                case 'ketua_rt':
-                    $user->assignRole('ketua_rt');
+                case 'ketua_rt1':
+                    $user->assignRole('ketua_rt1');
+                    break;
+                case 'ketua_rt2':
+                    $user->assignRole('ketua_rt2');
+                    break;
+                case 'ketua_rt3':
+                    $user->assignRole('ketua_rt3');
                     break;
                 case 'warga':
+                    $user->assignRole('warga');
+                    break;
+                case 'abdaziz':
                     $user->assignRole('warga');
                     break;
             }

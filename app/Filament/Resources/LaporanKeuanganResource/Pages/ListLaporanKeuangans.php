@@ -10,10 +10,10 @@ class ListLaporanKeuangans extends ListRecords
 {
     protected static string $resource = LaporanKeuanganResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    // protected function getHeaderActions(): array
+    // {
+    //     return [
+    //         Actions\CreateAction::make(),
+    //     ];
+    // }
 }

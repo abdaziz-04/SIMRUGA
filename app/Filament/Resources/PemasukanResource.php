@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PemasukanResource\Pages;
 use App\Filament\Resources\PemasukanResource\RelationManagers;
 use App\Models\Pemasukan;
+use App\Models\PembayaranIuran;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,12 +26,11 @@ class PemasukanResource extends Resource
     protected static ?string $model = Pemasukan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-down';
-    protected static ?string $navigationLabel = 'Pemasukan Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationLabel = 'Pemasukan Keuangan RW';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('view_pemasukan_keuangan')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_pemasukan_keuangan')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -41,12 +41,12 @@ class PemasukanResource extends Resource
         return $form
             ->schema([
                 Card::make()
-                ->schema([
-                    TextInput::make('jenis_pemasukan')->label('Jenis Pemasukan')->required(),
-                    DatePicker::make('tanggal')->label('Tanggal')->required(),
-                    TextInput::make('jumlah_pemasukan')->label('Jumlah Pemasukan')->required(),
-                    TextInput::make('keterangan')->label('Keterangan'),
-                ])->columns(1),
+                    ->schema([
+                        TextInput::make('jenis_pemasukan')->label('Jenis Pemasukan')->required(),
+                        DatePicker::make('tanggal')->label('Tanggal')->required(),
+                        TextInput::make('jumlah_pemasukan')->label('Jumlah Pemasukan')->required(),
+                        TextInput::make('keterangan')->label('Keterangan'),
+                    ])->columns(1),
             ]);
     }
 

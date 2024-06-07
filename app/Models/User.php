@@ -21,7 +21,10 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'name',
+        'email',
         'password',
+        'rt_id',
+        'custom_fields',
     ];
 
     /**
@@ -42,7 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'custom_fields' => 'array'
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

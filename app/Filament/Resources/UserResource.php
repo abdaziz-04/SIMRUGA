@@ -22,7 +22,20 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if (auth()->user()->can('view_admin')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function form(Form $form): Form
     {
@@ -33,7 +46,9 @@ class UserResource extends Resource
                         TextInput::make('username'),
                         TextInput::make('name'),
                         Password::make('password')
-                                ->label('Password'),
+                            ->label('Password')
+                            ->regeneratePassword()
+                            ->copyable(),
                         Select::make('roles')->multiple()->relationship('roles', 'name'),
                     ])
                     ->columns(2),

@@ -2,34 +2,35 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LaporanKeuanganResource\Pages;
-use App\Filament\Resources\LaporanKeuanganResource\RelationManagers;
-use App\Models\LaporanKeuangan;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Actions\DeleteAction;
+use App\Models\LaporanKeuangan;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Grid;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Tables\Actions\DeleteAction;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\LaporanKeuanganResource\Pages;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use App\Filament\Resources\LaporanKeuanganResource\RelationManagers;
+
 
 class LaporanKeuanganResource extends Resource
 {
     protected static ?string $model = LaporanKeuangan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationLabel = 'Laporan Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+    protected static ?string $navigationLabel = 'Laporan Keuangan RW';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('view_laporan_keuangan')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_laporan_keuangan')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -46,67 +47,25 @@ class LaporanKeuanganResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            TextColumn::make('pemasukanKeuangan.tanggal')
-                ->label('Tanggal')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return $record->pemasukanKeuangan->tanggal ?? $record->pengeluaranKeuangan->tanggal;
-                }),
-            TextColumn::make('pemasukanKeuangan.keterangan')
-                ->label('Keterangan Pemasukan')
-                ->searchable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return $record->pemasukanKeuangan->keterangan ?? '';
-                }),
-            TextColumn::make('pemasukanKeuangan.jumlah_pemasukan')
-                ->label('Jumlah Pemasukan')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return $record->pemasukanKeuangan->jumlah_pemasukan ?? '';
-                }),
-            TextColumn::make('pengeluaranKeuangan.tanggal')
-                ->label('Tanggal Pengeluaran')
-                ->sortable()
-                ->searchable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return isset($record->pengeluaranKeuangan->tanggal) ? $record->pengeluaranKeuangan->tanggal : '';
-                }),
-            TextColumn::make('pengeluaranKeuangan.keterangan')
-                ->label('Keterangan Pengeluaran')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return isset($record->pengeluaranKeuangan->keterangan) ? $record->pengeluaranKeuangan->keterangan : '';
-                }),
-            TextColumn::make('pengeluaranKeuangan.jumlah_pengeluaran')
-                ->label('Jumlah Pengeluaran')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    return isset($record->pengeluaranKeuangan->jumlah_pengeluaran) ? $record->pengeluaranKeuangan->jumlah_pengeluaran : '';
-                }),
-            TextColumn::make('total_saldo')
-                ->label('Sisa Saldo')
-                ->sortable()
-                ->getStateUsing(function (LaporanKeuangan $record) {
-                    $jumlahPemasukan = $record->pemasukanKeuangan->jumlah_pemasukan ?? 0;
-                    $jumlahPengeluaran = $record->pengeluaranKeuangan->jumlah_pengeluaran ?? 0;
-                    return $jumlahPemasukan - $jumlahPengeluaran;
-                }),
-        ])
-        
+            ->columns([
+                TextColumn::make('tanggal')->label('Tanggal')->sortable(),
+                TextColumn::make('keterangan_pemasukan')->label('Keterangan Pemasukan')->searchable(),
+                TextColumn::make('total_pemasukan')->label('Jumlah Pemasukan')->sortable(),
+                TextColumn::make('keterangan_pengeluaran')->label('Keterangan Pengeluaran')->sortable(),
+                TextColumn::make('total_pengeluaran')->label('Jumlah Pengeluaran')->sortable(),
+                TextColumn::make('total_saldo')->label('Sisa Saldo')->sortable(),
+            ])
 
             ->filters([
                 //
             ])
             ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
+                // ViewAction::make(),
+                // EditAction::make(),
+                // DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ExportBulkAction::make()
             ]);
     }
 
@@ -121,8 +80,8 @@ class LaporanKeuanganResource extends Resource
     {
         return [
             'index' => Pages\ListLaporanKeuangans::route('/'),
-            'create' => Pages\CreateLaporanKeuangan::route('/create'),
-            'edit' => Pages\EditLaporanKeuangan::route('/{record}/edit'),
+            // 'create' => Pages\CreateLaporanKeuangan::route('/create'),
+            // 'edit' => Pages\EditLaporanKeuangan::route('/{record}/edit'),
         ];
     }
 

@@ -2,6 +2,11 @@
 
 return [
 
+    'database_notifications' => [
+        'enabled' => true,
+        'polling_interval' => '30s',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Broadcasting
@@ -30,6 +35,16 @@ return [
         // ],
 
     ],
+
+    'navigation' => [
+        // menu lainnya
+        [
+            'label' => 'Perhitungan Penerima Bansos',
+            'url' => '/admin/perhitungan-bansos',
+            'icon' => 'heroicon-o-calculator',
+        ],
+    ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -85,5 +100,4 @@ return [
     */
 
     'livewire_loading_delay' => 'default',
-
 ];

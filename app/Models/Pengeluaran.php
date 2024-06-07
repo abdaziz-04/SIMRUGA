@@ -21,5 +21,6 @@ class Pengeluaran extends Model
         'tanggal',
         'jumlah_pengeluaran',
         'keterangan',
+        'foto_struk'
     ];
 }
