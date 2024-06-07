@@ -15,33 +15,18 @@
     </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark" id="mainNav"
-        style="--bs-secondary: #eff6ff;--bs-secondary-rgb: 239,246,255;color: rgb(10,10,11);background: rgb(239,246,255);">
-        <div class="container"><a class="navbar-brand" href="#page-top"
-                style=" font-family: 'Liberation Sans'; color: rgb(255, 255, 255);font-size: 24px;">SIMRUGA</a><button
-                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
-                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
-                    class="fa fa-bars"></i></button>
-            {{-- <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="#team" data-bs-target="#team">STRUKTUR</a></li>
-                </ul>
-            </div> --}}
-        </div>
-    </nav>
     <div class="container">
         <div class="text-center">
             <img src="{{ $pengumuman->gambar }}" class="img-fluid" alt="{{ $pengumuman->nama_pengumuman }}" style="max-width: 100%; height: auto;">
         </div>
         <div class="mt-4 text-center">
-            <h1>{{ $pengumuman->nama_pengumuman }}</h1>
+            <h2 class="display-5 fw-bolder">{{ $pengumuman->nama_pengumuman }}</h2>
         </div>
         <div class="mt-4">
-            <p>{{ $pengumuman->isi_pengumuman }}</p>
+            <p style="line-height: 1.5; margin-bottom: 30px;">{{ $pengumuman->isi_pengumuman }}</p>
         </div>
         <div class="mt-4 text-center">
-            <a href="{{ url('/') }}" class="btn btn-secondary">Kembali ke Daftar Pengumuman</a>
+            <a href="{{ url('/') }}" class="btn btn-primary text-uppercase">Kembali</a>
         </div>
     </div>
     <img src="" alt="">
