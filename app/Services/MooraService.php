@@ -147,10 +147,4 @@ class MooraService
             Rangking::create($ranking);
         }
     }
-
-    public function deleteData()
-    {
-        // Menghapus semua data dari tabel rangkings
-        Rangking::truncate();
-    }
 }

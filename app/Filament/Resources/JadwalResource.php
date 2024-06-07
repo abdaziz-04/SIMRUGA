@@ -19,7 +19,18 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
+use Filament\Infolists\Components\Grid;
 use Filament\Forms\Components\DatePicker;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\Section as ComponentsSection;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
+use Filament\Pages\SubNavigationPosition;
+use Filament\Pages\Page;
+use App\Filament\Pages\ViewPost;
+use App\Filament\Resources\JadwalResource\Pages\ViewJadwal;
 
 class JadwalResource extends Resource
 {
@@ -79,6 +90,37 @@ class JadwalResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('nama_pertemuan')->label('Nama Pertemuan'),
+                                        TextEntry::make('tanggal_pertemuan')->label('Tanggal Pertemuan')->badge()->date()->color('success'),
+                                    ]),
+                                    Group::make([
+                                        TextEntry::make('keterangan_jadwal')->label('Keterangan Jadwal'),
+                                        TextEntry::make('pihak_terlibat')->label('Pihak Terlibat'),
+                                    ]),
+                                ])
+                        ])
+                    ])
+            ]);
+    }
+
+    public static function getRecordSubNavigation(Page $page): array
+    {
+        return $page->generateNavigationItems([
+            ViewJadwal::class,
+        ]);
+    }
+
+
     public static function getRelations(): array
     {
         return [
@@ -91,6 +133,7 @@ class JadwalResource extends Resource
         return [
             'index' => Pages\ListJadwals::route('/'),
             'create' => Pages\CreateJadwal::route('/create'),
+            'view' => Pages\ViewJadwal::route('/{record}'),
             'edit' => Pages\EditJadwal::route('/{record}/edit'),
         ];
     }

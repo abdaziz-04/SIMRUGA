@@ -19,10 +19,6 @@ class ListPerankingans extends ListRecords
             ButtonAction::make('Prediksi Penerima Bantuan')
                 ->action('perangkingan')
                 ->color('primary'),
-            ButtonAction::make('Hapus Data')
-                ->action('hapusData')
-                ->color('danger')
-                ->label('Hapus Data'),
         ];
     }
 

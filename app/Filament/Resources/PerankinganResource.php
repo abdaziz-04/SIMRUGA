@@ -11,11 +11,14 @@ use Filament\Tables\Table;
 use App\Models\Perankingan;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\DeleteAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PerankinganResource\Pages;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\PerankinganResource\RelationManagers;
+use App\Filament\Resources\PerankinganResource\Pages\ListPerankingans;
+
 
 class PerankinganResource extends Resource
 {
@@ -56,7 +59,11 @@ class PerankinganResource extends Resource
                 //
             ])
             ->bulkActions([
-                ExportBulkAction::make()
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                    ExportBulkAction::make()
+                ]),
+
             ])
             ->actions([]);
     }
