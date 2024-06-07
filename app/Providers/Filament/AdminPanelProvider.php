@@ -30,6 +30,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
 use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -51,7 +52,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                WargaChart::class,
                 PermintaanLayananWidget::class,
                 \App\Filament\Widgets\PermintaanLayananWidget::class,
             ])
@@ -77,6 +77,10 @@ class AdminPanelProvider extends PanelProvider
         }
 
         $panel->plugin(FilamentProgressbarPlugin::make()->color('#29b'));
+
+        $panel->plugins([
+            FilamentApexChartsPlugin::make()
+        ]);
 
         $panel->plugin(\Hasnayeen\Themes\ThemesPlugin::make())
             ->plugins([

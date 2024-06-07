@@ -161,6 +161,7 @@ class PermissionSeeder extends Seeder
 
         $rwRole->givePermissionTo([
             'view_users',
+            'view_warga',
             'view_warga_rw',
             'view_jadwal_pertemuan',
             'view_laporan_keuangan_warga',

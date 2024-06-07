@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call(KKSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(ArsipanSuratSeeder::class);
-        $this->call(AdminSeeder::class);
         $this->call(KriteriaSeeder::class);
         $this->call(RtSeeder::class);
+        $this->call(AdminSeeder::class);
         $this->call(WargaSeeder::class);
         $this->call(JenisIuranSeeder::class);
         $this->call(PembayaranIuranSeeder::class);
