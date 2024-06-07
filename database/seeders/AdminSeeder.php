@@ -18,9 +18,9 @@ class AdminSeeder extends Seeder
             ['username' => 'sekretaris', 'name' => 'Sekretaris', 'password' => '12345'],
             ['username' => 'bendahara', 'name' => 'Bendahara', 'password' => '12345'],
             ['username' => 'ketua_rw', 'name' => 'Ketua RW', 'password' => '12345'],
-            ['username' => 'ketua_rt1', 'rt_id' => 1, 'name' => 'Ketua RT 1', 'password' => '12345'],
-            ['username' => 'ketua_rt2', 'rt_id' => 2, 'name' => 'Ketua RT 2', 'password' => '12345'],
-            ['username' => 'ketua_rt3', 'rt_id' => 3, 'name' => 'Ketua RT 3', 'password' => '12345'],
+            ['rt_id' => 1, 'username' => 'ketua_rt1', 'name' => 'Ketua RT 1', 'password' => '12345'],
+            ['rt_id' => 2, 'username' => 'ketua_rt2',  'name' => 'Ketua RT 2', 'password' => '12345'],
+            ['rt_id' => 3, 'username' => 'ketua_rt3', 'name' => 'Ketua RT 3', 'password' => '12345'],
             ['username' => 'warga', 'name' => 'Warga', 'password' => '12345'],
             ['username' => 'abdaziz', 'name' => 'Abdul Aziz', 'password' => '12345'],
         ];
@@ -31,7 +31,8 @@ class AdminSeeder extends Seeder
                 ['username' => $userData['username']],
                 [
                     'name' => $userData['name'],
-                    'password' => Hash::make($userData['password'])
+                    'password' => Hash::make($userData['password']),
+                    'rt_id' => $userData['rt_id'] ?? null,
                 ]
             );
 

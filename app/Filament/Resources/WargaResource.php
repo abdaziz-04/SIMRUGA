@@ -8,20 +8,26 @@ use Filament\Tables;
 use App\Models\Warga;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
+use Filament\Support\Enums\FontWeight;
+use Filament\Infolists\Components\Card;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
+use Filament\Infolists\Components\Split;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ImageEntry;
 use App\Filament\Resources\WargaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\WargaResource\RelationManagers;
-
 
 class WargaResource extends Resource
 {
@@ -124,6 +130,58 @@ class WargaResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+
+                Split::make([
+                    Section::make([
+                        TextEntry::make('nama_warga')
+                            ->weight(FontWeight::Bold),
+                        TextEntry::make('NIK')
+                            ->label('NIK'),
+                        TextEntry::make('alamat')
+                            ->label('Alamat'),
+                        TextEntry::make('tanggal_lahir')->label('Tanggal Lahir'),
+                        TextEntry::make('jenis_kelamin')->label('Jenis Kelamin'),
+                        TextEntry::make('agama')->label('Agama'),
+                    ]),
+                    // Section::make([
+                    //     TextEntry::make('no_telepon')
+                    //         ->label('No Telepon'),
+                    //     TextEntry::make('rt.nama_rt')->label('RT'),
+                    //     TextEntry::make('jenis_warga')->label('Jenis Warga'),
+                    // ]),
+                    Section::make([
+                        ImageEntry::make('foto_warga')->label('Foto Warga')->defaultImageUrl(url('/gambar/placeholder.jpeg'))
+                            ->size(300),
+                    ])->grow(false),
+                ])->from('lg')
+
+                // Personal Information
+                //     Card::make('Informasi Pribadi')
+                //         ->schema([
+                //             TextEntry::make('nama_warga')->label('Nama Warga'),
+                //             TextEntry::make('NIK')->label('NIK'),
+                //             TextEntry::make('alamat')->label('Alamat'),
+                //             TextEntry::make('no_telepon')->label('No Telepon'),
+                //             TextEntry::make('rt.nama_rt')->label('RT'),
+                //
+                //             TextEntry::make('jenis_warga')->label('Jenis Warga'),
+                //         ]),
+
+                //     // Demographics
+                //     Card::make('Demografi')
+                //         ->schema([
+                //             TextEntry::make('tanggal_lahir')->label('Tanggal Lahir'),
+                //             TextEntry::make('jenis_kelamin')->label('Jenis Kelamin'),
+                //             TextEntry::make('agama')->label('Agama'),
+                //         ]),
+            ]);
+    }
+
+
 
     public static function getRelations(): array
     {
@@ -138,6 +196,7 @@ class WargaResource extends Resource
             'index' => Pages\ListWargas::route('/'),
             'create' => Pages\CreateWarga::route('/create'),
             'edit' => Pages\EditWarga::route('/{record}/edit'),
+            'view' => Pages\ViewWarga::route('/{record}'),
         ];
     }
 }
