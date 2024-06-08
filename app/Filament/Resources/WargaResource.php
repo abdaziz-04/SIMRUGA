@@ -30,6 +30,10 @@ use Filament\Infolists\Components\ImageEntry;
 use App\Filament\Resources\WargaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\WargaResource\RelationManagers;
+use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
+use Ysfkaya\FilamentPhoneInput\Tables\PhoneColumn;
+use Ysfkaya\FilamentPhoneInput\Infolists\PhoneEntry;
+use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
 
 class WargaResource extends Resource
 {
@@ -61,7 +65,7 @@ class WargaResource extends Resource
             TextInput::make('nama_warga')->label('Nama')->required(),
             TextInput::make('NIK')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
-            TextInput::make('no_telepon')->label('No Telepon')->required(),
+            PhoneInput::make('phone')->required(),
             Select::make('id_rt')
                 ->label('RT')->options($daftarRT)
                 ->required(),
@@ -197,7 +201,7 @@ class WargaResource extends Resource
                                         TextEntry::make('NIK')->label('NIK'),
                                         TextEntry::make('agama'),
                                         TextEntry::make('alamat'),
-                                        TextEntry::make('no_telepon'),
+                                        PhoneEntry::make('no_telepon')->displayFormat(PhoneInputNumberType::NATIONAL),
                                         TextEntry::make('rt.nama_rt'),
                                     ]),
                                     Group::make([
