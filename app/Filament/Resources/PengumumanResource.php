@@ -53,7 +53,7 @@ class PengumumanResource extends Resource
                 ImageColumn::make('gambar')->label('Gambar'),
                 TextColumn::make('nama_pengumuman')->label('Nama Pengumuman'),
                 TextColumn::make('isi_pengumuman')->label('Isi Pengumuman'),
-                TextColumn::make('tanggal_pengumuman')->label('Tanggal Pengumuman'),
+                TextColumn::make('tanggal_pengumuman')->label('Tanggal Pengumuman')->badge()->date()->color('success'),
             ])
             ->filters([
                 //

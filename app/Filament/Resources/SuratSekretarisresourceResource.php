@@ -60,7 +60,7 @@ class SuratSekretarisresourceResource extends Resource
                 TextColumn::make('kegiatan')
                     ->label('Nama Kegiatan'),
                 TextColumn::make('created_at')
-                    ->label('Tanggal Upload Surat')
+                    ->label('Tanggal Upload Surat')->badge()->date()->color('success')
             ])
             ->filters([
                 // Tambahkan filter jika diperlukan

@@ -61,7 +61,7 @@ class PemasukanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('jenis_pemasukan')->label('Jenis Pemasukan')->searchable(),
-                TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable(),
+                TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable()->badge()->date()->color('success'),
                 TextColumn::make('jumlah_pemasukan')->label('Jumlah Pemasukan'),
                 TextColumn::make('keterangan')->label('Keterangan'),
             ])
