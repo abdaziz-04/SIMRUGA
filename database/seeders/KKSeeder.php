@@ -46,7 +46,7 @@ class KKSeeder extends Seeder
                 'alamat' => 'Jalan Simpang Danau Meninjau Selatan No. 5, Malang',
             ],
             [
-                'nama_kepala_keluarga' => 'Faisal Rahman',
+                'nama_kepala_keluarga' => 'Siti Rahayu',
                 'no_kk' => '327601040100006',
                 'rt_rw' => '01/08',
                 'alamat' => 'Jalan Simpang Danau Meninjau Selatan No. 6, Malang',
@@ -88,7 +88,7 @@ class KKSeeder extends Seeder
                 'alamat' => 'Jalan Simpang Danau Meninjau Selatan No. 12, Malang',
             ],
             [
-                'nama_kepala_keluarga' => 'Mulyadi Saputra',
+                'nama_kepala_keluarga' => 'Indri Eka Saputri',
                 'no_kk' => '327601040100013',
                 'rt_rw' => '01/08',
                 'alamat' => 'Jalan Simpang Danau Meninjau Selatan No. 13, Malang',
@@ -136,7 +136,7 @@ class KKSeeder extends Seeder
                 'alamat' => 'Jalan Simpang Danau Meninjau Utara No. 5, Malang',
             ],
             [
-                'nama_kepala_keluarga' => 'Usman Hasan',
+                'nama_kepala_keluarga' => 'Yuni Hanawi',
                 'no_kk' => '327601040100021',
                 'rt_rw' => '02/08',
                 'alamat' => 'Jalan Simpang Danau Meninjau Utara No. 6, Malang',

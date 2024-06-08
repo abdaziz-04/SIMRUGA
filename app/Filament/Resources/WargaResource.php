@@ -100,7 +100,7 @@ class WargaResource extends Resource
         return $table->columns([
             TextColumn::make('nama_warga')->label('Nama')->searchable(),
             TextColumn::make('agama')->label('Agama')->searchable(),
-            TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable(),
+            TextColumn::make('tanggal_lahir')->label('Tanggal Lahir')->sortable()->badge()->date()->color('success'),
             TextColumn::make('jenis_kelamin')->label('Jenis Kelamin')->formatStateUsing(function ($state) {
                 return $state === 'L' ? 'Laki-laki' : 'Perempuan';
             }),

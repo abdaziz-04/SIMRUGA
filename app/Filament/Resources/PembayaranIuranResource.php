@@ -70,7 +70,7 @@ class PembayaranIuranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('tanggal')->label('Tanggal Pembayaran')->sortable(),
+                TextColumn::make('tanggal')->label('Tanggal Pembayaran')->sortable()->badge()->date()->color('success'),
                 TextColumn::make('kk.nama_kepala_keluarga')->label('Nama Kepala Keluarga')->searchable(),
                 TextColumn::make('jenisIuran.nama_iuran')->label('Jenis Iuran')->searchable(),
                 TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran')->searchable()->sortable(),

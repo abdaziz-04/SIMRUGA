@@ -48,7 +48,7 @@ class LaporanKeuanganResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('tanggal')->label('Tanggal')->sortable(),
+                TextColumn::make('tanggal')->label('Tanggal')->sortable()->badge()->date()->color('success'),
                 TextColumn::make('keterangan_pemasukan')->label('Keterangan Pemasukan')->searchable(),
                 TextColumn::make('total_pemasukan')->label('Jumlah Pemasukan')->sortable(),
                 TextColumn::make('keterangan_pengeluaran')->label('Keterangan Pengeluaran')->sortable(),
