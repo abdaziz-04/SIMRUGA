@@ -102,7 +102,7 @@ class PermintaanLayananResource extends Resource
                         'primary' => 'proses',
                     ]),
                 TextColumn::make('deskripsi'),
-                TextColumn::make('catatan')->visible(fn () => auth()->user()->hasRole('warga')),
+                TextColumn::make('catatan')->hidden(fn () => auth()->user()->hasRole('sekretaris')),
                 ImageColumn::make('berkas'),
                 TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
             ])
@@ -147,7 +147,12 @@ class PermintaanLayananResource extends Resource
                             ->success()
                             ->title('Status Permintaan Layanan Telah Diubah')
                             ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
-                            ->sendTo($userPengaju);
+                            ->actions([
+                                Action::make('Lihat')
+                                    ->url(fn () => 'permintaan-layanans/' . $record->id)
+                                    ->color('primary')
+                            ])
+                            ->sendToDatabase($userPengaju);
                     })
                     ->visible(fn () => auth()->user()->hasRole('sekretaris')),
             ])
