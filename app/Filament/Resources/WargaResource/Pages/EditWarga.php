@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\WargaResource\Pages;
 
-use App\Filament\Resources\WargaResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\WargaResource;
 
 class EditWarga extends EditRecord
 {

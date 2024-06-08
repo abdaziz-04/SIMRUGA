@@ -102,7 +102,7 @@ class PermintaanLayananResource extends Resource
                         'primary' => 'proses',
                     ]),
                 TextColumn::make('deskripsi'),
-                TextColumn::make('catatan')->visible(fn () => auth()->user()->hasRole('warga')),
+                TextColumn::make('catatan')->hidden(fn () => auth()->user()->hasRole('sekretaris')),
                 ImageColumn::make('berkas'),
                 TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
             ])
@@ -136,20 +136,20 @@ class PermintaanLayananResource extends Resource
                             ->required(),
                         Textarea::make('catatan')->label('Catatan'),
                     ])
-                    ->action(function (PermintaanLayanan $record, array $data): void {
-                        $record->status = $data['status'];
-                        $record->catatan = $data['catatan']; // Simpan catatan yang diberikan oleh sekretaris
-                        $record->save();
+                // ->action(function (PermintaanLayanan $record, array $data): void {
+                //     $record->status = $data['status'];
+                //     $record->catatan = $data['catatan']; // Simpan catatan yang diberikan oleh sekretaris
+                //     $record->save();
 
-                        // Kirim notifikasi ke pengaju
-                        $userPengaju = $record->user;
-                        Notification::make()
-                            ->success()
-                            ->title('Status Permintaan Layanan Telah Diubah')
-                            ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
-                            ->sendTo($userPengaju);
-                    })
-                    ->visible(fn () => auth()->user()->hasRole('sekretaris')),
+                //     // Kirim notifikasi ke pengaju
+                //     $userPengaju = $record->user;
+                //     Notification::make()
+                //         ->success()
+                //         ->title('Status Permintaan Layanan Telah Diubah')
+                //         ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
+                //         ->sendTo($userPengaju);
+                // })
+                // ->visible(fn () => auth()->user()->hasRole('sekretaris')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
