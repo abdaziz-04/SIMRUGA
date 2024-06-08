@@ -16,7 +16,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
 use Filament\Infolists\Components\Grid;
@@ -24,13 +23,8 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\Split;
 use Filament\Infolists\Components\Group;
-use Filament\Infolists\Components\Section as ComponentsSection;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
-use Filament\Pages\SubNavigationPosition;
-use Filament\Pages\Page;
-use App\Filament\Pages\ViewPost;
-use App\Filament\Resources\JadwalResource\Pages\ViewJadwal;
 
 class JadwalResource extends Resource
 {
@@ -112,14 +106,6 @@ class JadwalResource extends Resource
                     ])
             ]);
     }
-
-    public static function getRecordSubNavigation(Page $page): array
-    {
-        return $page->generateNavigationItems([
-            ViewJadwal::class,
-        ]);
-    }
-
 
     public static function getRelations(): array
     {

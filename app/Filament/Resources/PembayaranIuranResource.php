@@ -22,6 +22,12 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DatePicker;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Infolist;
 
 
 class PembayaranIuranResource extends Resource
@@ -84,6 +90,29 @@ class PembayaranIuranResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('tanggal')->label('Tanggal Pembayaran')->badge()->date()->color('success'),
+                                        TextEntry::make('kk.nama_kepala_keluarga')->label('Nama Kepala Keluarga'),
+                                    ]),
+                                    Group::make([
+                                        TextEntry::make('jenisIuran.nama_iuran')->label('Jenis Iuran'),
+                                        TextEntry::make('jumlah_pembayaran')->label('Jumlah Pembayaran'),
+                                    ]),
+                                ])
+                        ])
+                    ])
+            ]);
+    }
+
     public static function getRelations(): array
     {
         return [
@@ -96,6 +125,7 @@ class PembayaranIuranResource extends Resource
         return [
             'index' => Pages\ListPembayaranIurans::route('/'),
             'create' => Pages\CreatePembayaranIuran::route('/create'),
+            'view' => Pages\ViewPembayaranIuran::route('/{record}'),
             'edit' => Pages\EditPembayaranIuran::route('/{record}/edit'),
         ];
     }
