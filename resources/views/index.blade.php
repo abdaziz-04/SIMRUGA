@@ -62,13 +62,21 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="text-start"data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                    <h1 class="display-2 fw-bolder">RW 8</h1>
-                    <h2 class="display-5 fw-bolder">Sawojajar</h2>
-                    <h3 class="display-5 fw-bolder">Kota Malang</h3>
-                    <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
-                        Temukan kemudahan dalam mengrus adminitrasi dan data pribadimu bersama SIMRUGA
-                    </p>
+                <div class="text-start">
+                    <div data-aos="fade-left" data-aos-easing="ease-in-sine">
+                        <h1 class="display-2 fw-bolder">RW 8</h1>
+                    </div>
+                    <div data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="100">
+                        <h2 class="display-5 fw-bolder">Sawojajar</h2>
+                    </div>
+                    <div data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="200">
+                        <h3 class="display-5 fw-bolder">Kota Malang</h3>
+                    </div>
+                    <div data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="300">
+                        <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
+                            Temukan kemudahan dalam mengrus adminitrasi dan data pribadimu bersama SIMRUGA
+                        </p>
+                    </div>
                 </div>
                 <div data-aos="zoom-in-right">
                     <a class="btn btn-primary text-uppercase" role="button" href="/admin/login">
@@ -111,10 +119,11 @@
                     Menunjukan penyajian data warga dalam bentuk grafis
                 </p>
             </div>
-            <div data-aos="fade-up">
-            <iframe class="embed-responsive-item"
+            <div data-aos="fade-up" class="iframe-container">
+
+                <iframe "
                 src="https://lookerstudio.google.com/embed/reporting/d5d1ecd9-9d72-47e6-8eb7-a2e443e4b460/page/p_vfix41czhd"
-                width="100%" height="1015" style="border:0;" allowfullscreen="" loading="lazy"
+                width="100%" height="870"  allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -199,8 +208,8 @@
                 <h2 class="display-5 fw-bolder">Hubungi Pengurus RW</h2>
             </div>
             <div class="row">
-                @foreach ($pengurus as $index => $member)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-0" data-aos="fade-down" data-aos-delay="{{ $index * 100 }}">
+                @foreach ($pengurus->take(6) as $index => $member)
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-down" data-aos-delay="{{ $index * 100 }}">
                         <div class="team-member">
                             {{-- <img class="rounded-circle mx-auto" src="assets/img/team/{{ $member->nama_pengurus }}.jpg"
                                 alt="{{ $member->nama_pengurus }}"> --}}
@@ -209,7 +218,7 @@
                             <ul class="list-inline social-buttons">
                                 <li class="list-inline-item">
                                     <a href="https://wa.me/{{ $member->no_telepon }}?text=Halo,%20saya%20tertarik%20untuk%20menghubungi%20Anda."
-                                       target="_blank">
+                                        target="_blank">
                                         <i class="fa fa-whatsapp"></i>
                                     </a>
                                 </li>
@@ -218,13 +227,14 @@
                     </div>
                 @endforeach
             </div>
+            
         </div>
-    </section>
+        </section>
 
-    <footer style="background-color: #001f3f; color: white;">
-        <div class="container">
-            <div class="row">
-                {{-- <div class="col-md-6 offset-md-6">
+        <footer style="background-color: #001f3f; color: white;">
+            <div class="container">
+                <div class="row">
+                    {{-- <div class="col-md-6 offset-md-6">
                     <p>Developed by:</p>
                     <div style="text-align: left;">
                         <p>Abdul Aziz</p>
@@ -234,24 +244,26 @@
                         <p>Jesika Oktavia</p>
                     </div>
                 </div> --}}
-                <div class="col-md-6">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#" style="color: white;">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#" style="color: white;">Terms of Use</a></li>
-                    </ul>
-                    <p>&copy; SIMRUGA 2024</p>
+                    <div class="col-md-6">
+                        <ul class="list-inline quicklinks">
+                            <li class="list-inline-item"><a href="#" style="color: white;">Privacy Policy</a>
+                            </li>
+                            <li class="list-inline-item"><a href="#" style="color: white;">Terms of Use</a>
+                            </li>
+                        </ul>
+                        <p>&copy; SIMRUGA 2024</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/agency.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/agency.js"></script>
 </body>
 
 </html>
