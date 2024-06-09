@@ -4,9 +4,11 @@ namespace App\Filament\Widgets;
 
 use Filament\Tables;
 use App\Models\PermintaanLayanan;
+use Filament\Notifications\Actions\Action;
 use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
+use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Widgets\TableWidget as BaseWidget;
 
@@ -67,6 +69,19 @@ class LayananWidget extends BaseWidget
                     $record->status = $data['status'];
                     $record->catatan = $data['catatan']; // Simpan catatan yang diberikan oleh sekretaris
                     $record->save();
+
+                    // Kirim notifikasi ke pengaju
+                    $userPengaju = $record->user;
+                    Notification::make()
+                        ->success()
+                        ->title('Status Permintaan Layanan Telah Diubah')
+                        ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
+                        ->actions([
+                            Action::make('Lihat')
+                                ->url(fn () => 'permintaan-layanans/' . $record->id)
+                                ->color('primary')
+                        ])
+                        ->sendToDatabase($userPengaju);
                 })
                 ->visible(fn () => auth()->user()->hasRole('sekretaris')),
         ];
