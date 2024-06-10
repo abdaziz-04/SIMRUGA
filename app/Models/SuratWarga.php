@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class surat_warga extends Model
+class SuratWarga extends Model
 {
     use HasFactory;
 

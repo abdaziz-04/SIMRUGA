@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Surat Warga</title>
 </head>
+
 <body>
     <div class="header">
         <center>
@@ -13,22 +15,50 @@
             </div>
             <hr>
             <br>
-        @if ($surat->jenis_surat == "Kematian")
-            <h4>Surat Keterangan Kematian</h4>
+        </center>
+        <table cellspacing="0">
+            @if ($surat->jenis_surat == 'Kematian')
+                <tr>
+                    <th>No.Surat</th>
+                    <td>:</td>
+                    <td>
+                        <p>VIII/warga/kematian/{{ $surat->surat_id }}</p>
+                    </td>
+                </tr>
+            @elseif($surat->jenis_surat == 'TidakMampu')
+                <tr>
+                    <th>No.Surat</th>
+                    <td><b>:</b></td>
+                    <td>
+                        <p>VIII/warga/TidakMampu/{{ $surat->surat_id }}</p>
+                    </td>
+                </tr>
+            @elseif($surat->jenis_surat == 'Pengantar')
+                <tr>
+                    <td><b>No.Surat</b></td>
+                    <td><b>:</b></td>
+                    <td>
+                        <p>VIII/warga/Pengantar/{{ $surat->surat_id }}</p>
+                    </td>
+                </tr>
+            @endif
+        </table>
+        <center>
+            @if ($surat->jenis_surat == 'Kematian')
+                <h3>Surat Keterangan Kematian</h3>
+            @elseif($surat->jenis_surat == 'TidakMampu')
+                <h3>Surat Keterangan Tidak Mampu</h3>
+            @elseif($surat->jenis_surat == 'Pengantar')
+                <h3>Surat Pengantar</h3>
+            @endif
+        </center>
 
-        @elseif($surat->jenis_surat == "TidakMampu")
-            <h4>Surat Keterangan Tidak Mampu</h4>
-        @elseif($surat->jenis_surat == "Pengantar")
-            <h4>Surat Pengantar</h4>       
-        @endif
-        
-    </center>
     </div>
     <div class="content">
         <br>
         <p>Yang bertanda tangan dibawah ini Ketua RW 8 Kelurahan Sawojajar Kota Malang</p>
         <p>Menarangkan bahwa</p>
-        @if ($surat->jenis_surat == "Kematian")
+        @if ($surat->jenis_surat == 'Kematian')
             <table>
                 <tr>
                     <td>Nama</td>
@@ -49,9 +79,9 @@
                     <td>Jenis Kelamin</td>
                     <td>:</td>
                     <td>
-                        @if ($surat->jenis_kelamin_alm == "L")
+                        @if ($surat->jenis_kelamin_alm == 'L')
                             Laki-Laki
-                        @elseif ($surat->jenis_kelamin_alm == "P")
+                        @elseif ($surat->jenis_kelamin_alm == 'P')
                             Perempuan
                         @endif
                     </td>
@@ -67,7 +97,7 @@
                     <td>{{ $surat->usia_alm }}</td>
                 </tr>
             </table>
-            
+
             <center>
                 <p><strong>TELAH MENINGGAL DUNIA</strong></p>
             </center>
@@ -90,8 +120,9 @@
                 </tr>
             </table>
 
-            <p>Demikian <strong>surat kematian</strong> ini dibuat dengan sebenar-benarnya agar dapat digunakan dengan sebagaimana mestinya.</p>
-        @else            
+            <p>Demikian <strong>surat kematian</strong> ini dibuat dengan sebenar-benarnya agar dapat digunakan dengan
+                sebagaimana mestinya.</p>
+        @else
             <table>
                 <tr>
                     <td>Nama Warga</td>
@@ -120,10 +151,13 @@
                 </tr>
             </table>
 
-            @if ($surat->jenis_surat == "Pengantar")
-                <p>Yang bersangkutan adalah warga setempat kami dan surat keterangan ini dikeluarkan untuk keperluan {{$surat->tujuan_surat}}.</p>
-            @elseif($surat->jenis_surat == "TidakMampu")
-                <p>Nama di atas adalah benar warga kami. Berdasarkan keterangan yang ada pada kami, benar bahwa yang bersangkutan tergolong keluarga yang tidak mampu.</p>
+            @if ($surat->jenis_surat == 'Pengantar')
+                <p>Yang bersangkutan adalah warga setempat kami dan surat keterangan ini dikeluarkan untuk keperluan
+                    <b>{{ $surat->tujuan_surat }}</b>.
+                </p>
+            @elseif($surat->jenis_surat == 'TidakMampu')
+                <p>Nama di atas adalah benar warga kami. Berdasarkan keterangan yang ada pada kami, benar bahwa yang
+                    bersangkutan tergolong keluarga yang tidak mampu.</p>
             @endif
         @endif
         <p>Demikian surat ini dibuat, atas perhatian dan kerjasamanya kami ucapkan terima kasih.</p>
@@ -133,6 +167,7 @@
         <br>
         <br>
         <p>Budi Santoso</p>
-    </div>    
+    </div>
 </body>
+
 </html>

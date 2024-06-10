@@ -91,7 +91,7 @@
         <!-- Hero Section -->
         <section id="hero" class="hero section">
 
-            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+            <img src="assets/img/1.jpg" alt="" data-aos="fade-in">
 
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-delay="100">Learning Today,<br>Leading Tomorrow</h2>
