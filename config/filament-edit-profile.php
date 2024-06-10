@@ -8,9 +8,8 @@ return [
             'type' => 'email',
             'label' => 'Email',
             'placeholder' => 'Email',
-            'required' => false, // Set this to false to make the email field nullable
+            'required' => false,
             'rules' => 'nullable|email|max:255',
         ],
-        // Other fields...
     ]
 ];
