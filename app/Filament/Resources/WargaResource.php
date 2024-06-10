@@ -203,6 +203,9 @@ class WargaResource extends Resource
                                         TextEntry::make('alamat'),
                                         PhoneEntry::make('no_telepon')->displayFormat(PhoneInputNumberType::NATIONAL),
                                         TextEntry::make('rt.nama_rt'),
+                                        TextEntry::make('jenis_warga')
+                                        ->badge()
+                                        
                                     ]),
                                     Group::make([
                                         ImageEntry::make('foto_warga')->size(300),
