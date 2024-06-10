@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SuratWargaResource\Pages;
-use App\Models\surat_warga;
+use App\Models\SuratWarga;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SuratWargaResource extends Resource
 {
-    protected static ?string $model = surat_warga::class;
+    protected static ?string $model = SuratWarga::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Surat';

@@ -63,24 +63,24 @@
             </div>
             <div class="col-md-6">
                 <div class="text-start">
-                    <div data-aos="fade-left" data-aos-easing="ease-in-sine">
+                    <div data-aos="fade-left" >
                         <h1 class="display-2 fw-bolder">RW 8</h1>
                     </div>
-                    <div data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="100">
+                    <div data-aos="fade-left" >
                         <h2 class="display-5 fw-bolder">Sawojajar</h2>
                     </div>
-                    <div data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="200">
+                    <div data-aos="fade-left" >
                         <h3 class="display-5 fw-bolder">Kota Malang</h3>
                     </div>
-                    <div data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="300">
+                    <div data-aos="fade-left" >
                         <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
-                            Temukan kemudahan dalam mengrus adminitrasi dan data pribadimu bersama SIMRUGA
+                            Temukan kemudahan dalam mengrus administrasi dan data pribadimu bersama SIMRUGA
                         </p>
                     </div>
                 </div>
                 <div data-aos="zoom-in-right">
                     <a class="btn btn-primary text-uppercase" role="button" href="/admin/login">
-                        cek lebih lanjut
+                        login
                     </a>
                 </div>
             </div>
@@ -208,11 +208,11 @@
                 <h2 class="display-5 fw-bolder">Hubungi Pengurus RW</h2>
             </div>
             <div class="row">
-                @foreach ($pengurus->take(6) as $index => $member)
+                 @foreach ($pengurus->take(6) as $index=> $member)
                     <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-down" data-aos-delay="{{ $index * 100 }}">
                         <div class="team-member">
-                            {{-- <img class="rounded-circle mx-auto" src="assets/img/team/{{ $member->nama_pengurus }}.jpg"
-                                alt="{{ $member->nama_pengurus }}"> --}}
+                            <img class="rounded-circle mx-auto" src="{{ asset('storage/' . $member->foto) }}"
+                                alt="{{ $member->nama_pengurus }}">
                             <h4>{{ $member->nama_pengurus }}</h4>
                             <p class="text-muted">{{ $member->jabatan }}</p>
                             <ul class="list-inline social-buttons">
@@ -225,9 +225,9 @@
                             </ul>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
             </div>
-            
+
         </div>
         </section>
 

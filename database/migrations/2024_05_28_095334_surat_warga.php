@@ -26,12 +26,14 @@ return new class extends Migration
             $table->dateTime('waktu_kematian_alm')->nullable();
             $table->string('sebab_kematian_alm')->nullable();
             $table->string('tempat_kematian_alm')->nullable();
-
+            $table->string('nama_warga')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('NIK')->nullable();
+            $table->string('jenis_kelamin')->nullable();
+            
             $table->string('tujuan_surat')->nullable();             
 
             $table->timestamps();
-
-            $table->foreign('id_warga')->references('id')->on('warga')->onDelete('cascade');
         });
     }
 
