@@ -80,9 +80,9 @@ class KriteriaResource extends Resource
     {
         return [
             'index' => Pages\ListKriterias::route('/'),
-            'create' => Pages\CreateKriteria::route('/create'),
+            // 'create' => Pages\CreateKriteria::route('/create'),
             // 'view' => Pages\ViewKriterias::route('/{record}'),
-            'edit' => Pages\EditKriteria::route('/{record}/edit'),
+            // 'edit' => Pages\EditKriteria::route('/{record}/edit'),
         ];
     }
 }
