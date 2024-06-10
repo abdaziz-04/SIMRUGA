@@ -15,7 +15,7 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Users', User::query()->count()),
+            Stat::make('Users', User::query()->count())->url('admin/users'),
         ];
     }
 
