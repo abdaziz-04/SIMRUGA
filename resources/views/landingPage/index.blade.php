@@ -53,10 +53,12 @@
 
             <nav id="navmenu" class="navmenu text-primary">
                 <ul>
-                    <li><a href="index.html" class="active">Home<br></a></li>
-                    <li><a href="about.html">Pengumuman</a></li>
-                    <li><a href="courses.html">Tentang Kami</a></li>
-                    <li><a href="contact.html">Hubungi </a></li>
+                    <li><a href="#hero" class="active">Home<br></a></li>
+                    <li><a href="#news">Pengumuman</a></li>
+                    <li><a href="#Grafik">Grafik</a></li>
+                    <li><a href="#TentangKami">Tentang Kami</a></li>
+                    <li><a href="#map">Lokasi </a></li>
+                    <li><a href="#pengurus">Hubungi </a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -84,7 +86,7 @@
         </section><!-- /Hero Section -->
 
         <!-- Courses Section -->
-        <section id="courses" class="courses section">
+        <section id="news" class="courses section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -119,24 +121,26 @@
 
         </section><!-- /Courses Section -->
 
-        <div class="container mt-0">
-            <div class="col-lg-12 text-center">
-                <div class="col-lg-12 text-center" data-aos="fade-down">
-                    <h2 class="display-5 fw-bolder">Dalam Grafik</h2>
-                    <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
-                        Menunjukan penyajian data warga dalam bentuk grafis
-                    </p>
+        <section id="Grafik">
+            <div class="container mt-0">
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-12 text-center" data-aos="fade-down">
+                        <h2 class="display-5 fw-bolder">Dalam Grafik</h2>
+                        <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
+                            Menunjukan penyajian data warga dalam bentuk grafis
+                        </p>
+                    </div>
+                    <div data-aos="fade-up">
+                        <iframe class="embed-responsive-item"
+                            src="https://lookerstudio.google.com/embed/reporting/d5d1ecd9-9d72-47e6-8eb7-a2e443e4b460/page/p_vfix41czhd"
+                            width="100%" height="1015" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
-                <div data-aos="fade-up">
-                    <iframe class="embed-responsive-item"
-                        src="https://lookerstudio.google.com/embed/reporting/d5d1ecd9-9d72-47e6-8eb7-a2e443e4b460/page/p_vfix41czhd"
-                        width="100%" height="1015" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+        </section>
 
         </div>
-        <section id="services">
+        <section id="TentangKami">
             <div class="container mt-0">
 
                 <div class="col-lg-12 text-center" data-aos="zoom-in-up">
@@ -199,7 +203,7 @@
         </section>
 
         <!-- Trainers Index Section -->
-        <section id="trainers-index" class="section trainers-index">
+        <section id="pengurus" class="section trainers-index">
 
             <div class="container">
 
@@ -214,11 +218,11 @@
                             <div class="member">
                                 <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
                                 <div class="member-content">
-                                    <h4>{{$member->jabatan}}</h4>
-                                    <span>{{$member->nama_pengurus}}</span>
+                                    <h4>{{ $member->jabatan }}</h4>
+                                    <span>{{ $member->nama_pengurus }}</span>
                                     <div class="social">
                                         <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
-                                            class="fa fa-whatsapp"></i></a></li>
+                                                    class="fa fa-whatsapp"></i></a></li>
                                     </div>
                                 </div>
                             </div>
