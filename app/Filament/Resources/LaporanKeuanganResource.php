@@ -25,7 +25,7 @@ class LaporanKeuanganResource extends Resource
 {
     protected static ?string $model = LaporanKeuangan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
     protected static ?string $navigationLabel = 'Laporan Keuangan RW';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi

@@ -37,7 +37,7 @@ class LembagaPendukungResource extends Resource
 {
     protected static ?string $model = LembagaPendukung::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-megaphone';
     protected static ?string $navigationLabel = 'Lembaga Pendukung';
 
 
