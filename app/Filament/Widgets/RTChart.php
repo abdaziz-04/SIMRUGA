@@ -6,9 +6,8 @@ use App\Models\RT;
 use App\Models\Warga;
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-class BlogPostsChart extends ApexChartWidget
+class RTChart extends ApexChartWidget
 {
-
     public static ?int $sort = 10;
 
     /**
@@ -25,7 +24,6 @@ class BlogPostsChart extends ApexChartWidget
      */
     protected static ?string $heading = 'Jumlah Data Warga Tiap RT';
 
-
     /**
      * Chart options (series, labels, types, size, animations...)
      * https://apexcharts.com/docs/options
@@ -35,27 +33,50 @@ class BlogPostsChart extends ApexChartWidget
     protected function getOptions(): array
     {
         $labels = [];
-        $data = [];
+        $pendatangData = [];
+        $lokalData = [];
 
         $rts = RT::all();
 
         foreach ($rts as $rt) {
             $labels[] = $rt->nama_rt;
-            $data[] = Warga::where('id_rt', $rt->id)->count();
+            $pendatangData[] = Warga::where('id_rt', $rt->id)->where('jenis_warga', 'Pendatang')->count();
+            $lokalData[] = Warga::where('id_rt', $rt->id)->where('jenis_warga', 'Lokal')->count();
         }
 
         return [
             'chart' => [
                 'type' => 'bar',
+                'stacked' => true,
+            ],
+            'plotOptions' => [
+                'bar' => [
+                    'horizontal' => false,
+                ],
             ],
             'series' => [
                 [
-                    'name' => 'Jumlah Warga',
-                    'data' => $data,
+                    'name' => 'Pendatang',
+                    'data' => $pendatangData,
+                ],
+                [
+                    'name' => 'Lokal',
+                    'data' => $lokalData,
                 ],
             ],
             'xaxis' => [
                 'categories' => $labels,
+            ],
+            'yaxis' => [
+                'title' => [
+                    'text' => 'Jumlah Warga',
+                ],
+            ],
+            'legend' => [
+                'position' => 'top',
+            ],
+            'fill' => [
+                'opacity' => 1,
             ],
         ];
     }
