@@ -23,6 +23,3 @@ use App\Filament\Resources\SuratResource\Pages\ViewSurat;
 Route::get('/', [LandingController::class, 'index']);
 // Route::get('/',[PengumumanController::class,'index']);
 Route::get('/pengumuman/{id}', [PengumumanController::class, 'show'])->name('pengumuman');
-
-Route::post('/chatbot', [ChatbotController::class, 'interact']);
-Route::get('/chatbot', [ChatbotController::class, 'index']);
