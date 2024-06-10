@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SuratKematianController;
 use App\Http\Controllers\PerhitunganBansosController;
 use App\Filament\Resources\SuratResource\Pages\ViewSurat;
-use App\Http\Controllers\PengumumanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,4 @@ use App\Http\Controllers\PengumumanController;
 
 Route::get('/', [LandingController::class, 'index']);
 // Route::get('/',[PengumumanController::class,'index']);
-Route::get('/pengumuman/{id}', [PengumumanController::class,'show'])->name('pengumuman');
-
-
-
+Route::get('/pengumuman/{id}', [PengumumanController::class, 'show'])->name('pengumuman');
