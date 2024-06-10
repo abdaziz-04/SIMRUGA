@@ -8,11 +8,15 @@ use App\Models\Kriteria;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\KriteriaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\KriteriaResource\RelationManagers;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 
 class KriteriaResource extends Resource
 {
@@ -34,7 +38,14 @@ class KriteriaResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('kriteria')->required(),
+                TextInput::make('bobot')->required(),
+                Select::make('jenis')
+                    ->options([
+                        'Benefit' => 'Benefit',
+                        'Cost' => 'Cost',
+                    ])
+                    ->required(),
             ]);
     }
 
@@ -51,7 +62,10 @@ class KriteriaResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([])
+            ->actions([
+                EditAction::make(),
+                DeleteAction::make(),
+            ])
             ->bulkActions([]);
     }
 
@@ -66,6 +80,9 @@ class KriteriaResource extends Resource
     {
         return [
             'index' => Pages\ListKriterias::route('/'),
+            'create' => Pages\CreateKriteria::route('/create'),
+            // 'view' => Pages\ViewKriterias::route('/{record}'),
+            'edit' => Pages\EditKriteria::route('/{record}/edit'),
         ];
     }
 }
