@@ -19,8 +19,8 @@ class StatsOverview extends BaseWidget
         ];
     }
 
-    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    public static function canView(): bool
     {
-        return Auth::user()->hasPermissionTo('view_admin'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_admin');
     }
 }
