@@ -15,12 +15,12 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Users', User::query()->count()),
+            Stat::make('Users', User::query()->count())->url('admin/users'),
         ];
     }
 
-    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    public static function canView(): bool
     {
-        return Auth::user()->hasPermissionTo('view_admin'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_admin');
     }
 }
