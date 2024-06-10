@@ -121,7 +121,7 @@ class PermintaanLayananResource extends Resource
                 //     ])
             ])
             ->actions([
-                ViewAction::make()->visible(fn () => auth()->user()->hasRole('sekretaris')),
+                ViewAction::make(),
                 EditAction::make()->visible(fn () => auth()->user()->hasRole('warga')),
                 Action::make('ubahStatus')
                     ->label('Ubah Status')
