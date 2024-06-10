@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Mentor Bootstrap Template</title>
+    <title>SIMRUGA</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -29,6 +29,8 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
 
+
+
     <!-- =======================================================
   * Template Name: Mentor
   * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
@@ -46,43 +48,18 @@
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Mentor</h1>
+                <h1 class="sitename text-primary">Simruga</h1>
             </a>
 
-            <nav id="navmenu" class="navmenu">
+            <nav id="navmenu" class="navmenu text-primary">
                 <ul>
                     <li><a href="index.html" class="active">Home<br></a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="trainers.html">Trainers</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
-                            <li><a href="#">Dropdown 4</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">Pengumuman</a></li>
+                    <li><a href="courses.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Hubungi </a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-
-            <a class="btn-getstarted" href="courses.html">Get Started</a>
-
         </div>
     </header>
 
@@ -91,365 +68,135 @@
         <!-- Hero Section -->
         <section id="hero" class="hero section">
 
-            <img src="assets/img/1.jpg" alt="" data-aos="fade-in">
+            <img src="assets/img/satu.jpg" alt="" data-aos="fade-in">
 
             <div class="container">
-                <h2 data-aos="fade-up" data-aos-delay="100">Learning Today,<br>Leading Tomorrow</h2>
-                <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with
-                    Bootstrap</p>
+                <h1 class="display-2 fw-bolder" data-aos="fade-up">RW 8</h1>
+                <h2 class="display-5 fw-bolder" data-aos="fade-up" data-aos-delay="100">Sawojajar</h2>
+                <h3 class="display-5 fw-bolder"data-aos="fade-up" data-aos-delay="200">Kota Malang</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Temukan kemudahan dalam mengrus administrasi dan</p>
+                <p data-aos="fade-up" data-aos-delay="300"> data pribadimu bersama SIMRUGA</p>
                 <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="courses.html" class="btn-get-started">Get Started</a>
+                    <a href="/admin/login" class="btn-get-started">Login</a>
                 </div>
             </div>
 
         </section><!-- /Hero Section -->
-
-        <!-- About Section -->
-        <section id="about" class="about section">
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Voluptatem dignissimos provident quasi corporis</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
-                        </p>
-                        <ul>
-                            <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</span></li>
-                            <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.</span></li>
-                            <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                    storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                        </ul>
-                        <a href="#" class="read-more"><span>Read More</span><i
-                                class="bi bi-arrow-right"></i></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section><!-- /About Section -->
-
-        <!-- Counts Section -->
-        <section id="counts" class="section counts">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="1232"
-                                data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Students</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Courses</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Events</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Trainers</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Counts Section -->
-
-        <!-- Why Us Section -->
-        <section id="why-us" class="section why-us">
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="why-box">
-                            <h3>Why Choose Our Products?</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus
-                                optio ad corporis.
-                            </p>
-                            <div class="text-center">
-                                <a href="#" class="more-btn"><span>Learn More</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- End Why Box -->
-
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-
-                            <div class="col-xl-4">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-clipboard-data"></i>
-                                    <h4>Corporis voluptates officia eiusmod</h4>
-                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut
-                                        aliquip</p>
-                                </div>
-                            </div><!-- End Icon Box -->
-
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-gem"></i>
-                                    <h4>Ullamco laboris ladore pan</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt</p>
-                                </div>
-                            </div><!-- End Icon Box -->
-
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-inboxes"></i>
-                                    <h4>Labore consequatur incidid dolore</h4>
-                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere
-                                    </p>
-                                </div>
-                            </div><!-- End Icon Box -->
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section><!-- /Why Us Section -->
-
-        <!-- Features Section -->
-        <section id="features" class="features section">
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="features-item">
-                            <i class="bi bi-eye" style="color: #ffbb2c;"></i>
-                            <h3><a href="" class="stretched-link">Lorem Ipsum</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="features-item">
-                            <i class="bi bi-infinity" style="color: #5578ff;"></i>
-                            <h3><a href="" class="stretched-link">Dolor Sitema</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="features-item">
-                            <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-                            <h3><a href="" class="stretched-link">Sed perspiciatis</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="features-item">
-                            <i class="bi bi-nut" style="color: #e361ff;"></i>
-                            <h3><a href="" class="stretched-link">Magni Dolores</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="features-item">
-                            <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-                            <h3><a href="" class="stretched-link">Nemo Enim</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="features-item">
-                            <i class="bi bi-star" style="color: #ffa76e;"></i>
-                            <h3><a href="" class="stretched-link">Eiusmod Tempor</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-                        <div class="features-item">
-                            <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-                            <h3><a href="" class="stretched-link">Midela Teren</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-                        <div class="features-item">
-                            <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-                            <h3><a href="" class="stretched-link">Pira Neve</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
-                        <div class="features-item">
-                            <i class="bi bi-command" style="color: #b2904f;"></i>
-                            <h3><a href="" class="stretched-link">Dirada Pack</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
-                        <div class="features-item">
-                            <i class="bi bi-dribbble" style="color: #b20969;"></i>
-                            <h3><a href="" class="stretched-link">Moton Ideal</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
-                        <div class="features-item">
-                            <i class="bi bi-activity" style="color: #ff5828;"></i>
-                            <h3><a href="" class="stretched-link">Verdo Park</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
-                        <div class="features-item">
-                            <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-                            <h3><a href="" class="stretched-link">Flavor Nivelanda</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Features Section -->
 
         <!-- Courses Section -->
         <section id="courses" class="courses section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Courses</h2>
-                <p>Popular Courses</p>
+                <p>Pengumuman</p>
             </div><!-- End Section Title -->
 
             <div class="container">
 
                 <div class="row">
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
-                        data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Web Development</p>
-                                    <p class="price">$169</p>
-                                </div>
+                    <div class="row text-left">
+                        @foreach ($data_pengumuman as $index => $pengumuman)
+                            <div class="col-md-3 mb-4" data-aos="fade-down" data-aos-delay="{{ $index * 100 }}">
+                                <div class="card h-100">
+                                    <div class="card-img-top d-flex align-items-center justify-content-center"
+                                        style="height: 200px; background-color: #eaeaea;">
+                                        <span class="fw-bolder" style="font-size: 24px; color: #333;">simruga</span>
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">{{ $pengumuman['nama_pengumuman'] }}</h5>
+                                        <a href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}"
+                                            class="btn btn-primary mt-auto">Lihat Pengumuman</a>
+                                    </div>
 
-                                <h3><a href="course-details.html">Website Design</a></h3>
-                                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id
-                                    facere quia quae dolores dolorem tempore.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid"
-                                            alt="">
-                                        <a href="" class="trainer-link">Antonio</a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;50
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;65
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                        data-aos-delay="200">
-                        <div class="course-item">
-                            <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Marketing</p>
-                                    <p class="price">$250</p>
-                                </div>
-
-                                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id
-                                    facere quia quae dolores dolorem tempore.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid"
-                                            alt="">
-                                        <a href="" class="trainer-link">Lana</a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;35
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;42
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
-                        data-aos-delay="300">
-                        <div class="course-item">
-                            <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Content</p>
-                                    <p class="price">$180</p>
-                                </div>
-
-                                <h3><a href="course-details.html">Copywriting</a></h3>
-                                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id
-                                    facere quia quae dolores dolorem tempore.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid"
-                                            alt="">
-                                        <a href="" class="trainer-link">Brandon</a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;20
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
-
+                        @endforeach
+                    </div>
                 </div>
 
             </div>
 
         </section><!-- /Courses Section -->
+
+        <div class="container mt-0">
+            <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center" data-aos="fade-down">
+                    <h2 class="display-5 fw-bolder">Dalam Grafik</h2>
+                    <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
+                        Menunjukan penyajian data warga dalam bentuk grafis
+                    </p>
+                </div>
+                <div data-aos="fade-up">
+                    <iframe class="embed-responsive-item"
+                        src="https://lookerstudio.google.com/embed/reporting/d5d1ecd9-9d72-47e6-8eb7-a2e443e4b460/page/p_vfix41czhd"
+                        width="100%" height="1015" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+        <section id="services">
+            <div class="container mt-0">
+
+                <div class="col-lg-12 text-center" data-aos="zoom-in-up">
+                    <h2 class="display-5 fw-bolder">Tentang Kami</h2>
+                    <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
+                        SIMRUGA / Sistem Informasi Rukun Warga merupakan pusat informasi bagi RW 8
+                        yang digitalisasikan agar memungkinkan mobilitas informasi, data,
+                        dan proses adminitrasi warga lebih mudah.
+                    </p>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-6" data-aos="fade-down">
+                        <span class="bi bi-newspaper" style="font-size: 4rem;"></span>
+                        <h4 class="display-7 fw-bolder">Berita Terbaru</h4>
+                        {{-- <h4 class="section-heading">BERITA TERBARU</h4> --}}
+                        <p class="text-muted">Menyajikan berita terupdate seputar RW 8 Kelurahan Sawojajar Kecamatan
+                            Kedungkandang</p>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-down">
+                        <span class="bi bi-envelope-arrow-up" style="font-size: 4rem;"></span>
+                        <h4 class="display-7 fw-bolder">Pelaporan & Pengajuan Layanan</h4>
+                        <p class="text-muted">Memberikan sistem pelayanan dan pelaporan yang efisien, agar mempermudah
+                            warga
+                            di dalam kondisi apapun</p>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6" data-aos="fade-down">
+                        <span class="bi bi-currency-dollar" style="font-size: 4rem;"></span>
+                        <h4 class="display-7 fw-bolder">Keuangan Warga</h4>
+                        <p class="text-muted">Menampilkan pelaporan keuangan RW mulai dari uang masuk hingga uang
+                            keluar
+                            secara real time</p>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-down">
+                        <span class="bi bi-graph-up" style="font-size: 4rem;"></span>
+                        <h4 class="display-7 fw-bolder">Statistik Penduduk</h4>
+                        <p class="text-muted">Rekap data penduduk RW 8 untuk membantu pemerintah dalam mengendalikan
+                            pertumbuhan warga</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center" data-aos="fade-down">
+                        <h2 class="display-5 fw-bolder">Lokasi RW 8</h2>
+                    </div>
+                    <div class="col-lg-12 text-center" data-aos="fade-up">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1959812314476!2d112.65307167368537!3d-7.978684992046556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62842c935c8f1%3A0x72cecd5a022b06fa!2sJl.%20Simpang%20Danau%20Maninjau%20Sel.%20Dalam%20I%2C%20Sawojajar%2C%20Kec.%20Kedungkandang%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065139!5e0!3m2!1sid!2sid!4v1717262417808!5m2!1sid!2sid"
+                            width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Trainers Index Section -->
         <section id="trainers-index" class="section trainers-index">
@@ -458,66 +205,25 @@
 
                 <div class="row">
 
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>Walter White</h4>
-                                <span>Web Development</span>
-                                <p>
-                                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis
-                                    quaerat qui aut aut aut
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <div class="col-lg-12 text-center" data-aos="zoom-in-up">
+                        <h2 class="display-5 fw-bolder">Hubungi Pengurus RW</h2>
+                    </div>
+
+                    @foreach ($pengurus as $index => $member)
+                        <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                            <div class="member">
+                                <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                                <div class="member-content">
+                                    <h4>{{$member->jabatan}}</h4>
+                                    <span>{{$member->nama_pengurus}}</span>
+                                    <div class="social">
+                                        <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
+                                            class="fa fa-whatsapp"></i></a></li>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>Sarah Jhinson</h4>
-                                <span>Marketing</span>
-                                <p>
-                                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto
-                                    rerum rerum temporibus
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>William Anderson</h4>
-                                <span>Content</span>
-                                <p>
-                                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et
-                                    laborum toro des clara
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
+                        </div><!-- End Team Member -->
+                    @endforeach
                 </div>
 
             </div>
@@ -584,6 +290,8 @@
 
             </div>
         </div>
+
+
 
         <div class="container copyright text-center mt-4">
             <p>© <span>Copyright</span> <strong class="px-1 sitename">Mentor</strong> <span>All Rights Reserved</span>
