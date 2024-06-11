@@ -22,17 +22,17 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #37423b; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #5fcf80; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color:  #0d6efd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --contrast-color: #ffffff; /* The contrast color is used for elements when the background color is one of the heading, accent, or default colors. Its purpose is to ensure proper contrast and readability when placed over these more dominant colors */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #272828;  /* The default color of the main navmenu links */
-  --nav-hover-color: #5fcf80; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color:  #0d6efd; /* Applied to main navmenu links when they are hovered over or active */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #272828; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #5fcf80; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color:  #0d6efd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Smooth scroll */
@@ -188,64 +188,7 @@ h6 {
   .navmenu .active:focus {
     color: var(--nav-hover-color);
   }
-
-  .navmenu .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: 14px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px color-mix(in srgb, var(--default-color), transparent 85%);
-  }
-
-  .navmenu .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navmenu .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .dropdown ul a i {
-    font-size: 12px;
-  }
-
-  .navmenu .dropdown ul a:hover,
-  .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navmenu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
-  }
-
-  .navmenu .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
-  }
 }
-
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
@@ -518,7 +461,7 @@ h6 {
 
 .footer .footer-newsletter .error-message {
   display: none;
-  background: #df1529;
+  background:  #0d6efd;
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -530,7 +473,7 @@ h6 {
 .footer .footer-newsletter .sent-message {
   display: none;
   color: #ffffff;
-  background: #059652;
+  background:  #0d6efd;
   text-align: center;
   padding: 15px;
   margin-top: 10px;
@@ -1264,7 +1207,7 @@ section,
 }
 
 .testimonials .testimonial-item .stars i {
-  color: #ffc107;
+  color:  #0d6efd;
   margin: 0 1px;
 }
 
@@ -1746,7 +1689,7 @@ section,
 
 .contact .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background:  #0d6efd;
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -1757,7 +1700,7 @@ section,
 .contact .php-email-form .sent-message {
   display: none;
   color: #ffffff;
-  background: #059652;
+  background:  #0d6efd;
   text-align: center;
   padding: 15px;
   margin-bottom: 24px;
