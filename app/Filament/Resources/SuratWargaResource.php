@@ -132,6 +132,10 @@ class SuratWargaResource extends Resource
                                         ->required(),
                                     Select::make('jenis_kelamin')
                                         ->label('Jenis Kelamin')
+                                        ->options([
+                                            'L' => 'Laki Laki',
+                                            'P' => 'Perempuan',
+                                        ])
                                         ->required(),
                                     DatePicker::make('tanggal_lahir')
                                         ->label('Tanggal Lahir')

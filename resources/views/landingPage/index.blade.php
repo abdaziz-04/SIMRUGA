@@ -87,39 +87,72 @@
 
         <!-- Courses Section -->
         <section id="news" class="courses section">
-
-            <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
+                <h2>Simmruga</h2>
                 <p>Pengumuman</p>
-            </div><!-- End Section Title -->
-
+            </div>
             <div class="container">
-
                 <div class="row">
-
-                    <div class="row text-left">
-                        @foreach ($data_pengumuman as $index => $pengumuman)
-                            <div class="col-md-3 mb-4" data-aos="fade-down" data-aos-delay="{{ $index * 100 }}">
-                                <div class="card h-100">
-                                    <div class="card-img-top d-flex align-items-center justify-content-center"
-                                        style="height: 200px; background-color: #eaeaea;">
-                                        <span class="fw-bolder" style="font-size: 24px; color: #333;">simruga</span>
-                                    </div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title">{{ $pengumuman['nama_pengumuman'] }}</h5>
-                                        <a href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}"
-                                            class="btn btn-primary mt-auto">Lihat Pengumuman</a>
-                                    </div>
-
+                    @foreach ($data_pengumuman as $index => $pengumuman)
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item">
+                            @if ($pengumuman->gambar)
+                                <img src="{{ asset('storage/' . $pengumuman->gambar) }}" class="card-img-top uniform-img" alt="Gambar Pengumuman">
+                            @else
+                                <img src="https://via.placeholder.com/150" class="card-img-top uniform-img" alt="No Image">
+                            @endif
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p>
+                                        <a class="btn btn-primary mt-auto" href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat Pengumuman</a>
+                                    </p>
                                 </div>
+                                <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
+                                <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
+                    @endforeach
+                </div>
+            </div>
+        </section><!-- /Courses Section -->
+
+        <!-- Counts Section -->
+        <section id="counts" class="section counts">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4 justify-content-center align-items-center" >
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastWarga }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Jumlah Warga</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastRT}}" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p>Jumlah RT</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastKK}}" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p>Jumlah KK</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
                 </div>
 
             </div>
 
-        </section><!-- /Courses Section -->
+        </section><!-- /Counts Section -->
 
         <section id="Grafik">
             <div class="container mt-0">
@@ -132,8 +165,8 @@
                     </div>
                     <div data-aos="fade-up">
                         <iframe class="embed-responsive-item"
-                            src="https://lookerstudio.google.com/embed/reporting/d5d1ecd9-9d72-47e6-8eb7-a2e443e4b460/page/p_vfix41czhd"
-                            width="100%" height="1015" style="border:0;" allowfullscreen="" loading="lazy"
+                            src="https://lookerstudio.google.com/embed/reporting/2fb7c4ba-4915-42c0-9361-3d506bb65690/page/C9w2D"
+                            width="100%" height="1000" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
