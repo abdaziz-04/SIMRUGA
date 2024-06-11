@@ -88,6 +88,7 @@ class WargaResource extends Resource
 
             FileUpload::make('foto_warga')
                 ->label('Foto Warga')
+                ->directory('foto')
                 ->nullable()
                 ->visibility('public'),
 
