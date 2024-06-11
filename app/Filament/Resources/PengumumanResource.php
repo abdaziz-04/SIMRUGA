@@ -79,11 +79,11 @@ class PengumumanResource extends Resource
                                 ->schema([
                                     Group::make([
                                         TextEntry::make('nama_pengumuman')->label('Nama Pengumuman'),
-                                        ImageEntry::make('gambar')->label('Foto Pengumuman'),
                                         TextEntry::make('tanggal_pengumuman')->label('Tanggal Pengumuman')->badge()->date()->color('success'),
                                         TextEntry::make('isi_pengumuman')->label('Isi Pengumuman'),
                                     ])
                                 ]),
+                                ImageEntry::make('gambar')->label('Foto Pengumuman'),    
                         ])
                     ])
             ]);
