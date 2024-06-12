@@ -42,7 +42,7 @@
 
 <body class="index-page">
 
-{{-- logo --}}
+    {{-- logo --}}
 
     <header id="header" class="header d-flex align-items-center sticky-top">
 
@@ -101,24 +101,29 @@
             <div class="container">
                 <div class="row">
                     @foreach ($data_pengumuman as $index => $pengumuman)
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            @if ($pengumuman->gambar)
-                                <img src="{{ asset('storage/' . $pengumuman->gambar) }}" class="card-img-top uniform-img" alt="Gambar Pengumuman">
-                            @else
-                                <img src="https://via.placeholder.com/150" class="card-img-top uniform-img" alt="No Image">
-                            @endif
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p>
-                                        <a class="btn btn-primary mt-auto" href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat Pengumuman</a>
-                                    </p>
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
+                            data-aos-delay="100">
+                            <div class="course-item">
+                                @if ($pengumuman->gambar)
+                                    <img src="{{ asset('storage/' . $pengumuman->gambar) }}"
+                                        class="card-img-top uniform-img" alt="Gambar Pengumuman">
+                                @else
+                                    <img src="https://via.placeholder.com/150" class="card-img-top uniform-img"
+                                        alt="No Image">
+                                @endif
+                                <div class="course-content">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <p>
+                                            <a class="btn btn-primary mt-auto"
+                                                href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat
+                                                Pengumuman</a>
+                                        </p>
+                                    </div>
+                                    <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
+                                    <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                                 </div>
-                                <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
-                                <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -129,7 +134,7 @@
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                <div class="row gy-4 justify-content-center align-items-center" >
+                <div class="row gy-4 justify-content-center align-items-center">
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
@@ -141,24 +146,24 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastRT}}" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastRT }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
                             <p>Jumlah RT</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastlayanan}}" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastlayanan }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
                             <p>Jumlah Pelayanan</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastbansos}}" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastbansos }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
                             <p>Penerima Bansos</p>
                         </div>
                     </div><!-- End Stats Item -->
@@ -188,7 +193,7 @@
             </div>
         </section>
 
-        
+
         <section id="TentangKami">
             <div class="container mt-0">
 
@@ -265,7 +270,8 @@
                     @foreach ($pengurus as $index => $member)
                         <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
-                                <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid" alt="">
+                                <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid"
+                                    alt="">
                                 <div class="member-content">
                                     <h4>{{ $member->jabatan }}</h4>
                                     <span>{{ $member->nama_pengurus }}</span>
@@ -300,6 +306,9 @@
                         <p>Yuma Rakha S</p>
                         <p>Jessica Oktavia</p>
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <p>© <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong> <span>2024</span>
                     <div class="social-links d-flex mt-4">
                         <a href=""><i class="bi bi-twitter-x"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
@@ -307,35 +316,11 @@
                         <a href=""><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
-
-                {{-- <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <div class="newsletter-header">
-                        <h4 class="newsletter-title">Our Newsletter</h4>
-                    </div>
-                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                    <form action="forms/newsletter.php" method="post" class="php-email-form">
-                        <div class="newsletter-form">
-                            <input type="email" name="email">
-                            <input type="submit" value="Subscribe">
-                        </div>
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                    </form>
-                </div> --}}
-                
-
             </div>
         </div>
-
-
-
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong> <span>2024</span>
-            </p>
-        </div>
-
+    
     </footer>
+    
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
