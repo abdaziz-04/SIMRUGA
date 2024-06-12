@@ -177,9 +177,10 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
+            </div>
         </section>
 
-        </div>
+        
         <section id="TentangKami">
             <div class="container mt-0">
 
@@ -193,14 +194,14 @@
                 </div>
 
                 <div class="row text-center">
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-newspaper" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Berita Terbaru</h4>
                         {{-- <h4 class="section-heading">BERITA TERBARU</h4> --}}
                         <p class="text-muted">Menyajikan berita terupdate seputar RW 8 Kelurahan Sawojajar Kecamatan
                             Kedungkandang</p>
                     </div>
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-envelope-arrow-up" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Pelaporan & Pengajuan Layanan</h4>
                         <p class="text-muted">Memberikan sistem pelayanan dan pelaporan yang efisien, agar mempermudah
@@ -209,14 +210,14 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-currency-dollar" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Keuangan Warga</h4>
                         <p class="text-muted">Menampilkan pelaporan keuangan RW mulai dari uang masuk hingga uang
                             keluar
                             secara real time</p>
                     </div>
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-graph-up" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Statistik Penduduk</h4>
                         <p class="text-muted">Rekap data penduduk RW 8 untuk membantu pemerintah dalam mengendalikan
@@ -256,7 +257,7 @@
                     @foreach ($pengurus as $index => $member)
                         <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
-                                <img src="assets/img/trainers/{{ $member->jabatan }}.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid" alt="">
                                 <div class="member-content">
                                     <h4>{{ $member->jabatan }}</h4>
                                     <span>{{ $member->nama_pengurus }}</span>
