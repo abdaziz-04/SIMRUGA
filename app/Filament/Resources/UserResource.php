@@ -17,12 +17,32 @@ use Rawilk\FilamentPasswordInput\Password;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UserResource\RelationManagers;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Infolist;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
+    public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
+    {
+        if (auth()->user()->can('view_admin')) // string dalem can sesuain sama permission yang dibuat
+            return true;
+        else
+            return false;
+    }
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function form(Form $form): Form
     {
@@ -33,7 +53,9 @@ class UserResource extends Resource
                         TextInput::make('username'),
                         TextInput::make('name'),
                         Password::make('password')
-                                ->label('Password'),
+                            ->label('Password')
+                            ->regeneratePassword()
+                            ->copyable(),
                         Select::make('roles')->multiple()->relationship('roles', 'name'),
                     ])
                     ->columns(2),
@@ -60,6 +82,26 @@ class UserResource extends Resource
                 ]),
             ]);
     }
+    
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('Username'),
+                                        TextEntry::make('name')->label('Nama'),
+                                        TextEntry::make('password')->label('Password'),
+                                    ]),
+                                ]),
+                        ])
+                    ])
+            ]);
+    }
 
     public static function getRelations(): array
     {
@@ -73,6 +115,7 @@ class UserResource extends Resource
         return [
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
+            'view' => Pages\ViewUser::route('/{record}'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }

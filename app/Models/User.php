@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Warga;
+use App\Models\PermintaanLayanan;
+
 
 class User extends Authenticatable
 {
@@ -21,7 +24,11 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'name',
+        'email',
         'password',
+        'rt_id',
+        'warga_id',
+        'custom_fields',
     ];
 
     /**
@@ -42,9 +49,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'custom_fields' => 'array'
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function warga()
+    {
+        return $this->belongsTo(Warga::class);
+    }
+    public function permintaanLayanan()
+    {
+        return $this->belongsTo(PermintaanLayanan::class);
     }
 }

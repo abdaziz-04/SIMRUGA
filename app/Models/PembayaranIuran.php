@@ -17,18 +17,18 @@ class PembayaranIuran extends Model
 
     // Define the attributes that are mass assignable
     protected $fillable = [
-        'id_warga',
+        'id_kk',
         'id_iuran',
-        'tanggal_pembayaran',
+        'tanggal',
         'jumlah_pembayaran',
     ];
 
     /**
      * Get the warga that owns the pembayaran iuran.
      */
-    public function warga()
+    public function kk()
     {
-        return $this->belongsTo(Warga::class, 'id_warga');
+        return $this->belongsTo(KK::class, 'id_kk');
     }
 
     /**

@@ -29,6 +29,6 @@ class Pemasukan extends Model
      */
     public function pembayaranIuran()
     {
-        return $this->belongsTo(PembayaranIuran::class, 'id_pembayaran');
+        return $this->belongsTo(PembayaranIuran::class, 'id_pembayaran', 'id');
     }
 }

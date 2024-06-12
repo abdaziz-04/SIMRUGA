@@ -19,18 +19,27 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Infolist;
 
 class PengeluaranResource extends Resource
 {
     protected static ?string $model = Pengeluaran::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
-    protected static ?string $navigationLabel = 'Pengeluaran Keuangan';
-    protected static ?string $navigationGroup = 'Bendahara';
+
+    protected static ?string $navigationLabel = 'Pengeluaran Keuangan RW';
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
     {
-        if(auth()->user()->can('view_pengeluaran_keuangan')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_pengeluaran_keuangan')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -41,12 +50,13 @@ class PengeluaranResource extends Resource
         return $form
             ->schema([
                 Card::make()
-                ->schema([
-                    TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->required(),
-                    DatePicker::make('tanggal')->label('Tanggal')->required(),
-                    TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran')->required(),
-                    TextInput::make('keterangan')->label('Keterangan'),
-                ])->columns(1),
+                    ->schema([
+                        TextInput::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->required(),
+                        DatePicker::make('tanggal')->label('Tanggal')->required(),
+                        TextInput::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran')->required(),
+                        FileUpload::make('foto_struk')->label('Foto Struk')->nullable()->directory('struk')->visibility('public'),
+                        TextInput::make('keterangan')->label('Keterangan'),
+                    ])->columns(1),
             ]);
     }
 
@@ -55,8 +65,9 @@ class PengeluaranResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable(),
-                TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable(),
+                TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable()->badge()->date()->color('danger'),
                 TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                ImageColumn::make('foto_struk')->label('Foto Struk')->height(50),
                 TextColumn::make('keterangan')->label('Keterangan'),
             ])
             ->filters([
@@ -74,6 +85,30 @@ class PengeluaranResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make()
+                    ->schema([
+                        Split::make([
+                            Grid::make(2)
+                                ->schema([
+                                    Group::make([
+                                        TextEntry::make('jenis_pengeluaran')->label('Nama Pengeluaran'),
+                                        TextEntry::make('tanggal')->label('Tanggal')->badge()->date()->color('success'),
+                                    ]),
+                                    Group::make([
+                                        TextEntry::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                                        TextEntry::make('keterangan')->label('Keterangan'),
+                                    ]),
+                                ]),
+                            ImageEntry::make('foto_struk')
+                        ])
+                    ])
+            ]);
+    }
+
     public static function getRelations(): array
     {
         return [
@@ -86,6 +121,7 @@ class PengeluaranResource extends Resource
         return [
             'index' => Pages\ListPengeluarans::route('/'),
             'create' => Pages\CreatePengeluaran::route('/create'),
+            'view' => Pages\ViewPengeluaran::route('/{record}'),
             'edit' => Pages\EditPengeluaran::route('/{record}/edit'),
         ];
     }

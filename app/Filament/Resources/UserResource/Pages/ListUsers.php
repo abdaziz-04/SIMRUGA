@@ -9,11 +9,16 @@ use Filament\Resources\Pages\ListRecords;
 class ListUsers extends ListRecords
 {
     protected static string $resource = UserResource::class;
-
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
     protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),
+            \EightyNine\ExcelImport\ExcelImportAction::make()
+                ->color("primary"),
         ];
     }
 }
