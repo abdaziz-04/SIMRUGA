@@ -24,6 +24,7 @@
         "flowframe/laravel-trend": "^0.2.0",
         "guzzlehttp/guzzle": "^7.2",
         "hasnayeen/themes": "^3.0",
+        "icetalker/filament-stepper": "^1.2",
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",

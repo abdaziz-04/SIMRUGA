@@ -9,4 +9,9 @@ use Filament\Resources\Pages\EditRecord;
 class EditKriteria extends EditRecord
 {
     protected static string $resource = KriteriaResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

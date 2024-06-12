@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Alternatif;
+use App\Models\Warga;
+
 
 class Rangking extends Model
 {
@@ -15,6 +18,7 @@ class Rangking extends Model
         'alternatif_id',
         'moora_value',
         'rangking',
+        'id_warga',
     ];
 
     public function alternatif()
@@ -24,6 +28,6 @@ class Rangking extends Model
 
     public function warga()
     {
-        return $this->belongsTo(Warga::class, 'id_warga', 'nama_warga', 'NIK', 'alamat', 'no_telepon', 'foto_warga');
+        return $this->belongsTo(Warga::class, 'id');
     }
 }

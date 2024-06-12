@@ -26,7 +26,7 @@ class SuratWargaResource extends Resource
 
     public static function shouldRegisterNavigation(array $parameters = []): bool
     {
-        if(auth()->user()->can('view_buat_surat_warga')) // string dalem can sesuain sama permission yang dibuat
+        if (auth()->user()->can('view_buat_surat_warga')) // string dalem can sesuain sama permission yang dibuat
             return true;
         else
             return false;
@@ -165,7 +165,7 @@ class SuratWargaResource extends Resource
                     ->label('Jenis Surat'),
                 TextColumn::make('created_at')
                     ->label('Tanggal Surat')
-                    ->date(), 
+                    ->date(),
             ])
             ->filters([
                 // Add filters here if needed
