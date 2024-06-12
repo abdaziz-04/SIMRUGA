@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_pengumuman');
             $table->string('gambar');
             $table->string('nama_pengumuman');
-            $table->string('isi_pengumuman');
+            $table->text('isi_pengumuman');
             $table->date('tanggal_pengumuman');
             $table->timestamps(); // Adds created_at and updated_at columns
         });
