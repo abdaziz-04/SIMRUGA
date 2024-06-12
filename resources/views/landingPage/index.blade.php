@@ -42,12 +42,19 @@
 
 <body class="index-page">
 
+{{-- logo --}}
+
     <header id="header" class="header d-flex align-items-center sticky-top">
+
+        {{-- favicon --}}
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/favicon.png" rel="apple-touch-icon">
+
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <img src="assets/img/favicon.png" alt="">
                 <h1 class="sitename text-primary">Simruga</h1>
             </a>
 
@@ -249,7 +256,7 @@
                     @foreach ($pengurus as $index => $member)
                         <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
-                                <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/trainers/{{ $member->jabatan }}.jpg" class="img-fluid" alt="">
                                 <div class="member-content">
                                     <h4>{{ $member->jabatan }}</h4>
                                     <span>{{ $member->nama_pengurus }}</span>
