@@ -42,7 +42,7 @@
 
 <body class="index-page">
 
-{{-- logo --}}
+    {{-- logo --}}
 
     <header id="header" class="header d-flex align-items-center sticky-top">
 
@@ -101,24 +101,29 @@
             <div class="container">
                 <div class="row">
                     @foreach ($data_pengumuman as $index => $pengumuman)
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            @if ($pengumuman->gambar)
-                                <img src="{{ asset('storage/' . $pengumuman->gambar) }}" class="card-img-top uniform-img" alt="Gambar Pengumuman">
-                            @else
-                                <img src="https://via.placeholder.com/150" class="card-img-top uniform-img" alt="No Image">
-                            @endif
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p>
-                                        <a class="btn btn-primary mt-auto" href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat Pengumuman</a>
-                                    </p>
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
+                            data-aos-delay="100">
+                            <div class="course-item">
+                                @if ($pengumuman->gambar)
+                                    <img src="{{ asset('storage/' . $pengumuman->gambar) }}"
+                                        class="card-img-top uniform-img" alt="Gambar Pengumuman">
+                                @else
+                                    <img src="https://via.placeholder.com/150" class="card-img-top uniform-img"
+                                        alt="No Image">
+                                @endif
+                                <div class="course-content">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <p>
+                                            <a class="btn btn-primary mt-auto"
+                                                href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat
+                                                Pengumuman</a>
+                                        </p>
+                                    </div>
+                                    <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
+                                    <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                                 </div>
-                                <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
-                                <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -129,7 +134,7 @@
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                <div class="row gy-4 justify-content-center align-items-center" >
+                <div class="row gy-4 justify-content-center align-items-center">
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
@@ -141,17 +146,25 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastRT}}" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastRT }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
                             <p>Jumlah RT</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastKK}}" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Jumlah KK</p>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastlayanan }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Jumlah Pelayanan</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $lastbansos }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Penerima Bansos</p>
                         </div>
                     </div><!-- End Stats Item -->
 
@@ -177,9 +190,10 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
+            </div>
         </section>
 
-        </div>
+
         <section id="TentangKami">
             <div class="container mt-0">
 
@@ -193,14 +207,14 @@
                 </div>
 
                 <div class="row text-center">
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-newspaper" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Berita Terbaru</h4>
                         {{-- <h4 class="section-heading">BERITA TERBARU</h4> --}}
                         <p class="text-muted">Menyajikan berita terupdate seputar RW 8 Kelurahan Sawojajar Kecamatan
                             Kedungkandang</p>
                     </div>
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-envelope-arrow-up" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Pelaporan & Pengajuan Layanan</h4>
                         <p class="text-muted">Memberikan sistem pelayanan dan pelaporan yang efisien, agar mempermudah
@@ -209,14 +223,14 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-currency-dollar" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Keuangan Warga</h4>
                         <p class="text-muted">Menampilkan pelaporan keuangan RW mulai dari uang masuk hingga uang
                             keluar
                             secara real time</p>
                     </div>
-                    <div class="col-md-6" data-aos="fade-down">
+                    <div class="col-md-6" data-aos="zoom-in-up">
                         <span class="bi bi-graph-up" style="font-size: 4rem;"></span>
                         <h4 class="display-7 fw-bolder">Statistik Penduduk</h4>
                         <p class="text-muted">Rekap data penduduk RW 8 untuk membantu pemerintah dalam mengendalikan
@@ -256,7 +270,8 @@
                     @foreach ($pengurus as $index => $member)
                         <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
-                                <img src="assets/img/trainers/{{ $member->jabatan }}.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid"
+                                    alt="">
                                 <div class="member-content">
                                     <h4>{{ $member->jabatan }}</h4>
                                     <span>{{ $member->nama_pengurus }}</span>
@@ -282,14 +297,18 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">Mentor</span>
+                        <span class="sitename">Developer</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>Abdul Aziz</p>
+                        <p>Athiyan Aqil</p>
+                        <p>Maulita Yasmin</p>
+                        <p>Yuma Rakha S</p>
+                        <p>Jessica Oktavia</p>
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <p>© <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong> <span>2024</span>
                     <div class="social-links d-flex mt-4">
                         <a href=""><i class="bi bi-twitter-x"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
@@ -297,59 +316,11 @@
                         <a href=""><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                    <form action="forms/newsletter.php" method="post" class="php-email-form">
-                        <div class="newsletter-form"><input type="email" name="email"><input type="submit"
-                                value="Subscribe"></div>
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                    </form>
-                </div>
-
             </div>
         </div>
-
-
-
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Mentor</strong> <span>All Rights Reserved</span>
-            </p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-
+    
     </footer>
+    
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
