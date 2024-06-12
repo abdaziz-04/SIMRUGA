@@ -7,30 +7,30 @@ use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use App\Models\PermintaanLayanan;
-use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
+use Filament\Infolists\Components\Grid;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Infolists\Components\Group;
+use Filament\Infolists\Components\Split;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\Section;
+use Filament\Notifications\Actions\Action;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ImageEntry;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PermintaanLayananResource\Pages;
 use App\Filament\Resources\PermintaanLayananResource\RelationManagers;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Notifications\Notification;
-use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\Split;
-use Filament\Infolists\Components\Group;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\Grid;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Infolist;
 
 class PermintaanLayananResource extends Resource
 {
@@ -123,7 +123,7 @@ class PermintaanLayananResource extends Resource
             ->actions([
                 ViewAction::make(),
                 EditAction::make()->visible(fn () => auth()->user()->hasRole('warga')),
-                Action::make('ubahStatus')
+                Tables\Actions\Action::make('ubahStatus')
                     ->label('Ubah Status')
                     ->form([
                         Select::make('status')
