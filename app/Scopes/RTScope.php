@@ -10,16 +10,21 @@ class RTScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
+        // Periksa apakah pengguna sedang login
+        if (!auth()->check()) {
+            return;
+        }
+
         // Dapatkan ID pengguna yang sedang login
         $userId = auth()->id();
 
-        // Jika ID pengguna adalah 1, 2, atau 3, lewati filtering dan tampilkan semua data
+        // Jika ID pengguna adalah 1, 2, 3, atau 4, lewati filtering dan tampilkan semua data
         if (in_array($userId, [1, 2, 3, 4])) {
             return;
         }
 
         // Dapatkan ID RT dari user yang sedang login
-        $rtId = auth()->user()->rt_Id;
+        $rtId = auth()->user()->rt_id;
 
         // Lakukan filtering data warga berdasarkan RT yang login
         $builder->where('id_rt', $rtId);
