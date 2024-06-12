@@ -79,6 +79,7 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  height: 50px;
 }
 
 .header .logo {
@@ -1772,6 +1773,11 @@ section,
   100% {
     transform: rotate(360deg);
   }
+}
+
+.member img {
+  width: 300px; /* Atur lebar gambar menjadi 200 piksel */
+  height: 400px; /* Biarkan tinggi gambar menyesuaikan proporsi */
 }
 
 

@@ -19,7 +19,7 @@ class RTScope implements Scope
         }
 
         // Dapatkan ID RT dari user yang sedang login
-        $rtId = auth()->user()->rt_id;
+        $rtId = auth()->user()->rt_Id;
 
         // Lakukan filtering data warga berdasarkan RT yang login
         $builder->where('id_rt', $rtId);
