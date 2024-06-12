@@ -74,7 +74,7 @@ class LayananWidget extends BaseWidget
                     $userPengaju = $record->user;
                     Notification::make()
                         ->success()
-                        ->title('Status Permintaan Layanan Telah Diubah')
+                        ->title('Status Permintaan  Layanan Telah Diubah')
                         ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
                         ->actions([
                             Action::make('Lihat')
