@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d21c3f063eba1e53053941f5149eb793",
+    "content-hash": "4c83869256c1b954206f3241219a0cc8",
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
@@ -2950,6 +2950,81 @@
                 }
             ],
             "time": "2024-04-10T06:31:54+00:00"
+        },
+        {
+            "name": "icetalker/filament-stepper",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/icetalker/filament-stepper.git",
+                "reference": "ef48e6c90e5126bed2a55d5e5ce61fb41113c44f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/icetalker/filament-stepper/zipball/ef48e6c90e5126bed2a55d5e5ce61fb41113c44f",
+                "reference": "ef48e6c90e5126bed2a55d5e5ce61fb41113c44f",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0|^3.0",
+                "illuminate/contracts": "^8.6|^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^6.0|^8.0",
+                "orchestra/testbench": "^7.0|^9.0",
+                "pestphp/pest": "^1.21|^2.34",
+                "pestphp/pest-plugin-laravel": "^1.1|^2.3",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Icetalker\\FilamentStepper\\FilamentStepperServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentStepper": "Icetalker\\FilamentStepper\\Facades\\FilamentStepper"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Icetalker\\FilamentStepper\\": "src",
+                    "Icetalker\\FilamentStepper\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Hwang",
+                    "email": "martin.hwang@outlook.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament Form Component for Number Input Field ",
+            "homepage": "https://github.com/icetalker/filament-stepper",
+            "keywords": [
+                "filament-stepper",
+                "icetalker",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/icetalker/filament-stepper/issues",
+                "source": "https://github.com/icetalker/filament-stepper/tree/v1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/icetalker",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-04-03T21:39:30+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",

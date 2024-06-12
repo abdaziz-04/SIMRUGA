@@ -13,7 +13,6 @@ class ListPerankingans extends ListRecords
 {
     protected static string $resource = PerankinganResource::class;
 
-
     protected function getActions(): array
     {
         return [
@@ -28,18 +27,30 @@ class ListPerankingans extends ListRecords
         $service = new MooraService();
         $service->calculateMoora();
 
-        // $this->notify('success', 'Berhasil normalisasi data.');
         Notification::make()
             ->success()
             ->title('Data Perankingan Berhasil diperbarui')
             // ->body('Hasil telah diperbarui.')
             ->send();
     }
+
     public function hapusData()
     {
         $service = new MooraService();
         $service->deleteData();
 
-        // $this->notify('success', 'Berhasil hapus data.');
+        // Notification::make()
+        //     ->success()
+        //     ->title('Success')
+        //     ->body('Berhasil hapus data.')
+        //     ->send();
     }
+
+    // protected function getSavedNotification(): ?Notification
+    // {
+    //     return Notification::make()
+    //         ->success()
+    //         ->title('Data saved')
+    //         ->body('The data has been saved successfully.');
+    // }
 }

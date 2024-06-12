@@ -52,6 +52,10 @@ class PerankinganResource extends Resource
                     $warga = Warga::find($state);
                     return $warga->nama_warga;
                 }),
+                TextColumn::make('warga.NIK')->label('NIK'),
+                TextColumn::make('warga.alamat')->label('Alamat'),
+                TextColumn::make('warga.tanggal_lahir')->label('Tanggal Lahir'),
+                TextColumn::make('warga.no_telepon')->label('No Telepon'),
                 TextColumn::make('moora_value'),
                 TextColumn::make('rangking'),
             ])

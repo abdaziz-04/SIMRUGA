@@ -143,7 +143,8 @@ class MooraService
         Rangking::truncate();
 
         // Simpan peringkat ke tabel rangkings
-        foreach ($rankings as $ranking) {
+        foreach ($rankings as $index => $ranking) {
+            $ranking['id_warga'] = $index + 1; // Peringkat dimulai dari 1, bukan dari 0
             Rangking::create($ranking);
         }
     }

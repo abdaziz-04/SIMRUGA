@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Warga;
+
 
 class SuratWarga extends Model
 {
@@ -11,7 +13,7 @@ class SuratWarga extends Model
 
     protected $table = 'surat_warga';
     protected $primaryKey = 'surat_id';
-    protected $fillable=[
+    protected $fillable = [
         'id_warga',
         'jenis_surat',
         'tujuan_surat',
@@ -34,6 +36,6 @@ class SuratWarga extends Model
 
     public function warga()
     {
-        return $this->hasMany(warga::class,'id_Warga');
+        return $this->belongsTo(Warga::class);
     }
 }
