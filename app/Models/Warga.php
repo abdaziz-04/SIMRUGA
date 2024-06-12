@@ -42,6 +42,18 @@ class Warga extends Model
         parent::booted();
 
         static::addGlobalScope(new RTScope);
+
+        static::saving(function ($warga) {
+            if ($warga->isDirty('id_rt')) {
+                if ($warga->getOriginal('id_rt')) {
+                    RT::find($warga->getOriginal('id_rt'))->decrement('jumlah_anggota');
+                }
+
+                if ($warga->id_rt) {
+                    RT::find($warga->id_rt)->increment('jumlah_anggota');
+                }
+            }
+        });
     }
 
 

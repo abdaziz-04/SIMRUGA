@@ -7,6 +7,7 @@ use App\Services\MooraService;
 use Filament\Pages\Actions\ButtonAction;
 use Filament\Resources\Pages\ListRecords;
 use App\Filament\Resources\PerankinganResource;
+use Filament\Notifications\Notification;
 
 class ListPerankingans extends ListRecords
 {
@@ -28,6 +29,11 @@ class ListPerankingans extends ListRecords
         $service->calculateMoora();
 
         // $this->notify('success', 'Berhasil normalisasi data.');
+        Notification::make()
+            ->success()
+            ->title('Data Perankingan Berhasil diperbarui')
+            // ->body('Hasil telah diperbarui.')
+            ->send();
     }
     public function hapusData()
     {
