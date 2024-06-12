@@ -41,7 +41,7 @@ class Warga extends Model
     {
         parent::booted();
 
-        static::addGlobalScope(new RTScope);
+        // static::addGlobalScope(new RTScope);
     }
 
 
