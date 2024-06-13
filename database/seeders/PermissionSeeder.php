@@ -75,6 +75,7 @@ class PermissionSeeder extends Seeder
             'view_pengumuman_widget',
             'view_surat_widget',
             'edit_lembaga',
+            'view_pengumuman_widget',
             'view_rt1',
             'view_rt2',
             'view_rt3',
@@ -170,14 +171,15 @@ class PermissionSeeder extends Seeder
             'view_warga',
             'view_warga_rw',
             'view_jadwal_pertemuan',
-            'view_laporan_keuangan_warga',
             'view_pengumuman',
             'view_layanan',
             'view_warga_widget',
             'view_warga_pendatang',
             'view_warga_widget',
             'edit_lembaga',
-            'view_admin'
+            'view_admin',
+            'view_pengumuman_widget',
+            'view_laporan_keuangan'
         ]);
 
         $wargaRole->givePermissionTo([

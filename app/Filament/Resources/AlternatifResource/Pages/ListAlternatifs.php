@@ -20,10 +20,6 @@ class ListAlternatifs extends ListRecords
             \EightyNine\ExcelImport\ExcelImportAction::make()
                 ->color("primary"),
             Actions\CreateAction::make(),
-            ButtonAction::make('Hapus Data')
-                ->action('hapusData')
-                ->color('danger')
-                ->label('Hapus Data'),
         ];
     }
 }

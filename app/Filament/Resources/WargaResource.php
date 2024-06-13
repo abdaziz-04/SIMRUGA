@@ -64,7 +64,7 @@ class WargaResource extends Resource
 
         return $form->schema([
             TextInput::make('nama_warga')->label('Nama')->required(),
-            TextInput::make('NIK')->label('NIK')->required()->unique(ignoreRecord: true),
+            TextInput::make('nik')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
             TextInput::make('no_telepon')->required(),
             Select::make('id_rt')
@@ -85,6 +85,8 @@ class WargaResource extends Resource
                     'Kristen' => 'Kristen',
                     'Hindu' => 'Hindu',
                     'Buddha' => 'Buddha',
+                    'Katolik' => 'Katolik',
+                    'Khonghucu' => 'Khonghucu'
                 ])->label('Agama')->required(),
 
             FileUpload::make('foto_warga')
