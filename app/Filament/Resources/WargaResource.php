@@ -85,6 +85,8 @@ class WargaResource extends Resource
                     'Kristen' => 'Kristen',
                     'Hindu' => 'Hindu',
                     'Buddha' => 'Buddha',
+                    'Katolik' => 'Katolik',
+                    'Khonghucu' => 'Khonghucu'
                 ])->label('Agama')->required(),
 
             FileUpload::make('foto_warga')

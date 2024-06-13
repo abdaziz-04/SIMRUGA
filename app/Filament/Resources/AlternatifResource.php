@@ -168,7 +168,7 @@ class AlternatifResource extends Resource
                         return $umur_yang_bekerja[$state];
                     }),
 
-                TextColumn::make('phk')->label('PHK')
+                TextColumn::make('phk')->label('Status Pekerjaan')
                     ->formatStateUsing(function ($state) {
                         $phk = [
                             1 => 'Tidak Sedang PHK',
@@ -176,11 +176,11 @@ class AlternatifResource extends Resource
                         ];
                         return $phk[$state];
                     }),
-                TextColumn::make('rangking')->label('Rangking')
-                    ->formatStateUsing(function ($state) {
-                        $rangking = Rangking::where('alternatif_id', $state)->first();
-                        return $rangking ? $rangking->rangking : '-';
-                    }),
+                // TextColumn::make('rangking')->label('Rangking')
+                //     ->formatStateUsing(function ($state) {
+                //         $rangking = Rangking::where('alternatif_id', $state)->first();
+                //         return $rangking ? $rangking->rangking : '-';
+                //     }),
             ])
             ->filters([
                 //
