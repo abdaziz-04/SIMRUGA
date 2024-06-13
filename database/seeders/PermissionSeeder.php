@@ -57,6 +57,7 @@ class PermissionSeeder extends Seeder
             'view_daftar_rt',
             'view_jadwal_pertemuan',
             'view_laporan_keuangan_warga',
+            'view_laporan_keuangan',
             'view_pengumuman',
             'view_pengaduan',
             'view_kartu_keluarga',
