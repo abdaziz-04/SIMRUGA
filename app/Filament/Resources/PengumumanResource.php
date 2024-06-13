@@ -50,7 +50,7 @@ class PengumumanResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('gambar')->label('Gambar'),
+                // ImageColumn::make('gambar')->label('Gambar'),
                 TextColumn::make('nama_pengumuman')->label('Nama Pengumuman'),
                 TextColumn::make('isi_pengumuman')->label('Isi Pengumuman'),
                 TextColumn::make('tanggal_pengumuman')->label('Tanggal Pengumuman')->badge()->date()->color('success'),
