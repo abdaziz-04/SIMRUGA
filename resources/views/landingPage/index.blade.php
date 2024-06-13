@@ -84,7 +84,7 @@
                 <h1 class="display-2 fw-bolder" data-aos="fade-up">RW 8</h1>
                 <h2 class="display-5 fw-bolder" data-aos="fade-up" data-aos-delay="100">Sawojajar</h2>
                 <h3 class="display-5 fw-bolder"data-aos="fade-up" data-aos-delay="200">Kota Malang</h3>
-                <p data-aos="fade-up" data-aos-delay="300">Temukan kemudahan dalam mengrus administrasi dan</p>
+                <p data-aos="fade-up" data-aos-delay="300">Temukan kemudahan dalam mengurus administrasi dan</p>
                 <p data-aos="fade-up" data-aos-delay="300"> data pribadimu bersama SIMRUGA</p>
                 <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
                     <a href="/admin/login" class="btn-get-started">Login</a>
