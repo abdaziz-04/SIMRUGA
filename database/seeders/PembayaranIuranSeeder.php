@@ -18,7 +18,8 @@ class PembayaranIuranSeeder extends Seeder
         DB::table('pembayaran_iuran')->insert([
             [
                 'id_iuran' => 1,
-                'id_warga' => 2,
+                // 'id_warga' => 2,
+                'id_kk' => 1,
                 'tanggal' => '2024-05-28',
                 'jumlah_pembayaran' => 50000,
                 'created_at' => Carbon::now(),
@@ -27,7 +28,8 @@ class PembayaranIuranSeeder extends Seeder
             [
 
                 'id_iuran' => 2,
-                'id_warga' => 4,
+                // 'id_warga' => 4,
+                'id_kk' => 2,
                 'tanggal' => '2024-05-28',
                 'jumlah_pembayaran' => 50000,
                 'created_at' => Carbon::now(),
@@ -35,7 +37,8 @@ class PembayaranIuranSeeder extends Seeder
             ],
             [
                 'id_iuran' => 2,
-                'id_warga' => 5,
+                // 'id_warga' => 5,
+                'id_kk' => 3,
                 'tanggal' => '2024-05-28',
                 'jumlah_pembayaran' => 100000,
                 'created_at' => Carbon::now(),

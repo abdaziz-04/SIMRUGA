@@ -87,7 +87,7 @@ class AlternatifResource extends Resource
                         3 => '41 - 50 Tahun',
                         4 => 'Lebih dari 50 Tahun',
                     ]),
-                Select::make('phk')->required()->label('PHK')
+                Select::make('phk')->required()->label('Status Pekerjaan')
                     ->options([
                         1 => 'Tidak Sedang PHK',
                         2 => 'Sedang PHK',
