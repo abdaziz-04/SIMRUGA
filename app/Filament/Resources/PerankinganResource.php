@@ -46,18 +46,18 @@ class PerankinganResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table
+       return $table
             ->columns([
-                TextColumn::make('alternatif_id')->label('Nama Warga')->formatStateUsing(function ($state) {
-                    $warga = Warga::find($state);
-                    return $warga->nama_warga;
-                }),
-                TextColumn::make('warga.NIK')->label('NIK'),
+                TextColumn::make('warga.nama_warga')->label('Nama'),
+                TextColumn::make('warga.nik')->label('NIK'),
                 TextColumn::make('warga.alamat')->label('Alamat'),
                 TextColumn::make('warga.tanggal_lahir')->label('Tanggal Lahir'),
                 TextColumn::make('warga.no_telepon')->label('No Telepon'),
                 TextColumn::make('moora_value'),
                 TextColumn::make('rangking'),
+            ])
+            ->filters([
+                //
             ])
             ->filters([
                 //
