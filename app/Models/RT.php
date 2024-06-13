@@ -23,4 +23,14 @@ class RT extends Model
     // {
     //     return $this->hasMany(Warga::class, 'id', 'id');
     // }
+
+    public function warga()
+    {
+        return $this->hasMany(Warga::class, 'id_rt');
+    }
+
+    public function getJumlahAnggotaAttribute()
+    {
+        return $this->warga()->count();
+    }
 }

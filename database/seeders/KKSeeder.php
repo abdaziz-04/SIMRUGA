@@ -136,7 +136,7 @@ class KKSeeder extends Seeder
                 'alamat' => 'Jalan Simpang Danau Meninjau Utara No. 5, Malang',
             ],
             [
-                'nama_kepala_keluarga' => 'Yuni Hanawi',
+                'nama_kepala_keluarga' => 'Yuni Hasnawi',
                 'no_kk' => '327601040100021',
                 'rt_rw' => '02/08',
                 'alamat' => 'Jalan Simpang Danau Meninjau Utara No. 6, Malang',

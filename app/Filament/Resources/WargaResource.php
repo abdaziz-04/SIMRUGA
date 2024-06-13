@@ -34,6 +34,7 @@ use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
 use Ysfkaya\FilamentPhoneInput\Tables\PhoneColumn;
 use Ysfkaya\FilamentPhoneInput\Infolists\PhoneEntry;
 use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
+use App\Models\KK;
 
 class WargaResource extends Resource
 {
@@ -65,7 +66,7 @@ class WargaResource extends Resource
             TextInput::make('nama_warga')->label('Nama')->required(),
             TextInput::make('NIK')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
-            PhoneInput::make('phone')->required(),
+            PhoneInput::make('no_telepon')->required(),
             Select::make('id_rt')
                 ->label('RT')->options($daftarRT)
                 ->required(),
@@ -97,6 +98,11 @@ class WargaResource extends Resource
                     'Lokal' => 'Lokal',
                     'Pendatang' => 'Pendatang',
                 ])->required(),
+            Select::make('id_kk')
+                ->label('Nama Kepala Keluarga')
+                ->options(KK::all()->pluck('nama_kepala_keluarga', 'id'))
+                ->searchable()
+                ->required(),
         ]);
     }
 
