@@ -23,3 +23,26 @@ use App\Filament\Resources\SuratResource\Pages\ViewSurat;
 Route::get('/', [LandingController::class, 'index']);
 // Route::get('/',[PengumumanController::class,'index']);
 Route::get('/pengumuman/{id}', [PengumumanController::class, 'show'])->name('pengumuman');
+
+
+Route::get('/clear-cache', function () {
+    // Clear application cache
+    Artisan::call('cache:clear');
+
+    // Clear route cache
+    Artisan::call('route:clear');
+
+    // Clear view cache
+    Artisan::call('view:clear');
+
+    // Clear config cache
+    Artisan::call('config:clear');
+
+    // Clear compiled class cache
+    Artisan::call('clear-compiled');
+
+    // Optionally you can clear the optimized class loader cache
+    Artisan::call('optimize:clear');
+
+    return 'All caches cleared successfully';
+});
