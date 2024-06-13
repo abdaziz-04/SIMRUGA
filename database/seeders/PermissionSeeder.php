@@ -71,7 +71,7 @@ class PermissionSeeder extends Seeder
             'view_warga_pendatang',
             'view_layanan_widget',
             'view_surat_widget',
-            'view_arsipan_surat',        
+            'view_arsipan_surat',
             'view_laporan_keuangan_widget',
             'view_pengumuman_widget',
             'view_surat_widget',
@@ -140,7 +140,8 @@ class PermissionSeeder extends Seeder
             'edit_lembaga',
             'view_arsipan_surat',
             'view_buat_surat_warga',
-            'view_jumlah_warga'
+            'view_jumlah_warga',
+            'view_kartu_keluarga',
         ]);
 
         $sekretarisRole->givePermissionTo([
@@ -155,7 +156,8 @@ class PermissionSeeder extends Seeder
             'view_arsipan_surat',
             'view_arsipan_surat',
             'view_jumlah_warga',
-            'view_warga_widget'
+            'view_warga_widget',
+            'view_kartu_keluarga',
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -187,6 +189,7 @@ class PermissionSeeder extends Seeder
             'view_pengumuman_widget',
             'view_laporan_keuangan',
             'view_jumlah_warga',
+            'view_kartu_keluarga',
         ]);
 
         $wargaRole->givePermissionTo([
@@ -208,6 +211,7 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan',
             'view_warga_pendatang',
             'view_jumlah_warga',
+            'view_kartu_keluarga',
         ]);
         $rt2Role->givePermissionTo([
             'view_rt2',
@@ -216,6 +220,7 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan',
             'view_warga_pendatang',
             'view_jumlah_warga',
+            'view_kartu_keluarga',
         ]);
         $rt3Role->givePermissionTo([
             'view_rt3',
@@ -224,6 +229,7 @@ class PermissionSeeder extends Seeder
             'view_laporan_keuangan',
             'view_warga_pendatang',
             'view_jumlah_warga',
+            'view_kartu_keluarga',
         ]);
         // $rt4Role->givePermissionTo([
         //     'view_rt4',

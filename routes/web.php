@@ -46,3 +46,8 @@ Route::get('/clear-cache', function () {
 
     return 'All caches cleared successfully';
 });
+
+Route::get('/symlink', function() {
+    Artisan::call('storage:link');
+    return 'Symlink created successfully';
+});
