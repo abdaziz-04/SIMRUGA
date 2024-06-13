@@ -308,10 +308,10 @@
     </main>
 
     <footer id="footer" class="footer position-relative">
-
         <div class="container footer-top">
             <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
+                <!-- Developer Section -->
+                <div class="col-lg-6 col-md-6 footer-about">
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">Developer</span>
                     </a>
@@ -323,10 +323,14 @@
                         <p>Jessica Oktavia</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <p>© <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong> <span>2024</span>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                <!-- Photo and Copyright Section -->
+                <div class="col-lg-6 col-md-6 footer-newsletter text-center">
+                    <div class="footer-photo">
+                        <img src="assets/img/developer-team.jpg" class="img-fluid" alt="Developer Team" style="max-width: 70%; height: auto;">
+                    </div>
+                    <p class="mt-3">© <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong> <span>2024</span></p>
+                    <div class="social-links d-flex justify-content-center mt-4">
+                        <a href=""><i class="bi bi-twitter"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
                         <a href=""><i class="bi bi-instagram"></i></a>
                         <a href=""><i class="bi bi-linkedin"></i></a>
@@ -334,8 +338,8 @@
                 </div>
             </div>
         </div>
-
     </footer>
+    
 
 
     <!-- Scroll Top -->
