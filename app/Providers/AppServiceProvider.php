@@ -10,7 +10,6 @@ use App\Observers\PengeluaranObserver;
 use App\Observers\PembayaranIuranObserver;
 use Illuminate\Support\ServiceProvider;
 use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
-use BezhanSalleh\PanelSwitch\PanelSwitch;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,8 +33,5 @@ class AppServiceProvider extends ServiceProvider
             $switch
                 ->locales(['id', 'en']);
         });
-        // PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
-        //     $panelSwitch->simple();
-        // });
     }
 }

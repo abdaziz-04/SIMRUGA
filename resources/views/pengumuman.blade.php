@@ -17,7 +17,7 @@
 
     <div class="container">
         <div class="text-center">
-            <img src="{{ $pengumuman->gambar }}" class="img-fluid" alt="{{ $pengumuman->nama_pengumuman }}" style="max-width: 100%; height: auto;">
+           <img src="{{ asset('storage/' . $pengumuman->gambar) }}"
         </div>
         <div class="mt-4 text-center">
             <h2 class="display-5 fw-bolder">{{ $pengumuman->nama_pengumuman }}</h2>

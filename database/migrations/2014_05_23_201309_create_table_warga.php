@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('agama', 50);
             $table->string('alamat', 255);
             $table->string('no_telepon', 25);
-            $table->string('NIK', 25);
+            $table->string('nik', 25);
             $table->date('tanggal_lahir');
             $table->char('jenis_kelamin', 1);
             $table->string('pekerjaan', 255)->nullable();

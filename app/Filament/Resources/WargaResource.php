@@ -64,9 +64,9 @@ class WargaResource extends Resource
 
         return $form->schema([
             TextInput::make('nama_warga')->label('Nama')->required(),
-            TextInput::make('NIK')->label('NIK')->required()->unique(ignoreRecord: true),
+            TextInput::make('nik')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
-            PhoneInput::make('no_telepon')->required(),
+            TextInput::make('no_telepon')->required(),
             Select::make('id_rt')
                 ->label('RT')->options($daftarRT)
                 ->required(),
@@ -89,7 +89,6 @@ class WargaResource extends Resource
 
             FileUpload::make('foto_warga')
                 ->label('Foto Warga')
-                ->directory('foto')
                 ->nullable()
                 ->visibility('public'),
 
@@ -208,7 +207,7 @@ class WargaResource extends Resource
                                         TextEntry::make('NIK')->label('NIK'),
                                         TextEntry::make('agama'),
                                         TextEntry::make('alamat'),
-                                        PhoneEntry::make('no_telepon')->displayFormat(PhoneInputNumberType::NATIONAL),
+                                        TextEntry::make('no_telepon'),
                                         TextEntry::make('rt.nama_rt'),
                                     ]),
                                     Group::make([
