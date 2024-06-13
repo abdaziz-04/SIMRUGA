@@ -9,6 +9,9 @@ class MooraService
 {
     public function calculateMoora()
     {
+        // Hapus data sebelumnya di tabel rangkings
+        Rangking::truncate();
+
         // Ambil data dari tabel alternatif
         $alternatifs = Alternatif::all();
 
@@ -139,9 +142,6 @@ class MooraService
 
     private function saveRankings($rankings)
     {
-        // Hapus data sebelumnya di tabel rangkings
-        Rangking::truncate();
-
         // Simpan peringkat ke tabel rangkings
         foreach ($rankings as $index => $ranking) {
             $ranking['id_warga'] = $index + 1; // Peringkat dimulai dari 1, bukan dari 0
