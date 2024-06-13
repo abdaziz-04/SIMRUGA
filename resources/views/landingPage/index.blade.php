@@ -285,7 +285,7 @@
                         @foreach ($pengurus as $index => $member)
                             <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                                 <div class="member">
-                                    <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid"
+                                    <img src="assets/img/trainers/{{ $member->jabatan }}.jpg" class="img-fluid"
                                         alt="">
                                     <div class="member-content">
                                         <h4>{{ $member->jabatan }}</h4>
