@@ -18,7 +18,7 @@ class LandingController extends Controller
         $pengurus = PengurusRW::all(); // Fetch all pengurus data from the database
         $data_pengumuman = Pengumuman::latest()->paginate(3);
         $jumlahWarga = Warga::all();
-        $jumlahKK = KK::all();
+        // $jumlahKK = KK::all();
         $jumlahRT = RT::all();
         $layanan = PermintaanLayanan::all();
         $bansos = Rangking::all();
@@ -27,6 +27,7 @@ class LandingController extends Controller
         $lastRT = $jumlahRT->count();
         $lastlayanan = $layanan->count(); 
         $lastbansos = $bansos->count();
+        // $lastKK = $jumlahKK->count();
 
         return view('landingPage.index', compact('pengurus', 'data_pengumuman', 'lastWarga', 'lastRT','lastbansos', 'lastlayanan')); // Include lastSurat
     }

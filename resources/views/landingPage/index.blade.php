@@ -60,10 +60,11 @@
 
             <nav id="navmenu" class="navmenu text-primary">
                 <ul>
-                    <li><a href="#hero" class="active">Home<br></a></li>
+                    <li><a href="#heroo" class="active">Home<br></a></li>
+                    <li></li>
                     <li><a href="#news">Pengumuman</a></li>
-                    <li><a href="#Grafik">Grafik</a></li>
-                    <li><a href="#TentangKami">Tentang Kami</a></li>
+                    <li><a href="#grafik">Grafik</a></li>
+                    <li><a href="#tentangkami">Tentang Kami</a></li>
                     <li><a href="#map">Lokasi </a></li>
                     <li><a href="#pengurus">Hubungi </a></li>
                 </ul>
@@ -75,7 +76,7 @@
     <main class="main">
 
         <!-- Hero Section -->
-        <section id="hero" class="hero section">
+        <section id="heroo" class="hero section">
 
             <img src="assets/img/satu.jpg" alt="" data-aos="fade-in">
 
@@ -93,41 +94,44 @@
         </section><!-- /Hero Section -->
 
         <!-- Courses Section -->
-        <section id="news" class="courses section">
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Simmruga</h2>
-                <p>Pengumuman</p>
-            </div>
-            <div class="container">
-                <div class="row">
-                    @foreach ($data_pengumuman as $index => $pengumuman)
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
-                            data-aos-delay="100">
-                            <div class="course-item">
-                                @if ($pengumuman->gambar)
-                                    <img src="{{ asset('storage/' . $pengumuman->gambar) }}"
-                                        class="card-img-top uniform-img" alt="Gambar Pengumuman">
-                                @else
-                                    <img src="https://via.placeholder.com/150" class="card-img-top uniform-img"
-                                        alt="No Image">
-                                @endif
-                                <div class="course-content">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <p>
-                                            <a class="btn btn-primary mt-auto"
-                                                href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat
-                                                Pengumuman</a>
-                                        </p>
+        <div class="" id="news">
+            <section id="" class="courses section">
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Simmruga</h2>
+                    <p>Pengumuman</p>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        @foreach ($data_pengumuman as $index => $pengumuman)
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
+                                data-aos-delay="100">
+                                <div class="course-item">
+                                    @if ($pengumuman->gambar)
+                                        <img src="{{ asset('storage/' . $pengumuman->gambar) }}"
+                                            class="card-img-top uniform-img" alt="Gambar Pengumuman">
+                                    @else
+                                        <img src="https://via.placeholder.com/150" class="card-img-top uniform-img"
+                                            alt="No Image">
+                                    @endif
+                                    <div class="course-content">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <p>
+                                                <a class="btn btn-primary mt-auto"
+                                                    href="{{ route('pengumuman', $pengumuman->id_pengumuman) }}">Lihat
+                                                    Pengumuman</a>
+                                            </p>
+                                        </div>
+                                        <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
+                                        <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                                     </div>
-                                    <h3>{{ $pengumuman['nama_pengumuman'] }}</h3>
-                                    <p class="description">{{ $pengumuman->isi_pengumuman }}</p>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-        </section><!-- /Courses Section -->
+            </section>
+        </div>
+        <!-- /Courses Section -->
 
         <!-- Counts Section -->
         <section id="counts" class="section counts">
@@ -174,120 +178,132 @@
 
         </section><!-- /Counts Section -->
 
-        <section id="Grafik">
-            <div class="container mt-0">
-                <div class="col-lg-12 text-center">
-                    <div class="col-lg-12 text-center" data-aos="fade-down">
-                        <h2 class="display-5 fw-bolder">Dalam Grafik</h2>
-                        <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
-                            Menunjukan penyajian data warga dalam bentuk grafis
-                        </p>
-                    </div>
-                    <div data-aos="fade-up">
-                        <iframe class="embed-responsive-item"
-                            src="https://lookerstudio.google.com/embed/reporting/2fb7c4ba-4915-42c0-9361-3d506bb65690/page/C9w2D"
-                            width="100%" height="1000" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="TentangKami">
-            <div class="container mt-0">
-
-                <div class="col-lg-12 text-center" data-aos="zoom-in-up">
-                    <h2 class="display-5 fw-bolder">Tentang Kami</h2>
-                    <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
-                        SIMRUGA / Sistem Informasi Rukun Warga merupakan pusat informasi bagi RW 8
-                        yang digitalisasikan agar memungkinkan mobilitas informasi, data,
-                        dan proses adminitrasi warga lebih mudah.
-                    </p>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-6" data-aos="zoom-in-up">
-                        <span class="bi bi-newspaper" style="font-size: 4rem;"></span>
-                        <h4 class="display-7 fw-bolder">Berita Terbaru</h4>
-                        {{-- <h4 class="section-heading">BERITA TERBARU</h4> --}}
-                        <p class="text-muted">Menyajikan berita terupdate seputar RW 8 Kelurahan Sawojajar Kecamatan
-                            Kedungkandang</p>
-                    </div>
-                    <div class="col-md-6" data-aos="zoom-in-up">
-                        <span class="bi bi-envelope-arrow-up" style="font-size: 4rem;"></span>
-                        <h4 class="display-7 fw-bolder">Pelaporan & Pengajuan Layanan</h4>
-                        <p class="text-muted">Memberikan sistem pelayanan dan pelaporan yang efisien, agar mempermudah
-                            warga
-                            di dalam kondisi apapun</p>
+        <div class="" id="grafik">
+            <section id="">
+                <div class="container mt-0">
+                    <div class="col-lg-12 text-center">
+                        <div class="col-lg-12 text-center" data-aos="fade-down">
+                            <h2 class="display-5 fw-bolder">Dalam Grafik</h2>
+                            <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
+                                Menunjukan penyajian data warga dalam bentuk grafis
+                            </p>
+                        </div>
+                        <div data-aos="fade-up">
+                            <iframe class="embed-responsive-item"
+                                src="https://lookerstudio.google.com/embed/reporting/2fb7c4ba-4915-42c0-9361-3d506bb65690/page/C9w2D"
+                                width="100%" height="1000" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-6" data-aos="zoom-in-up">
-                        <span class="bi bi-currency-dollar" style="font-size: 4rem;"></span>
-                        <h4 class="display-7 fw-bolder">Keuangan Warga</h4>
-                        <p class="text-muted">Menampilkan pelaporan keuangan RW mulai dari uang masuk hingga uang
-                            keluar
-                            secara real time</p>
-                    </div>
-                    <div class="col-md-6" data-aos="zoom-in-up">
-                        <span class="bi bi-graph-up" style="font-size: 4rem;"></span>
-                        <h4 class="display-7 fw-bolder">Statistik Penduduk</h4>
-                        <p class="text-muted">Rekap data penduduk RW 8 untuk membantu pemerintah dalam mengendalikan
-                            pertumbuhan warga</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <section id="map">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center" data-aos="fade-down">
-                        <h2 class="display-5 fw-bolder">Lokasi RW 8</h2>
-                    </div>
-                    <div class="col-lg-12 text-center" data-aos="fade-up">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1959812314476!2d112.65307167368537!3d-7.978684992046556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62842c935c8f1%3A0x72cecd5a022b06fa!2sJl.%20Simpang%20Danau%20Maninjau%20Sel.%20Dalam%20I%2C%20Sawojajar%2C%20Kec.%20Kedungkandang%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065139!5e0!3m2!1sid!2sid!4v1717262417808!5m2!1sid!2sid"
-                            width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Trainers Index Section -->
-        <section id="pengurus" class="section trainers-index">
-
-            <div class="container">
-
-                <div class="row">
+        <div class="" id="tentangkami">
+            <section>
+                <div class="container mt-0">
 
                     <div class="col-lg-12 text-center" data-aos="zoom-in-up">
-                        <h2 class="display-5 fw-bolder">Hubungi Pengurus RW</h2>
+                        <h2 class="display-5 fw-bolder">Tentang Kami</h2>
+                        <p style="line-height: 1.5; margin-bottom: 30px; font-size: 20px">
+                            SIMRUGA / Sistem Informasi Rukun Warga merupakan pusat informasi bagi RW 8
+                            yang digitalisasikan agar memungkinkan mobilitas informasi, data,
+                            dan proses adminitrasi warga lebih mudah.
+                        </p>
                     </div>
 
-                    @foreach ($pengurus as $index => $member)
-                        <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member">
-                                <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid"
-                                    alt="">
-                                <div class="member-content">
-                                    <h4>{{ $member->jabatan }}</h4>
-                                    <span>{{ $member->nama_pengurus }}</span>
-                                    <div class="social">
-                                        <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
-                                                    class="fa fa-whatsapp"></i></a></li>
+                    <div class="row text-center">
+                        <div class="col-md-6" data-aos="zoom-in-up">
+                            <span class="bi bi-newspaper" style="font-size: 4rem;"></span>
+                            <h4 class="display-7 fw-bolder">Berita Terbaru</h4>
+                            {{-- <h4 class="section-heading">BERITA TERBARU</h4> --}}
+                            <p class="text-muted">Menyajikan berita terupdate seputar RW 8 Kelurahan Sawojajar
+                                Kecamatan
+                                Kedungkandang</p>
+                        </div>
+                        <div class="col-md-6" data-aos="zoom-in-up">
+                            <span class="bi bi-envelope-arrow-up" style="font-size: 4rem;"></span>
+                            <h4 class="display-7 fw-bolder">Pelaporan & Pengajuan Layanan</h4>
+                            <p class="text-muted">Memberikan sistem pelayanan dan pelaporan yang efisien, agar
+                                mempermudah
+                                warga
+                                di dalam kondisi apapun</p>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-6" data-aos="zoom-in-up">
+                            <span class="bi bi-currency-dollar" style="font-size: 4rem;"></span>
+                            <h4 class="display-7 fw-bolder">Keuangan Warga</h4>
+                            <p class="text-muted">Menampilkan pelaporan keuangan RW mulai dari uang masuk hingga uang
+                                keluar
+                                secara real time</p>
+                        </div>
+                        <div class="col-md-6" data-aos="zoom-in-up">
+                            <span class="bi bi-graph-up" style="font-size: 4rem;"></span>
+                            <h4 class="display-7 fw-bolder">Statistik Penduduk</h4>
+                            <p class="text-muted">Rekap data penduduk RW 8 untuk membantu pemerintah dalam
+                                mengendalikan
+                                pertumbuhan warga</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <div class="" id="map">
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center" data-aos="fade-down">
+                            <h2 class="display-5 fw-bolder">Lokasi RW 8</h2>
+                        </div>
+                        <div class="col-lg-12 text-center" data-aos="fade-up">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1959812314476!2d112.65307167368537!3d-7.978684992046556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62842c935c8f1%3A0x72cecd5a022b06fa!2sJl.%20Simpang%20Danau%20Maninjau%20Sel.%20Dalam%20I%2C%20Sawojajar%2C%20Kec.%20Kedungkandang%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065139!5e0!3m2!1sid!2sid!4v1717262417808!5m2!1sid!2sid"
+                                width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Trainers Index Section -->
+        <div class="" id="pengurus">
+            <section class="section trainers-index">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-lg-12 text-center" data-aos="zoom-in-up">
+                            <h2 class="display-5 fw-bolder">Hubungi Pengurus RW</h2>
+                        </div>
+
+                        @foreach ($pengurus as $index => $member)
+                            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                                <div class="member">
+                                    <img src="{{ asset('storage/' . $member->public) }}" class="img-fluid"
+                                        alt="">
+                                    <div class="member-content">
+                                        <h4>{{ $member->jabatan }}</h4>
+                                        <span>{{ $member->nama_pengurus }}</span>
+                                        <div class="social">
+                                            <li class="list-inline-item"><a href="tel:{{ $member->no_telepon }}"><i
+                                                        class="fa fa-whatsapp"></i></a></li>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div><!-- End Team Member -->
-                    @endforeach
+                            </div><!-- End Team Member -->
+                        @endforeach
+                    </div>
+
                 </div>
 
-            </div>
-
-        </section><!-- /Trainers Index Section -->
+            </section>
+        </div><!-- /Trainers Index Section -->
 
     </main>
 
@@ -318,9 +334,9 @@
                 </div>
             </div>
         </div>
-    
+
     </footer>
-    
+
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
