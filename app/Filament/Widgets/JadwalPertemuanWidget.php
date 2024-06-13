@@ -20,7 +20,7 @@ class JadwalPertemuanWidget extends BaseWidget
             ->query(JadwalResource::getEloquentQuery())
             ->columns([
                 TextColumn::make('nama_pertemuan')->label('Nama Pertemuan')->searchable(),
-                TextColumn::make('tanggal_pertemuan')->label('Tanggal Pertemuan'),
+                TextColumn::make('tanggal_pertemuan')->label('Tanggal Pertemuan')->badge()->date()->color('success'),
                 TextColumn::make('keterangan_jadwal')->label('Keterangan Jadwal')->searchable(),
                 TextColumn::make('pihak_terlibat')->label('Pihak Terlibat'),
             ]);

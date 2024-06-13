@@ -52,7 +52,7 @@ class PengumumanResource extends Resource
             ->columns([
                 // ImageColumn::make('gambar')->label('Gambar'),
                 TextColumn::make('nama_pengumuman')->label('Nama Pengumuman'),
-                TextColumn::make('isi_pengumuman')->label('Isi Pengumuman'),
+                // TextColumn::make('isi_pengumuman')->label('Isi Pengumuman'),
                 TextColumn::make('tanggal_pengumuman')->label('Tanggal Pengumuman')->badge()->date()->color('success'),
             ])
             ->filters([
@@ -83,7 +83,7 @@ class PengumumanResource extends Resource
                                         TextEntry::make('isi_pengumuman')->label('Isi Pengumuman'),
                                     ])
                                 ]),
-                                ImageEntry::make('gambar')->label('Foto Pengumuman'),    
+                                // ImageEntry::make('gambar')->label('Foto Pengumuman'),    
                         ])
                     ])
             ]);
