@@ -84,6 +84,6 @@ class RTChart extends ApexChartWidget
 
     public static function canView(): bool // Fungsi untuk memeriksa hak akses
     {
-        return Auth::user()->hasPermissionTo('view_laporan_keuangan_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
+        return Auth::user()->hasPermissionTo('view_jumlah_warga'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }
