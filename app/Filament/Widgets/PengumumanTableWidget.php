@@ -17,11 +17,6 @@ class PermintaanLayananWidget extends BaseWidget
     protected static ?string $heading = 'Pengumuman';
     protected int | String | array $columnSpan = 'full';
 
-    public static function canView(): bool // Fungsi untuk memeriksa hak akses
-    {
-        return Auth::user()->hasPermissionTo('view_pengumuman_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
-    }
-
     protected function getTableQuery(): Builder
     {
         return Pengumuman::query();
