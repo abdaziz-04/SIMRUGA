@@ -5,6 +5,7 @@ namespace App\Filament\Widgets;
 use App\Models\RT;
 use App\Models\Warga;
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
+use Illuminate\Support\Facades\Auth; // Import Auth
 
 class RTChart extends ApexChartWidget
 {
@@ -79,5 +80,10 @@ class RTChart extends ApexChartWidget
                 'opacity' => 1,
             ],
         ];
+    }
+
+    public static function canView(): bool // Fungsi untuk memeriksa hak akses
+    {
+        return Auth::user()->hasPermissionTo('view_laporan_keuangan_widget'); // Pastikan Anda memiliki hak akses yang sesuai dengan permissionn
     }
 }

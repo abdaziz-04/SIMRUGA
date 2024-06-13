@@ -62,15 +62,6 @@ class PengumumanSeeder extends Seeder
         ]);
 
         Pengumuman::create([
-            'gambar' => 'image6.jpg',
-            'nama_pengumuman' => 'Posyandu Balita dan Lansia',
-            'isi_pengumuman' => 'Kepada seluruh warga RW 8,
-                                Jangan lupa membawa balita dan lansia untuk menghadiri Posyandu yang akan diadakan pada tanggal 5 Juli 2024 di Balai RW 8. 
-                                Kegiatan ini akan dimulai pukul 08.00 WIB. Tersedia layanan kesehatan dan pemberian vitamin gratis. Ayo, jaga kesehatan keluarga kita!',
-            'tanggal_pengumuman' => '2024-07-05',
-        ]);
-
-        Pengumuman::create([
             'gambar' => 'image7.jpg',
             'nama_pengumuman' => 'HUT RI',
             'isi_pengumuman' => 'Kepada seluruh warga RW 8,

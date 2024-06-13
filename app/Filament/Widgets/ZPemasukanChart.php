@@ -7,7 +7,7 @@ use App\Models\Pemasukan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class PemasukanChart extends ApexChartWidget
+class ZPemasukanChart extends ApexChartWidget
 {
     /**
      * Chart Id

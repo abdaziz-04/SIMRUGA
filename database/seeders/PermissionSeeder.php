@@ -58,6 +58,7 @@ class PermissionSeeder extends Seeder
             'view_daftar_rt',
             'view_jadwal_pertemuan',
             'view_laporan_keuangan_warga',
+            'view_laporan_keuangan',
             'view_pengumuman',
             'view_pengaduan',
             'view_kartu_keluarga',
@@ -76,6 +77,7 @@ class PermissionSeeder extends Seeder
             'view_surat_widget',
             'edit_lembaga',
             'view_pengumuman_widget',
+            'view_jumlah_warga',
             'view_rt1',
             'view_rt2',
             'view_rt3',
@@ -137,7 +139,8 @@ class PermissionSeeder extends Seeder
             'view_surat_widget',
             'edit_lembaga',
             'view_arsipan_surat',
-            'view_buat_surat_warga'
+            'view_buat_surat_warga',
+            'view_jumlah_warga'
         ]);
 
         $sekretarisRole->givePermissionTo([
@@ -150,7 +153,8 @@ class PermissionSeeder extends Seeder
             'edit_lembaga',
             'view_surat_widget',
             'view_arsipan_surat',
-            'view_arsipan_surat'
+            'view_arsipan_surat',
+            'view_jumlah_warga',
         ]);
 
         $bendaharaRole->givePermissionTo([
@@ -164,6 +168,7 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'view_pembayaran_iuran',
             'view_laporan_keuangan_widget',
+            'view_jumlah_warga',
         ]);
 
         $rwRole->givePermissionTo([
@@ -179,7 +184,8 @@ class PermissionSeeder extends Seeder
             'edit_lembaga',
             'view_admin',
             'view_pengumuman_widget',
-            'view_laporan_keuangan'
+            'view_laporan_keuangan',
+            'view_jumlah_warga',
         ]);
 
         $wargaRole->givePermissionTo([
@@ -199,21 +205,24 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'view_warga',
             'view_laporan_keuangan',
-            'view_warga_pendatang'
+            'view_warga_pendatang',
+            'view_jumlah_warga',
         ]);
         $rt2Role->givePermissionTo([
             'view_rt2',
             'view_users',
             'view_jadwal_pertemuan',
             'view_laporan_keuangan',
-            'view_warga_pendatang'
+            'view_warga_pendatang',
+            'view_jumlah_warga',
         ]);
         $rt3Role->givePermissionTo([
             'view_rt3',
             'view_users',
             'view_jadwal_pertemuan',
             'view_laporan_keuangan',
-            'view_warga_pendatang'
+            'view_warga_pendatang',
+            'view_jumlah_warga',
         ]);
         // $rt4Role->givePermissionTo([
         //     'view_rt4',
