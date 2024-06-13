@@ -8,7 +8,7 @@ use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Filament\Widgets\StatsOverviewWidget\Card;
 
-class StatsOverview extends BaseWidget
+class iStatsOverview extends BaseWidget
 {
     protected static ?string $pollingInterval = '5s';
 

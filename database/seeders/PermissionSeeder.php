@@ -155,6 +155,7 @@ class PermissionSeeder extends Seeder
             'view_arsipan_surat',
             'view_arsipan_surat',
             'view_jumlah_warga',
+            'view_warga_widget'
         ]);
 
         $bendaharaRole->givePermissionTo([
