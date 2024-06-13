@@ -64,6 +64,11 @@ class WargaResource extends Resource
 
         return $form->schema([
             TextInput::make('nama_warga')->label('Nama')->required(),
+            Select::make('id_kk')
+                ->label('Nama Kepala Keluarga')
+                ->options(KK::all()->pluck('nama_kepala_keluarga', 'id'))
+                ->searchable()
+                ->required(),
             TextInput::make('nik')->label('NIK')->required()->unique(ignoreRecord: true),
             TextInput::make('alamat')->label('Alamat')->required(),
             TextInput::make('no_telepon')->required(),
@@ -99,11 +104,6 @@ class WargaResource extends Resource
                     'Lokal' => 'Lokal',
                     'Pendatang' => 'Pendatang',
                 ])->required(),
-            Select::make('id_kk')
-                ->label('Nama Kepala Keluarga')
-                ->options(KK::all()->pluck('nama_kepala_keluarga', 'id'))
-                ->searchable()
-                ->required(),
         ]);
     }
 
@@ -206,7 +206,7 @@ class WargaResource extends Resource
                                 ->schema([
                                     Group::make([
                                         TextEntry::make('nama_warga'),
-                                        TextEntry::make('NIK')->label('NIK'),
+                                        TextEntry::make('nik')->label('NIK'),
                                         TextEntry::make('agama'),
                                         TextEntry::make('alamat'),
                                         TextEntry::make('no_telepon'),
