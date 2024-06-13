@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\RTResource\Pages;
 use App\Filament\Resources\RTResource\RelationManagers;
 use App\Models\RT;
+use App\Models\Warga;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,7 +27,12 @@ class RTResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();
+        // Menggunakan join untuk menghitung jumlah warga dengan id_rt tertentu
+        $jumlah_rt = Warga::join('rt', 'warga.id_rt', '=', 'rt.id')
+        ->whereNotNull('warga.id_rt') // Pastikan id_rt tidak null
+        ->count();
+
+        return $jumlah_rt;
     }
 
     public static function shouldRegisterNavigation(): bool // Sembunyiin dari navigasi
@@ -43,10 +49,15 @@ class RTResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('nama_rt'),
-                        TextInput::make('alamat'),
-                        TextInput::make('ketua_rt'),
-                        TextInput::make('jumlah_anggota'),
+                        TextInput::make('nama_rt')
+                            ->required(),
+                        TextInput::make('alamat')
+                            ->required(),
+                        TextInput::make('ketua_rt')
+                            ->required(),
+                        TextInput::make('jumlah_anggota')
+                            ->disabled()
+                            ->default(0),
                     ])
             ]);
     }
@@ -55,10 +66,18 @@ class RTResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_rt'),
-                TextColumn::make('alamat'),
-                TextColumn::make('ketua_rt'),
-                TextColumn::make('jumlah_anggota'),
+                TextColumn::make('nama_rt')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('alamat')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('ketua_rt')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('jumlah_anggota')
+                    ->label('Jumlah Warga')
+                    ->getStateUsing(fn (RT $record) => $record->jumlah_anggota),
             ])
             ->filters([
                 //
