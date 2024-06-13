@@ -20,7 +20,7 @@ class Warga extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var arraya
      */
     protected $fillable = [
         'id_kk',
@@ -28,7 +28,7 @@ class Warga extends Model
         'nama_warga',
         'alamat',
         'no_telepon',
-        'NIK',
+        'nik',
         'tanggal_lahir',
         'jenis_kelamin',
         'foto_warga',

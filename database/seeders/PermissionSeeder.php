@@ -43,6 +43,7 @@ class PermissionSeeder extends Seeder
 
         // Define permissions
         $permissions = [
+            'view_arsipan_surat',
             'view_admin',
             'view_users',
             'view_bansos',
@@ -147,6 +148,7 @@ class PermissionSeeder extends Seeder
             'view_jadwal_pertemuan',
             'edit_lembaga',
             'view_surat_widget',
+            'view_arsipan_surat',
             'view_arsipan_surat'
         ]);
 
