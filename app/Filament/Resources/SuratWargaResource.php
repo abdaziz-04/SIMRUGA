@@ -53,13 +53,13 @@ class SuratWargaResource extends Resource
                     ->afterStateUpdated(function (callable $set, $state) {
                         $user = Auth::user();
 
-                        if ($state === 'Pengantar' || $state === 'Tidak Mampu') {
-                            $set('nama_warga', $user->name);
-                            $set('jenis_kelamin', $user->jenis_kelamin);
-                            $set('NIK', $user->NIK);
-                            $set('alamat', $user->alamat);
-                            $set('tanggal_lahir', $user->tanggal_lahir);
-                        }
+                        // if ($state === 'Pengantar' || $state === 'Tidak Mampu') {
+                        //     $set('nama_warga', $user->name);
+                        //     $set('jenis_kelamin', $user->jenis_kelamin);
+                        //     $set('NIK', $user->NIK);
+                        //     $set('alamat', $user->alamat);
+                        //     $set('tanggal_lahir', $user->tanggal_lahir);
+                        // }
                     }),
                 Forms\Components\Fieldset::make('Form Surat')
                     ->schema(function (callable $get) {

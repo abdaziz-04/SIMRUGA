@@ -37,12 +37,12 @@ class Warga extends Model
     ];
 
     // Filter warga berdasarkan roles user
-    // protected static function booted()
-    // {
-    //     parent::booted();
+    protected static function booted()
+    {
+        parent::booted();
 
-    //     static::addGlobalScope(new RTScope);
-    // }
+        static::addGlobalScope(new RTScope);
+    }
 
 
     /**

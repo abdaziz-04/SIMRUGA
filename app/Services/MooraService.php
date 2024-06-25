@@ -10,7 +10,7 @@ class MooraService
     public function calculateMoora()
     {
         // Hapus data sebelumnya di tabel rangkings
-        Rangking::truncate();
+        // Rangking::truncate();
 
         // Ambil data dari tabel alternatif
         $alternatifs = Alternatif::all();

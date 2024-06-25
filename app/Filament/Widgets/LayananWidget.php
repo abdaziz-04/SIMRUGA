@@ -78,7 +78,7 @@ class LayananWidget extends BaseWidget
                         ->body("Status permintaan layanan Anda dengan ID #" . $record->id . " telah diubah menjadi: " . $data['status'])
                         ->actions([
                             Action::make('Lihat')
-                                ->url(fn () => 'permintaan-layanans/' . $record->id)
+                                ->url(fn () => '/admin/permintaan-layanans/' . $record->id)
                                 ->color('primary')
                         ])
                         ->sendToDatabase($userPengaju);

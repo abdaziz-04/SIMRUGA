@@ -64,7 +64,7 @@ class KriteriaResource extends Resource
             ])
             ->actions([
                 // EditAction::make(),
-                DeleteAction::make(),
+                // DeleteAction::make(),
             ])
             ->bulkActions([]);
     }
