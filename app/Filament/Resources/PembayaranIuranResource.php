@@ -73,7 +73,13 @@ class PembayaranIuranResource extends Resource
                 TextColumn::make('tanggal')->label('Tanggal Pembayaran')->sortable()->badge()->date()->color('success'),
                 TextColumn::make('kk.nama_kepala_keluarga')->label('Nama Kepala Keluarga')->searchable(),
                 TextColumn::make('jenisIuran.nama_iuran')->label('Jenis Iuran')->searchable(),
-                TextColumn::make('jumlah_pembayaran')->label('Jumlah Pembayaran')->searchable()->sortable(),
+                TextColumn::make('jumlah_pembayaran')
+                ->label('Jumlah Pembayaran')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                })
+                ->searchable()
+                ->sortable(),
             ])
             ->filters([
                 //
