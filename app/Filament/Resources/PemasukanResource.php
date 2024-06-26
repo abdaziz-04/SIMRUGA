@@ -50,7 +50,9 @@ class PemasukanResource extends Resource
                     ->schema([
                         TextInput::make('jenis_pemasukan')->label('Jenis Pemasukan')->required(),
                         DatePicker::make('tanggal')->label('Tanggal')->required(),
-                        TextInput::make('jumlah_pemasukan')->label('Jumlah Pemasukan')->required(),
+                        TextInput::make('jumlah_pemasukan')
+                        ->label('Jumlah Pemasukan')
+                        ->required(),
                         TextInput::make('keterangan')->label('Keterangan'),
                     ])->columns(1),
             ]);
@@ -62,7 +64,11 @@ class PemasukanResource extends Resource
             ->columns([
                 TextColumn::make('jenis_pemasukan')->label('Jenis Pemasukan')->searchable(),
                 TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable()->badge()->date()->color('success'),
-                TextColumn::make('jumlah_pemasukan')->label('Jumlah Pemasukan'),
+                TextColumn::make('jumlah_pemasukan')
+                ->label('Jumlah Pemasukan')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                }),
                 TextColumn::make('keterangan')->label('Keterangan'),
             ])
             ->filters([

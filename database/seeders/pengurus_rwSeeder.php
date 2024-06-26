@@ -46,6 +46,12 @@ class pengurus_rwSeeder extends Seeder
                 'no_telepon' => '081234587892',
                 'id_warga' => 5
             ],
+            [
+                'nama_pengurus' => 'Fajar Nugroho ',
+                'jabatan' => 'Ketua RT 3',
+                'no_telepon' => '081234567896',
+                'id_warga' => 7
+            ],
 
         ]);
     }

@@ -50,10 +50,25 @@ class LaporanKeuanganResource extends Resource
             ->columns([
                 TextColumn::make('tanggal')->label('Tanggal')->sortable()->badge()->date()->color('success'),
                 TextColumn::make('keterangan_pemasukan')->label('Keterangan Pemasukan')->searchable(),
-                TextColumn::make('total_pemasukan')->label('Jumlah Pemasukan')->sortable(),
+                TextColumn::make('total_pemasukan')
+                ->label('Jumlah Pemasukan')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                })
+                ->sortable(),
                 TextColumn::make('keterangan_pengeluaran')->label('Keterangan Pengeluaran')->sortable(),
-                TextColumn::make('total_pengeluaran')->label('Jumlah Pengeluaran')->sortable(),
-                TextColumn::make('total_saldo')->label('Sisa Saldo')->sortable(),
+                TextColumn::make('total_pengeluaran')
+                ->label('Jumlah Pengeluaran')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                })
+                ->sortable(),
+                TextColumn::make('total_saldo')
+                ->label('Sisa Saldo')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                })
+                ->sortable(),
             ])
 
             ->filters([
