@@ -66,7 +66,11 @@ class PengeluaranResource extends Resource
             ->columns([
                 TextColumn::make('jenis_pengeluaran')->label('Jenis Pengeluaran')->searchable(),
                 TextColumn::make('tanggal')->label('Tanggal')->searchable()->sortable()->badge()->date()->color('danger'),
-                TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+                TextColumn::make('jumlah_pengeluaran')
+                ->label('Jumlah Pengeluaran')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                }),
                 ImageColumn::make('foto_struk')->label('Foto Struk')->height(50),
                 TextColumn::make('keterangan')->label('Keterangan'),
             ])

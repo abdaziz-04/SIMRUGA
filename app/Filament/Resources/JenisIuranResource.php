@@ -60,7 +60,11 @@ class JenisIuranResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama_iuran')->label('Nama Iuran')->searchable(),
-                TextColumn::make('jumlah_iuran')->label('Jumlah Iuran'),
+                TextColumn::make('jumlah_iuran')
+                ->label('Jumlah Iuran')
+                ->formatStateUsing(function($state){
+                    return 'Rp. '.number_format($state, 0, ',', '.');
+                }),
             ])
             ->filters([
                 //
