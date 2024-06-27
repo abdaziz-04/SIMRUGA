@@ -97,7 +97,7 @@
         <div class="" id="news">
             <section id="" class="courses section">
                 <div class="container section-title" data-aos="fade-up">
-                    <h2>Simmruga</h2>
+                    <h2>Simruga</h2>
                     <p>Pengumuman</p>
                 </div>
                 <div class="container">
