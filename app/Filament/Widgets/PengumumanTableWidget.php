@@ -17,6 +17,8 @@ class PermintaanLayananWidget extends BaseWidget
     protected static ?string $heading = 'Pengumuman';
     protected int | String | array $columnSpan = 'full';
 
+    public static ?int $sort = 3;
+
     protected function getTableQuery(): Builder
     {
         return Pengumuman::query();
