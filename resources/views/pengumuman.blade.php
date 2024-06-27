@@ -19,7 +19,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <img style="max-height:400px; width:100%; object-fit:cover;" src="{{ asset('storage/' . $pengumuman->gambar) }}" alt="Gambar Pengumuman" class="img-fluid">
+                    <img style="max-height:400px; width:100%; object-fit:cover;" src="https://png.pngtree.com/png-clipart/20220213/original/pngtree-announcement-design-vector-png-png-image_7268498.png" alt="Gambar Pengumuman" class="img-fluid">
                 </div>
                 <div class="card-body">
                     <h2 class="card-title text-center">{{ $pengumuman->nama_pengumuman }}</h2>
@@ -42,4 +42,5 @@
     AOS.init();
 </script>
 </body>
+
 </html>

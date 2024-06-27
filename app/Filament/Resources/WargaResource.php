@@ -211,6 +211,7 @@ class WargaResource extends Resource
                                         TextEntry::make('alamat'),
                                         TextEntry::make('no_telepon'),
                                         TextEntry::make('rt.nama_rt'),
+                                        TextEntry::make('jenis_warga')->label('Kategori Warga'),
                                     ]),
                                     Group::make([
                                         ImageEntry::make('foto_warga')->size(300),

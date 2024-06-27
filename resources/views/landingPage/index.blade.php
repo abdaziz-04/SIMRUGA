@@ -66,7 +66,7 @@
                     <li><a href="#grafik">Grafik</a></li>
                     <li><a href="#tentangkami">Tentang Kami</a></li>
                     <li><a href="#map">Lokasi </a></li>
-                    <li><a href="#pengurus">Hubungi </a></li>
+                    {{-- <li><a href="#pengurus">Hubungi </a></li> --}}
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -270,7 +270,7 @@
             </section>
         </div>
 
-        <!-- Trainers Index Section -->
+        {{-- <!-- Trainers Index Section -->
         <div class="" id="pengurus">
             <section class="section trainers-index">
 
@@ -303,7 +303,7 @@
                 </div>
 
             </section>
-        </div><!-- /Trainers Index Section -->
+        </div><!-- /Trainers Index Section --> --}}
 
     </main>
 
@@ -326,9 +326,12 @@
                 <!-- Photo and Copyright Section -->
                 <div class="col-lg-6 col-md-6 footer-newsletter text-center">
                     <div class="footer-photo">
-                        <img src="assets/img/developer-team.jpg" class="img-fluid" alt="Developer Team" style="max-width: 70%; height: auto;">
+                        <img src="assets/img/developer-team.jpg" class="img-fluid" alt="Developer Team"
+                            style="max-width: 70%; height: auto;">
                     </div>
-                    <p class="mt-3">© <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong> <span>2024</span></p>
+                    <p class="mt-3">©️ <span>Copyright</span> <strong class="px-1 sitename">Simruga</strong>
+                        <span>2024</span>
+                    </p>
                     <div class="social-links d-flex justify-content-center mt-4">
                         <a href=""><i class="bi bi-twitter"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
@@ -339,7 +342,7 @@
             </div>
         </div>
     </footer>
-    
+
 
 
     <!-- Scroll Top -->
